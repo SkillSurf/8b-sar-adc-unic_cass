@@ -27,8 +27,8 @@
 
 ### 4. Specification table
 
-| Specification | Min | Typ | Max| Unit |  Comments|
-| ----------------------- | ------------------- | ------------------- |
+| Specification           | Min                 | Typ     | Max    | Unit   | Comments|
+|-------------------------|---------------------|---------|--------|--------|---------|
 | Supply voltage (Design Input)| 1.7 | 1.8 | 1.9 | V | - | 
 | External clock frequency (Design Input)| - | 1 | - | MHz | - | 
 | Reference voltage (Design Input)| - | 0.8 | - | V | - | 
@@ -44,7 +44,5 @@
 | FoM | - | - | 200 | fJ/conversion-step | Walden figure-of-merit (FoM) | 
 
 **Table 1** – SAR ADC performance.
-
-
 
 Refer to [README](docs/source/index.rst) for this sample project documentation. 
