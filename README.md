@@ -21,7 +21,7 @@
 
 ### 3. Block diagram of the project
 
-![image](https://github.com/hugodiasg/dpga_unic-cass/assets/80465879/428c018a-ced2-4f6d-b0bb-f24dcfe03fc2)
+![image](https://github.com/SkillSurf/8b-sar-adc-unic_cass/blob/main/Analog%20ASIC%20Design%20Diagrams.jpg)
 
 **Figure 1** – SAR ADC Block Diagram.
 
