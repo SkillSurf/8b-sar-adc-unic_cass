@@ -1,4 +1,4 @@
-## 100KSPS 8-bit Fully-differential Successive Approximation Register (SAR) analog-to-digital converter (ADC) for Low-power Applications - [Universalization of IC Design from CASS](https://ieee-cas.org/universalization-ic-design-cass-unic-cass)
+## 100KSPS 8-bit Fully-differential Successive Approximation Register (SAR) analog-to-digital converter (ADC) for Low-power Applications - [Universalization of IC Design from CASS](https://github.com/unic-cass)
 
 ### 1. Team Members (Department of Electronic and Telecommunication Engineering, University of Moratuwa)
 
