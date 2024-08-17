@@ -34,13 +34,13 @@
 | Reference voltage (Design Input)| - | 0.8 | - | V | - | 
 | Temperature (Design Input) | 20 | - | 50 | C | - | 
 | ENOB | 7.5 | - | - | bits | - | 
-| INL | -0.5 | -|  0.5 | LSBs | - | 
+| INL | -0.5 | - |  0.5 | LSBs | - | 
 | DNL | -0.5 | - | 0.5 | LSBs | - | 
-| SFDR | 55 - | - | dB | - | 
-| Sampling rate | 100 -|  - | ksps | - | 
+| SFDR | 55 | - | - | dB | - | 
+| Sampling rate | 100 | - |  - | ksps | - | 
 | Current consumption during conversion | - |  - | 20 | uA | - | 
 | Power down current consumption | - | - | 100 | pA | - | 
-| Die area | - | - 0.25 | mm² | 500 um x 500 um | 
+| Die area | - | - | 0.25 | mm² | 500 um x 500 um | 
 | FoM | - | - | 200 | fJ/conversion-step | Walden figure-of-merit (FoM) | 
 
 **Table 1** – SAR ADC performance.
