@@ -7,8 +7,6 @@ S {}
 E {}
 N 470 -330 510 -330 {
 lab=in}
-N 630 -270 630 -250 {
-lab=GND}
 N 570 -330 630 -330 {
 lab=smpl_V}
 N 430 -140 430 -120 {
@@ -148,18 +146,12 @@ C {code.sym} 20 -310 0 0 {name="s2" only_toplevel="false" value=".lib /usr/local
 C {code.sym} 20 -150 0 0 {name=switch1 only_toplevel="false" value=".model switch1 sw vt=0.1 vh=0 ron=1m roff=100G"}
 C {switch_ngspice.sym} 540 -330 1 0 {name=S3 model=SWITCH1}
 C {lab_pin.sym} 470 -330 0 0 {name=p39 sig_type=std_logic lab=in}
-C {capa.sym} 630 -300 0 0 {name=C10
-m=1
-value=500p
-footprint=1206
-device="ceramic capacitor"}
-C {gnd.sym} 630 -250 0 0 {name=l21 lab=GND}
 C {gnd.sym} 520 -370 2 0 {name=l22 lab=GND}
 C {vsource.sym} 430 -170 0 0 {name=V12 value="pulse(0 1.8 0 0 0 0.5u 4u)" savecurrent=false}
 C {gnd.sym} 430 -120 0 0 {name=l23 lab=GND}
 C {lab_pin.sym} 430 -220 1 0 {name=p41 sig_type=std_logic lab=ctrl}
 C {lab_pin.sym} 540 -370 1 0 {name=p42 sig_type=std_logic lab=ctrl}
-C {vsource.sym} 310 -720 0 0 {name=V3 value=1 savecurrent=false}
+C {vsource.sym} 310 -720 0 0 {name=V3 value=1.6 savecurrent=false}
 C {gnd.sym} 310 -670 0 0 {name=l3 lab=GND}
 C {lab_pin.sym} 340 -770 2 0 {name=p3 sig_type=std_logic lab=in}
 C {lab_pin.sym} 1850 -330 1 0 {name=p1 sig_type=std_logic lab=smpl_V}

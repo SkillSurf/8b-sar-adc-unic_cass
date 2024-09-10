@@ -19,7 +19,6 @@ N 60 -210 130 -210 {
 lab=IOUT}
 N 260 -210 360 -210 {
 lab=OUT}
-C {comp_ngspice.sch} -880 120 0 0 {}
 C {devices/bsource.sym} 60 -60 0 0 {name=B1 VAR=V FUNC="\{OFFSET + AMPLITUDE/2*(tanh(V(IPLUS,IMINUS)*GAIN*2/AMPLITUDE))\}"}
 C {devices/vsource.sym} 140 -360 1 0 {name=V1 value=3 savecurrent=false}
 C {devices/vsource.sym} 140 -310 1 0 {name=V2 value=3 savecurrent=false}
