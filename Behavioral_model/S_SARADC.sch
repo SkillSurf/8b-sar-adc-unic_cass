@@ -305,7 +305,7 @@ N 2250 -1360 2250 -1090 {
 lab=in2}
 N 2250 -1090 2290 -1090 {
 lab=in2}
-C {code_shown.sym} 200 -1350 0 0 {name=s1 only_toplevel=false value=".tran 1u 200u
+C {code_shown.sym} 200 -1350 0 0 {name=s1 only_toplevel=false value=".tran 1n 24u
 .save all
 .control
 plot c1; plot c2; plot c3; plot V
@@ -314,7 +314,7 @@ C {code.sym} 530 -1370 0 0 {name="s2" only_toplevel="false" value=".lib /usr/loc
 C {code.sym} 670 -1370 0 0 {name=switch1 only_toplevel="false" value=".model switch1 sw vt=0.1 vh=0 ron=1m roff=100G"}
 C {comp_behavioral.sym} 2370 -1070 0 0 {name=x1 OFFSET=0.9 AMPLITUDE=1.8 GAIN=100000 ROUT=00 COUT=0}
 C {lab_pin.sym} 2480 -1070 2 0 {name=p1 sig_type=std_logic lab=out}
-C {vsource.sym} 1220 -1320 0 0 {name=V3 value="sin(0.9 0.8 10k)" savecurrent=false}
+C {vsource.sym} 1220 -1320 0 0 {name=V3 value=1.3 savecurrent=false}
 C {vsource.sym} 220 -560 0 0 {name=V4 value=1.8 savecurrent=false}
 C {gnd.sym} 1220 -1270 0 0 {name=l3 lab=GND}
 C {gnd.sym} 220 -510 0 0 {name=l4 lab=GND}
