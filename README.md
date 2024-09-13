@@ -2,14 +2,14 @@
 
 ### 1. Team Members (Department of Electronic and Telecommunication Engineering, University of Moratuwa)
 
-- Sajitha Madugalle
-- Imasha Weerasingha
-- Lohan Atapattu
-- Erandee Jayathilaka
-- Hirusha Maduwantha
-- Udara Mendis
-- Kithmin Wickremasinghe (MASc)
-- Dr. Nilan Udayanga (PhD)
+- Sajitha Madugalle.
+- Imasha Weerasingha.
+- Lohan Atapattu.
+- Erandee Jayathilaka.
+- Hirusha Maduwantha.
+- Udara Mendis.
+- Kithmin Wickremasinghe (MASc).
+- Dr. Nilan Udayanga (PhD).
 
 ### 2. Overview of the Project:
 
