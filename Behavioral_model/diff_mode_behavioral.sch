@@ -21,10 +21,6 @@ N 310 -770 310 -750 {
 lab=in}
 N 1550 -330 1680 -330 {
 lab=smpl_V}
-N 1680 -330 1680 -310 {
-lab=smpl_V}
-N 1680 -250 1680 -230 {
-lab=vref}
 N 1680 -330 1850 -330 {
 lab=smpl_V}
 N 760 -330 1100 -330 {
@@ -59,8 +55,6 @@ N 1450 -250 1450 -230 {
 lab=#net3}
 N 1100 -330 1550 -330 {
 lab=smpl_V}
-N 1680 -230 1680 -220 {
-lab=vref}
 N 630 -330 760 -330 {
 lab=smpl_V}
 N 840 -170 870 -170 {
@@ -116,7 +110,7 @@ lab=vref}
 N 810 120 810 140 {
 lab=GND}
 N 810 40 810 60 {
-lab=c3}
+lab=c1}
 N 1120 120 1120 140 {
 lab=GND}
 N 1120 40 1120 60 {
@@ -124,7 +118,7 @@ lab=c2}
 N 1450 130 1450 150 {
 lab=GND}
 N 1450 50 1450 70 {
-lab=c1}
+lab=c3}
 N 480 -690 480 -670 {
 lab=GND}
 N 480 -770 510 -770 {
@@ -155,11 +149,6 @@ C {vsource.sym} 310 -720 0 0 {name=V3 value=1.6 savecurrent=false}
 C {gnd.sym} 310 -670 0 0 {name=l3 lab=GND}
 C {lab_pin.sym} 340 -770 2 0 {name=p3 sig_type=std_logic lab=in}
 C {lab_pin.sym} 1850 -330 1 0 {name=p1 sig_type=std_logic lab=smpl_V}
-C {capa.sym} 1680 -280 0 0 {name=C4
-m=1
-value=500f
-footprint=1206
-device="ceramic capacitor"}
 C {capa.sym} 940 -280 0 0 {name=C7
 m=1
 value=2000f
@@ -193,19 +182,18 @@ C {lab_pin.sym} 1500 -170 2 0 {name=p7 sig_type=std_logic lab=vdd}
 C {lab_pin.sym} 1440 -90 3 0 {name=p8 sig_type=std_logic lab=vref}
 C {gnd.sym} 1350 -170 1 0 {name=l5 lab=GND}
 C {gnd.sym} 1460 -90 0 0 {name=l7 lab=GND}
-C {vsource.sym} 810 90 0 0 {name=V1 value="pulse(1.8 0 1u 0 0 3u 4u)" savecurrent=false}
+C {vsource.sym} 810 90 0 0 {name=V1 value="pulse(0 1.8 1u 0 0 3u 4u)" savecurrent=false}
 C {gnd.sym} 810 140 0 0 {name=l8 lab=GND}
-C {lab_pin.sym} 810 40 1 0 {name=p9 sig_type=std_logic lab=c3}
-C {vsource.sym} 1120 90 0 0 {name=V2 value="pulse(1.8 0 2u 0 0 2u 4u)" savecurrent=false}
+C {lab_pin.sym} 810 40 1 0 {name=p9 sig_type=std_logic lab=c1}
+C {vsource.sym} 1120 90 0 0 {name=V2 value="pulse(0 1.8 2u 0 0 2u 4u)" savecurrent=false}
 C {gnd.sym} 1120 140 0 0 {name=l9 lab=GND}
 C {lab_pin.sym} 1120 40 1 0 {name=p10 sig_type=std_logic lab=c2}
-C {vsource.sym} 1450 100 0 0 {name=V4 value="pulse(1.8 0 3u 0 0 1u 4u)" savecurrent=false}
+C {vsource.sym} 1450 100 0 0 {name=V4 value="pulse(0 1.8 3u 0 0 1u 4u)" savecurrent=false}
 C {gnd.sym} 1450 150 0 0 {name=l10 lab=GND}
-C {lab_pin.sym} 1450 50 1 0 {name=p11 sig_type=std_logic lab=c1}
+C {lab_pin.sym} 1450 50 1 0 {name=p11 sig_type=std_logic lab=c3}
 C {vsource.sym} 480 -720 0 0 {name=V5 value=1.8 savecurrent=false}
 C {gnd.sym} 480 -670 0 0 {name=l11 lab=GND}
 C {lab_pin.sym} 510 -770 2 0 {name=p12 sig_type=std_logic lab=vref}
 C {vsource.sym} 630 -720 0 0 {name=V6 value=1.8 savecurrent=false}
 C {gnd.sym} 630 -670 0 0 {name=l12 lab=GND}
 C {lab_pin.sym} 660 -770 2 0 {name=p13 sig_type=std_logic lab=vdd}
-C {lab_pin.sym} 1680 -220 3 0 {name=p14 sig_type=std_logic lab=vref}
