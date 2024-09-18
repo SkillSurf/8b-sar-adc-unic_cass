@@ -45,12 +45,12 @@ N 540 -50 540 -30 {
 lab=Vdd}
 C {switch_ngspice.sym} 360 0 0 0 {name=S1 model=SWITCH1}
 C {switch_ngspice.sym} 830 10 0 0 {name=S2 model=SWITCH1}
-C {ipin.sym} 830 70 3 0 {name=p1 lab=2b}
-C {ipin.sym} 360 60 3 0 {name=p2 lab=2a}
+C {iopin.sym} 830 70 1 0 {name=p1 lab=2b}
+C {iopin.sym} 360 60 1 0 {name=p2 lab=2a}
 C {ipin.sym} 760 30 0 0 {name=p3 lab=ref}
 C {lab_pin.sym} 770 30 3 0 {name=p4 sig_type=std_logic lab=ref}
 C {lab_pin.sym} 300 20 0 0 {name=p5 sig_type=std_logic lab=ref}
-C {ipin.sym} 470 -110 1 0 {name=p6 lab=1}
+C {iopin.sym} 470 -110 1 0 {name=p6 lab=1}
 C {CMOS_inverter.sym} 540 10 0 0 {name=x1}
 C {ipin.sym} 540 -50 1 0 {name=p7 lab=Vdd}
 C {ipin.sym} 540 80 3 0 {name=p8 lab=Vss}
