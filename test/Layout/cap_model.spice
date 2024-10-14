@@ -1,0 +1,8 @@
+* SPICE3 file created from cap_model.ext - technology: sky130A
+
+X0 m1_990_n540# phi2 GND sub sky130_fd_pr__nfet_01v8 ad=0.29 pd=2.58 as=0.29 ps=2.58 w=1 l=0.15
+X1 m1_990_n540# phi2_n GND Vdd sky130_fd_pr__pfet_01v8 ad=0.29 pd=2.58 as=0.29 ps=2.58 w=1 l=0.15
+X2 m1_990_n540# phi1_n Vin Vdd sky130_fd_pr__pfet_01v8 ad=0.29 pd=2.58 as=0.29 ps=2.58 w=1 l=0.15
+X3 m1_990_n540# phi1 Vin sub sky130_fd_pr__nfet_01v8 ad=0.29 pd=2.58 as=0.29 ps=2.58 w=1 l=0.15
+X4 com_x m1_990_n540# sky130_fd_pr__cap_mim_m3_1 l=7 w=7
+
