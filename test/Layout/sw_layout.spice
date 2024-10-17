@@ -1,0 +1,4 @@
+* SPICE3 file created from sw_layout.ext - technology: sky130A
+
+X0 vout clk_b vin vdd sky130_fd_pr__pfet_01v8 ad=0.29 pd=2.58 as=0.29 ps=2.58 w=1 l=0.15
+X1 vout clk vin sub sky130_fd_pr__nfet_01v8 ad=0.29 pd=2.58 as=0.29 ps=2.58 w=1 l=0.15
