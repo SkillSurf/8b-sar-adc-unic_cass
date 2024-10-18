@@ -9,7 +9,7 @@
 - Hirusha Maduwantha.
 - Udara Mendis.
 - Kithmin Wickremasinghe (MASc).
-- Dr. Nilan Udayanga (PhD).
+- Nilan Udayanga.
 
 ### 2. Overview of the Project:
 
