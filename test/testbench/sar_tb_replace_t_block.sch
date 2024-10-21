@@ -578,53 +578,22 @@ C {cap_switch_block.sym} -3020 -150 0 0 {name=x10[128:0]}
 C {lab_pin.sym} -2930 -160 2 0 {name=p83 sig_type=std_logic lab=vdd}
 C {lab_pin.sym} -3110 -140 0 0 {name=p91 sig_type=std_logic lab=phi27}
 C {lab_pin.sym} -3110 -120 0 0 {name=p92 sig_type=std_logic lab=phi2_n7}
-C {lab_pin.sym} -3080 370 2 0 {name=p93 sig_type=std_logic lab=phi17}
-C {lab_pin.sym} -3080 350 2 0 {name=p94 sig_type=std_logic lab=phi1_n7}
 C {cap_switch_block.sym} -3170 340 2 0 {name=x11[128:0]}
 C {lab_pin.sym} -3260 350 0 0 {name=p95 sig_type=std_logic lab=vdd}
-C {lab_pin.sym} -3080 330 2 0 {name=p96 sig_type=std_logic lab=phi27}
-C {lab_pin.sym} -3080 310 2 0 {name=p97 sig_type=std_logic lab=phi2_n7}
-C {lab_pin.sym} -2640 370 2 0 {name=p39 sig_type=std_logic lab=phi16}
-C {lab_pin.sym} -2640 350 2 0 {name=p40 sig_type=std_logic lab=phi1_n6}
 C {cap_switch_block.sym} -2730 340 2 0 {name=x13[63:0]}
 C {lab_pin.sym} -2820 350 0 0 {name=p43 sig_type=std_logic lab=vdd}
-C {lab_pin.sym} -2640 330 2 0 {name=p44 sig_type=std_logic lab=phi26}
-C {lab_pin.sym} -2640 310 2 0 {name=p100 sig_type=std_logic lab=phi2_n6}
-C {lab_pin.sym} -2230 370 2 0 {name=p47 sig_type=std_logic lab=phi15}
-C {lab_pin.sym} -2230 350 2 0 {name=p48 sig_type=std_logic lab=phi1_n5}
 C {cap_switch_block.sym} -2320 340 2 0 {name=x14[31:0]}
 C {lab_pin.sym} -2410 350 0 0 {name=p101 sig_type=std_logic lab=vdd}
-C {lab_pin.sym} -2230 330 2 0 {name=p102 sig_type=std_logic lab=phi25}
-C {lab_pin.sym} -2230 310 2 0 {name=p103 sig_type=std_logic lab=phi2_n5}
-C {lab_pin.sym} -1770 370 2 0 {name=p51 sig_type=std_logic lab=phi14}
-C {lab_pin.sym} -1770 350 2 0 {name=p52 sig_type=std_logic lab=phi1_n4}
 C {cap_switch_block.sym} -1860 340 2 0 {name=x15[15:0]}
 C {lab_pin.sym} -1950 350 0 0 {name=p105 sig_type=std_logic lab=vdd}
-C {lab_pin.sym} -1770 330 2 0 {name=p106 sig_type=std_logic lab=phi24}
-C {lab_pin.sym} -1770 310 2 0 {name=p108 sig_type=std_logic lab=phi2_n4}
-C {lab_pin.sym} -1330 350 2 0 {name=p55 sig_type=std_logic lab=phi1_n3}
 C {cap_switch_block.sym} -1420 340 2 0 {name=x16[7:0]}
 C {lab_pin.sym} -1510 350 0 0 {name=p56 sig_type=std_logic lab=vdd}
-C {lab_pin.sym} -1330 330 2 0 {name=p109 sig_type=std_logic lab=phi23}
-C {lab_pin.sym} -1330 310 2 0 {name=p113 sig_type=std_logic lab=phi2_n3}
-C {lab_pin.sym} -910 370 2 0 {name=p59 sig_type=std_logic lab=phi12}
-C {lab_pin.sym} -910 350 2 0 {name=p60 sig_type=std_logic lab=phi1_n2}
 C {cap_switch_block.sym} -1000 340 2 0 {name=x17[3:0]}
 C {lab_pin.sym} -1090 350 0 0 {name=p114 sig_type=std_logic lab=vdd}
-C {lab_pin.sym} -910 330 2 0 {name=p115 sig_type=std_logic lab=phi22}
-C {lab_pin.sym} -910 310 2 0 {name=p116 sig_type=std_logic lab=phi2_n2}
-C {lab_pin.sym} -450 370 2 0 {name=p63 sig_type=std_logic lab=phi11}
-C {lab_pin.sym} -450 350 2 0 {name=p64 sig_type=std_logic lab=phi1_n1}
 C {cap_switch_block.sym} -540 340 2 0 {name=x18[1:0]}
 C {lab_pin.sym} -630 350 0 0 {name=p117 sig_type=std_logic lab=vdd}
-C {lab_pin.sym} -450 330 2 0 {name=p118 sig_type=std_logic lab=phi21}
-C {lab_pin.sym} -450 310 2 0 {name=p119 sig_type=std_logic lab=phi2_n1}
-C {lab_pin.sym} -10 370 2 0 {name=p67 sig_type=std_logic lab=phi10}
-C {lab_pin.sym} -10 350 2 0 {name=p68 sig_type=std_logic lab=phi1_n0}
 C {cap_switch_block.sym} -100 340 2 0 {name=x9}
 C {lab_pin.sym} -190 350 0 0 {name=p120 sig_type=std_logic lab=vdd}
-C {lab_pin.sym} -10 330 2 0 {name=p121 sig_type=std_logic lab=phi20}
-C {lab_pin.sym} -10 310 2 0 {name=p122 sig_type=std_logic lab=phi2_n0}
 C {sar_controller.sym} -3880 -1010 0 0 {name=x2}
 C {gnd.sym} 370 -130 0 0 {name=l8 lab=GND}
 C {gnd.sym} 10 -140 0 0 {name=l9 lab=GND}
@@ -643,7 +612,6 @@ C {gnd.sym} -1510 330 0 0 {name=l25 lab=GND}
 C {gnd.sym} -1090 330 0 0 {name=l26 lab=GND}
 C {gnd.sym} -630 330 0 0 {name=l27 lab=GND}
 C {gnd.sym} -190 330 0 0 {name=l28 lab=GND}
-C {lab_pin.sym} -1330 370 2 0 {name=p123 sig_type=std_logic lab=phi13}
 C {comp_behavioral.sym} 810 90 0 0 {name=x1 OFFSET=0.9 AMPLITUDE=0.9 GAIN=100000 ROUT=00 COUT=0}
 C {inv_vtc.sym} 280 -610 0 0 {name=x10}
 C {lab_pin.sym} 240 -860 1 0 {name=p124 sig_type=std_logic lab=vdd}
@@ -657,3 +625,35 @@ C {gnd.sym} 240 -520 0 0 {name=l5 lab=GND}
 C {lab_pin.sym} 150 -590 0 0 {name=p129 sig_type=std_logic lab=smpl_n_d12}
 C {lab_pin.sym} 330 -590 2 0 {name=p130 sig_type=std_logic lab=smpl_n_d12_out_n}
 C {lab_pin.sym} 190 -110 0 0 {name=p131 sig_type=std_logic lab=smpl_n_d12_out_n}
+C {lab_pin.sym} -10 370 0 1 {name=p132 sig_type=std_logic lab=dn0}
+C {lab_pin.sym} -10 330 0 1 {name=p133 sig_type=std_logic lab=d0}
+C {lab_pin.sym} -450 370 0 1 {name=p63 sig_type=std_logic lab=dn1}
+C {lab_pin.sym} -450 330 0 1 {name=p64 sig_type=std_logic lab=d1}
+C {lab_pin.sym} -910 370 0 1 {name=p59 sig_type=std_logic lab=dn2}
+C {lab_pin.sym} -910 330 0 1 {name=p60 sig_type=std_logic lab=d2}
+C {lab_pin.sym} -1330 370 0 1 {name=p55 sig_type=std_logic lab=dn3}
+C {lab_pin.sym} -1330 330 0 1 {name=p67 sig_type=std_logic lab=d3}
+C {lab_pin.sym} -1770 370 0 1 {name=p51 sig_type=std_logic lab=dn4}
+C {lab_pin.sym} -1770 330 0 1 {name=p52 sig_type=std_logic lab=d4}
+C {lab_pin.sym} -2230 370 0 1 {name=p47 sig_type=std_logic lab=dn5}
+C {lab_pin.sym} -2230 330 0 1 {name=p48 sig_type=std_logic lab=d5}
+C {lab_pin.sym} -2640 370 0 1 {name=p39 sig_type=std_logic lab=dn6}
+C {lab_pin.sym} -2640 330 0 1 {name=p40 sig_type=std_logic lab=d6}
+C {lab_pin.sym} -3080 370 0 1 {name=p44 sig_type=std_logic lab=dn7}
+C {lab_pin.sym} -3080 330 0 1 {name=p68 sig_type=std_logic lab=d7}
+C {lab_pin.sym} -10 350 0 1 {name=p93 sig_type=std_logic lab=dn_n0}
+C {lab_pin.sym} -10 310 0 1 {name=p94 sig_type=std_logic lab=d_n0}
+C {lab_pin.sym} -450 350 0 1 {name=p96 sig_type=std_logic lab=dn_n1}
+C {lab_pin.sym} -450 310 0 1 {name=p97 sig_type=std_logic lab=d_n1}
+C {lab_pin.sym} -910 350 0 1 {name=p100 sig_type=std_logic lab=dn_n2}
+C {lab_pin.sym} -910 310 0 1 {name=p102 sig_type=std_logic lab=d_n2}
+C {lab_pin.sym} -1330 350 0 1 {name=p103 sig_type=std_logic lab=dn_n3}
+C {lab_pin.sym} -1330 310 0 1 {name=p106 sig_type=std_logic lab=d_n3}
+C {lab_pin.sym} -1770 350 0 1 {name=p108 sig_type=std_logic lab=dn_n4}
+C {lab_pin.sym} -1770 310 0 1 {name=p109 sig_type=std_logic lab=d_n4}
+C {lab_pin.sym} -2230 350 0 1 {name=p113 sig_type=std_logic lab=dn_n5}
+C {lab_pin.sym} -2230 310 0 1 {name=p115 sig_type=std_logic lab=d_n5}
+C {lab_pin.sym} -2640 350 0 1 {name=p116 sig_type=std_logic lab=dn_n6}
+C {lab_pin.sym} -2640 310 0 1 {name=p118 sig_type=std_logic lab=d_n6}
+C {lab_pin.sym} -3080 350 0 1 {name=p119 sig_type=std_logic lab=dn_n7}
+C {lab_pin.sym} -3080 310 0 1 {name=p121 sig_type=std_logic lab=d_n7}
