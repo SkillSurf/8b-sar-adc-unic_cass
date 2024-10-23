@@ -21,7 +21,7 @@
 
 ### 3. Block diagram of the project
 
-![image](https://github.com/SkillSurf/8b-sar-adc-unic_cass/blob/main/Analog%20ASIC%20Design%20Diagrams.jpg)
+![image](https://github.com/SkillSurf/8b-sar-adc-unic_cass/blob/main/figures/Analog%20ASIC%20Design%20Diagrams.jpg)
 
 **Figure 1** – SAR ADC Block Diagram.
 
