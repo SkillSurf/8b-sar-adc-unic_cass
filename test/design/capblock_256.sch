@@ -23,6 +23,10 @@ N -1560 -80 -1560 0 {
 lab=com_x}
 N -1560 -0 1440 -0 {
 lab=com_x}
+N 1750 -80 1750 0 {
+lab=com_x}
+N 1440 0 1980 -0 {
+lab=com_x}
 C {lab_pin.sym} 1290 -180 0 0 {name=p2 sig_type=std_logic lab=phi10}
 C {lab_pin.sym} 1290 -160 0 0 {name=p3 sig_type=std_logic lab=phi1_n0}
 C {cap_switch_block.sym} 1380 -150 0 0 {name=x8}
@@ -95,7 +99,7 @@ C {lab_pin.sym} -60 -140 2 0 {name=p39 sig_type=std_logic lab=sub4}
 C {lab_pin.sym} -490 -140 2 0 {name=p40 sig_type=std_logic lab=sub5}
 C {lab_pin.sym} -970 -140 2 0 {name=p41 sig_type=std_logic lab=sub6}
 C {lab_pin.sym} -1470 -140 2 0 {name=p42 sig_type=std_logic lab=sub7}
-C {lab_pin.sym} 1440 0 2 0 {name=p43 sig_type=std_logic lab=com_x}
+C {lab_pin.sym} 1980 0 2 0 {name=p43 sig_type=std_logic lab=com_x}
 C {ipin.sym} -1410 -470 0 0 {name=p45 lab=phi1[7..0]
 
 
@@ -121,3 +125,31 @@ C {ipin.sym} -1410 -380 0 0 {name=p52 lab=phi2_n[7..0]
 }
 C {ipin.sym} -1410 -320 0 0 {name=p55 lab=Vin}
 C {opin.sym} -1410 -350 2 0 {name=p44 lab=com_x}
+C {cap_switch_block.sym} 1750 -150 0 0 {name=x1}
+C {lab_pin.sym} 1840 -160 2 0 {name=p60 sig_type=std_logic lab=vdd}
+C {lab_pin.sym} 1720 -230 1 0 {name=p67 sig_type=std_logic lab=Vin}
+C {lab_pin.sym} 1780 -230 1 0 {name=p68 sig_type=std_logic lab=GND}
+C {lab_pin.sym} 1840 -140 2 0 {name=p76 sig_type=std_logic lab=sub_sample}
+C {ipin.sym} -1250 -470 0 0 {name=p63 lab=smpl
+
+
+}
+C {ipin.sym} -1250 -440 0 0 {name=p64 lab=smpl_out_n
+
+
+
+}
+C {ipin.sym} -1250 -410 0 0 {name=p79 lab=smpl_n_d12
+
+
+}
+C {ipin.sym} -1250 -380 0 0 {name=p80 lab=smpl_n_d12_out_n
+
+
+
+}
+C {iopin.sym} -1360 -500 0 0 {name=p82 lab=sub_sample}
+C {lab_pin.sym} 1660 -180 0 0 {name=p56 sig_type=std_logic lab=smpl}
+C {lab_pin.sym} 1660 -140 0 0 {name=p59 sig_type=std_logic lab=smpl_n_d12}
+C {lab_pin.sym} 1660 -160 0 0 {name=p127 sig_type=std_logic lab=smpl_out_n}
+C {lab_pin.sym} 1660 -120 0 0 {name=p131 sig_type=std_logic lab=smpl_n_d12_out_n}
