@@ -52,8 +52,6 @@ C {iopin.sym} -210 10 0 0 {name=p11 lab=GND
 C {lab_pin.sym} 240 -140 2 0 {name=p14 sig_type=std_logic lab=GND
 
 }
-C {final/tg_final.sym} 40 180 0 0 {name=x4}
-C {final/tg_final.sym} 280 180 0 0 {name=x1}
 C {iopin.sym} -210 -20 0 0 {name=p15 lab=sub}
 C {lab_pin.sym} 30 0 2 0 {name=p12 sig_type=std_logic lab=sub}
 C {lab_pin.sym} 270 0 2 0 {name=p16 sig_type=std_logic lab=sub}
@@ -71,3 +69,5 @@ C {lab_pin.sym} 30 -20 2 0 {name=p17 sig_type=std_logic lab=phi1_n
 }
 C {lab_pin.sym} 270 -20 2 0 {name=p18 sig_type=std_logic lab=phi2_n
 }
+C {/foss/designs/test/design/tg_final.sym} 40 180 0 0 {name=x2}
+C {/foss/designs/test/design/tg_final.sym} 280 180 0 0 {name=x3}
