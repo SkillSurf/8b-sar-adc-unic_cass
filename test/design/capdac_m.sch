@@ -5,6 +5,7 @@ K {}
 V {}
 S {}
 E {}
+T {Dummy devices} 3530 -260 0 0 0.4 0.4 {}
 N 2800 -30 2800 50 {
 lab=com_x}
 N 2430 -30 2430 50 {
@@ -205,3 +206,13 @@ C {ipin.sym} 510 -540 0 0 {name=p4 lab=sample_n
 }
 C {ipin.sym} 650 -590 0 0 {name=p10 lab=vin
 }
+C {lab_pin.sym} 3710 -100 2 0 {name=p18 sig_type=std_logic lab=vdd}
+C {lab_pin.sym} 3710 -80 2 0 {name=p33 sig_type=std_logic lab=sub}
+C {/foss/designs/test/design/cap_switch_block.sym} 3620 -90 0 0 {name=x11[68..1]}
+C {lab_pin.sym} 3590 -170 1 0 {name=p55 sig_type=std_logic lab=GND}
+C {lab_pin.sym} 3650 -170 1 0 {name=p67 sig_type=std_logic lab=GND}
+C {lab_pin.sym} 3620 -20 3 0 {name=p82 sig_type=std_logic lab=GND}
+C {lab_pin.sym} 3530 -100 0 0 {name=p1 sig_type=std_logic lab=GND}
+C {lab_pin.sym} 3530 -120 0 0 {name=p14 sig_type=std_logic lab=vdd}
+C {lab_pin.sym} 3530 -60 0 0 {name=p22 sig_type=std_logic lab=GND}
+C {lab_pin.sym} 3530 -80 0 0 {name=p26 sig_type=std_logic lab=vdd}
