@@ -1,0 +1,89 @@
+* SPICE3 file created from switch_new.ext - technology: sky130A
+
+X0 vin clk_b Vin Vdd sky130_fd_pr__pfet_01v8 ad=0.29 pd=2.58 as=0.29 ps=2.58 w=1 l=0.15
+X1 vin clk Vin sub sky130_fd_pr__nfet_01v8 ad=0.29 pd=2.58 as=0.29 ps=2.58 w=1 l=0.15
+X2 vin clk_b Vin Vdd sky130_fd_pr__pfet_01v8 ad=5.80005 pd=51.61 as=2.900025 ps=25.805 w=1 l=0.15
+X3 vin clk Vin sub sky130_fd_pr__nfet_01v8 ad=5.80005 pd=51.61 as=2.900025 ps=25.805 w=1 l=0.15
+X4 vin clk_b Vin Vdd sky130_fd_pr__pfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X5 vin clk Vin sub sky130_fd_pr__nfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X6 smpl_switch_1/Vout smpl_switch_1/clk_b smpl_switch_1/Vin Vdd sky130_fd_pr__pfet_01v8 ad=2.900025 pd=25.805 as=2.900025 ps=25.805 w=1 l=0.15
+X7 smpl_switch_1/Vout smpl_switch_1/clk smpl_switch_1/Vin sub sky130_fd_pr__nfet_01v8 ad=2.900025 pd=25.805 as=2.900025 ps=25.805 w=1 l=0.15
+X8 smpl_switch_1/Vout smpl_switch_1/clk_b smpl_switch_1/Vin Vdd sky130_fd_pr__pfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X9 smpl_switch_1/Vout smpl_switch_1/clk smpl_switch_1/Vin sub sky130_fd_pr__nfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X10 smpl_switch_1/Vout smpl_switch_1/clk_b smpl_switch_1/Vin Vdd sky130_fd_pr__pfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X11 smpl_switch_1/Vout smpl_switch_1/clk smpl_switch_1/Vin sub sky130_fd_pr__nfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X12 smpl_switch_1/Vout smpl_switch_1/clk_b smpl_switch_1/Vin Vdd sky130_fd_pr__pfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X13 smpl_switch_1/Vout smpl_switch_1/clk smpl_switch_1/Vin sub sky130_fd_pr__nfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X14 smpl_switch_1/Vout smpl_switch_1/clk_b smpl_switch_1/Vin Vdd sky130_fd_pr__pfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X15 smpl_switch_1/Vout smpl_switch_1/clk smpl_switch_1/Vin sub sky130_fd_pr__nfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X16 smpl_switch_1/Vout smpl_switch_1/clk_b smpl_switch_1/Vin Vdd sky130_fd_pr__pfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X17 smpl_switch_1/Vout smpl_switch_1/clk smpl_switch_1/Vin sub sky130_fd_pr__nfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X18 smpl_switch_1/Vout smpl_switch_1/clk_b smpl_switch_1/Vin Vdd sky130_fd_pr__pfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X19 smpl_switch_1/Vout smpl_switch_1/clk smpl_switch_1/Vin sub sky130_fd_pr__nfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X20 smpl_switch_1/Vout smpl_switch_1/clk_b smpl_switch_1/Vin Vdd sky130_fd_pr__pfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X21 smpl_switch_1/Vout smpl_switch_1/clk smpl_switch_1/Vin sub sky130_fd_pr__nfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X22 smpl_switch_1/Vout smpl_switch_1/clk_b smpl_switch_1/Vin Vdd sky130_fd_pr__pfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X23 smpl_switch_1/Vout smpl_switch_1/clk smpl_switch_1/Vin sub sky130_fd_pr__nfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X24 smpl_switch_1/Vout smpl_switch_1/clk_b smpl_switch_1/Vin Vdd sky130_fd_pr__pfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X25 smpl_switch_1/Vout smpl_switch_1/clk smpl_switch_1/Vin sub sky130_fd_pr__nfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X26 vin smpl_switch_2/clk_b smpl_switch_2/Vin Vdd sky130_fd_pr__pfet_01v8 ad=0 pd=0 as=2.900025 ps=25.805 w=1 l=0.15
+X27 vin smpl_switch_2/clk smpl_switch_2/Vin sub sky130_fd_pr__nfet_01v8 ad=0 pd=0 as=2.900025 ps=25.805 w=1 l=0.15
+X28 vin smpl_switch_2/clk_b smpl_switch_2/Vin Vdd sky130_fd_pr__pfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X29 vin smpl_switch_2/clk smpl_switch_2/Vin sub sky130_fd_pr__nfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X30 vin smpl_switch_2/clk_b smpl_switch_2/Vin Vdd sky130_fd_pr__pfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X31 vin smpl_switch_2/clk smpl_switch_2/Vin sub sky130_fd_pr__nfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X32 vin smpl_switch_2/clk_b smpl_switch_2/Vin Vdd sky130_fd_pr__pfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X33 vin smpl_switch_2/clk smpl_switch_2/Vin sub sky130_fd_pr__nfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X34 vin smpl_switch_2/clk_b smpl_switch_2/Vin Vdd sky130_fd_pr__pfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X35 vin smpl_switch_2/clk smpl_switch_2/Vin sub sky130_fd_pr__nfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X36 vin smpl_switch_2/clk_b smpl_switch_2/Vin Vdd sky130_fd_pr__pfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X37 vin smpl_switch_2/clk smpl_switch_2/Vin sub sky130_fd_pr__nfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X38 vin smpl_switch_2/clk_b smpl_switch_2/Vin Vdd sky130_fd_pr__pfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X39 vin smpl_switch_2/clk smpl_switch_2/Vin sub sky130_fd_pr__nfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X40 vin smpl_switch_2/clk_b smpl_switch_2/Vin Vdd sky130_fd_pr__pfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X41 vin smpl_switch_2/clk smpl_switch_2/Vin sub sky130_fd_pr__nfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X42 vin smpl_switch_2/clk_b smpl_switch_2/Vin Vdd sky130_fd_pr__pfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X43 vin smpl_switch_2/clk smpl_switch_2/Vin sub sky130_fd_pr__nfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X44 vin smpl_switch_2/clk_b smpl_switch_2/Vin Vdd sky130_fd_pr__pfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X45 vin smpl_switch_2/clk smpl_switch_2/Vin sub sky130_fd_pr__nfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X46 vin clk_b Vin Vdd sky130_fd_pr__pfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X47 vin clk Vin sub sky130_fd_pr__nfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X48 vin clk_b Vin Vdd sky130_fd_pr__pfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X49 vin clk Vin sub sky130_fd_pr__nfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X50 vin clk_b Vin Vdd sky130_fd_pr__pfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X51 vin clk Vin sub sky130_fd_pr__nfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X52 vin clk_b Vin Vdd sky130_fd_pr__pfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X53 vin clk Vin sub sky130_fd_pr__nfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X54 vin clk_b Vin Vdd sky130_fd_pr__pfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X55 vin clk Vin sub sky130_fd_pr__nfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X56 vin clk_b Vin Vdd sky130_fd_pr__pfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X57 vin clk Vin sub sky130_fd_pr__nfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X58 vin clk_b Vin Vdd sky130_fd_pr__pfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X59 vin clk Vin sub sky130_fd_pr__nfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+C0 smpl_switch_1/clk_b smpl_switch_1/Vout 2.571445f
+C1 Vdd smpl_switch_2/clk_b 2.04695f
+C2 smpl_switch_1/Vin smpl_switch_1/Vout 6.986539f
+C3 Vin Vdd 2.185672f
+C4 clk clk_b 3.277287f
+C5 vin clk_b 2.674476f
+C6 smpl_switch_1/clk smpl_switch_1/clk_b 3.281856f
+C7 smpl_switch_2/Vin vin 7.087892f
+C8 smpl_switch_1/Vin smpl_switch_1/clk_b 4.25034f
+C9 smpl_switch_2/clk_b smpl_switch_2/clk 3.263047f
+C10 Vdd clk_b 2.063104f
+C11 Vdd smpl_switch_1/clk_b 2.05209f
+C12 Vdd smpl_switch_2/Vin 2.188423f
+C13 smpl_switch_1/Vin Vdd 2.16885f
+C14 smpl_switch_2/clk_b vin 2.581652f
+C15 smpl_switch_2/Vin smpl_switch_2/clk_b 4.250168f
+C16 Vin clk_b 4.24853f
+C17 Vin vin 7.045974f
+C18 vin switches3_9/XM1/VSUBS 4.660285f
+C19 clk switches3_9/XM1/VSUBS 5.556967f
+C20 clk_b switches3_9/XM1/VSUBS 2.781732f
+C21 smpl_switch_2/clk switches3_9/XM1/VSUBS 5.51883f
+C22 smpl_switch_2/clk_b switches3_9/XM1/VSUBS 3.058403f
+C23 Vdd switches3_9/XM1/VSUBS 21.66532f
+C24 smpl_switch_1/Vout switches3_9/XM1/VSUBS 2.443159f
+C25 smpl_switch_1/clk switches3_9/XM1/VSUBS 5.635745f
+C26 smpl_switch_1/clk_b switches3_9/XM1/VSUBS 3.03738f

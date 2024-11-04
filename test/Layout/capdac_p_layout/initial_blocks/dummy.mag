@@ -1,0 +1,70 @@
+magic
+tech sky130A
+timestamp 1730571394
+<< metal1 >>
+rect 11270 14105 11285 14120
+use dum_vert  cap_dum_0
+timestamp 1730571394
+transform 0 1 11775 -1 0 14670
+box 135 -1795 990 565
+use end  end_0 ~/dac_layout
+timestamp 1729689530
+transform 0 1 0 -1 0 13680
+box 0 0 13680 2360
+use end  end_1
+timestamp 1729689530
+transform 0 1 2495 -1 0 13680
+box 0 0 13680 2360
+use end  end_2
+timestamp 1729689530
+transform 0 1 34930 -1 0 13680
+box 0 0 13680 2360
+use end  end_3
+timestamp 1729689530
+transform 0 1 37425 -1 0 13680
+box 0 0 13680 2360
+use mid_2  mid_2_0 ~/dac_layout
+timestamp 1729709358
+transform 1 0 17465 0 1 6840
+box 0 -6840 4900 6840
+use mid_2to4_  mid_2to4__0 ~/dac_layout
+timestamp 1729683266
+transform 0 1 14970 -1 0 13680
+box 0 0 13680 2360
+use mid_2to4_  mid_2to4__1
+timestamp 1729683266
+transform 0 1 22455 -1 0 13680
+box 0 0 13680 2360
+use mid_4to8  mid_4to8_0 ~/dac_layout
+timestamp 1729685583
+transform 0 1 9980 -1 0 13680
+box 0 0 13680 2360
+use mid_4to8  mid_4to8_1
+timestamp 1729685583
+transform 0 1 12475 -1 0 13680
+box 0 0 13680 2360
+use mid_4to8  mid_4to8_2
+timestamp 1729685583
+transform 0 1 24950 -1 0 13680
+box 0 0 13680 2360
+use mid_4to8  mid_4to8_3
+timestamp 1729685583
+transform 0 1 27445 -1 0 13680
+box 0 0 13680 2360
+use mid_6to8  mid_6to8_0 ~/dac_layout
+timestamp 1729688460
+transform 0 1 4990 -1 0 13680
+box 0 0 13680 2360
+use mid_6to8  mid_6to8_1
+timestamp 1729688460
+transform 0 1 7485 -1 0 13680
+box 0 0 13680 2360
+use mid_6to8  mid_6to8_2
+timestamp 1729688460
+transform 0 1 29940 -1 0 13680
+box 0 0 13680 2360
+use mid_6to8  mid_6to8_3
+timestamp 1729688460
+transform 0 1 32435 -1 0 13680
+box 0 0 13680 2360
+<< end >>

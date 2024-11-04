@@ -1,0 +1,57 @@
+magic
+tech sky130A
+timestamp 1729688594
+<< metal1 >>
+rect -5 2125 6715 2140
+rect -5 2095 6715 2110
+rect -5 2040 6715 2055
+rect -5 2010 6715 2025
+rect -5 1955 6715 1970
+rect -5 1925 6715 1940
+rect -5 1870 6715 1885
+rect -5 1840 6715 1855
+rect -5 1795 6715 1810
+rect -5 1745 6715 1780
+rect -5 1205 6715 1240
+rect -5 1175 6715 1190
+rect -5 1120 6715 1135
+rect -5 1090 6715 1105
+rect -5 1035 6715 1050
+rect -5 1005 6715 1020
+rect -5 950 6715 965
+rect -5 920 6715 935
+<< metal4 >>
+rect -10 35 6715 65
+use cap_final  cap_final_0 ~/dac_lay
+timestamp 1729673367
+transform 1 0 -200 0 1 1680
+box 135 -1795 990 205
+use cap_final  cap_final_1
+timestamp 1729673367
+transform 1 0 5785 0 1 1680
+box 135 -1795 990 205
+use cap_final  cap_final_2
+timestamp 1729673367
+transform 1 0 655 0 1 1680
+box 135 -1795 990 205
+use cap_final  cap_final_3
+timestamp 1729673367
+transform 1 0 1510 0 1 1680
+box 135 -1795 990 205
+use cap_final  cap_final_4
+timestamp 1729673367
+transform 1 0 2365 0 1 1680
+box 135 -1795 990 205
+use cap_final  cap_final_5
+timestamp 1729673367
+transform 1 0 3220 0 1 1680
+box 135 -1795 990 205
+use cap_final  cap_final_6
+timestamp 1729673367
+transform 1 0 4075 0 1 1680
+box 135 -1795 990 205
+use cap_final  cap_final_7
+timestamp 1729673367
+transform 1 0 4930 0 1 1680
+box 135 -1795 990 205
+<< end >>

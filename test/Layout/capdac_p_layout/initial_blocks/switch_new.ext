@@ -1,0 +1,166 @@
+timestamp 1730699969
+version 8.3
+tech sky130A
+style ngspice()
+scale 1000 1 500000
+resistclasses 4400000 2200000 950000 3050000 120000 197000 114000 191000 120000 197000 114000 191000 48200 319800 2000000 48200 48200 12800 125 125 47 47 29 5
+use smpl_switch smpl_switch_0 1 0 3562 0 1 -2
+use smpl_switch smpl_switch_1 1 0 -3568 0 1 -2
+use smpl_switch smpl_switch_2 1 0 -8 0 1 -2
+port "vin" 11 6750 4500 6810 4530 m1
+port "vref" 17 3180 4500 3220 4530 m2
+node "vin" 0 0 6750 4500 m1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+node "m3_3130_3200#" 0 128.349 3130 3200 m3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 15000 620 0 0 0 0 0 0
+node "m3_n370_2960#" 0 149.52 -370 2960 m3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 18000 720 0 0 0 0 0 0
+node "m2_6750_4500#" 0 34.7715 6750 4500 m2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1800 180 0 0 0 0 0 0 0 0
+node "vref" 0 26.8549 3180 4500 m2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1200 140 0 0 0 0 0 0 0 0
+node "vcm" 0 42.1416 -390 4500 m2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2400 220 0 0 0 0 0 0 0 0
+node "m1_3130_3230#" 1 120.199 3130 3230 m1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 8400 620 0 0 0 0 0 0 0 0 0 0
+node "m1_n360_3230#" 1 139.031 -360 3230 m1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 9600 700 0 0 0 0 0 0 0 0 0 0
+node "m1_3200_3320#" 0 92.4072 3200 3320 m1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 12600 500 0 0 0 0 0 0 0 0 0 0
+node "m1_n360_3320#" 0 94.2375 -360 3320 m1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 12600 500 0 0 0 0 0 0 0 0 0 0
+node "m1_3250_4400#" 0 85.3565 3250 4400 m1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 9800 420 0 0 0 0 0 0 0 0 0 0
+node "m1_n310_4400#" 0 85.3565 -310 4400 m1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 9800 420 0 0 0 0 0 0 0 0 0 0
+substrate "VSUBS" 0 0 -1073741817 -1073741817 space 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+cap "m3_n370_2960#" "vcm" 0.182798
+cap "m1_n360_3230#" "m1_n360_3320#" 20
+cap "vref" "m1_3130_3230#" 0.0164565
+cap "m3_3130_3200#" "m1_3130_3230#" 10.9845
+cap "m1_3250_4400#" "m1_3200_3320#" 5.39623
+cap "vref" "m1_3200_3320#" 0.0223786
+cap "m3_3130_3200#" "m1_3200_3320#" 2.27871
+cap "vcm" "m1_n360_3230#" 0.080973
+cap "vcm" "m1_n360_3320#" 0.0559464
+cap "m1_3250_4400#" "m3_3130_3200#" 0.0241621
+cap "m3_3130_3200#" "vref" 0.0648934
+cap "m1_3130_3230#" "m1_3200_3320#" 24
+cap "m3_n370_2960#" "m1_n360_3320#" 1.89892
+cap "m3_n370_2960#" "m1_n360_3230#" 12.0198
+cap "m1_n310_4400#" "m1_n360_3320#" 5.39623
+cap "smpl_switch_1/clk" "smpl_switch_2/clk" 34.1701
+cap "smpl_switch_1/sub" "smpl_switch_1/Vdd" 0.833481
+cap "smpl_switch_1/sub" "smpl_switch_1/Vin" -0.0135237
+cap "smpl_switch_2/Vin" "smpl_switch_1/Vdd" 16.3371
+cap "smpl_switch_2/Vin" "smpl_switch_1/Vin" 1.40845
+cap "smpl_switch_1/sub" "smpl_switch_2/clk" 3.09121
+cap "smpl_switch_2/Vin" "smpl_switch_2/Vout" 1.13687e-13
+cap "smpl_switch_1/Vdd" "smpl_switch_1/clk_b" 8.22437
+cap "smpl_switch_1/Vdd" "smpl_switch_1/Vout" 2.13002
+cap "smpl_switch_1/Vout" "smpl_switch_1/Vin" 0.261085
+cap "smpl_switch_1/clk_b" "smpl_switch_2/clk" 29.7428
+cap "smpl_switch_1/clk_b" "smpl_switch_2/Vout" 0.0115632
+cap "smpl_switch_1/sub" "smpl_switch_2/clk_b" 1.66178
+cap "smpl_switch_1/Vout" "smpl_switch_2/Vout" 25.2797
+cap "smpl_switch_1/Vdd" "smpl_switch_1/Vout" 7.00968
+cap "smpl_switch_2/clk_b" "smpl_switch_1/Vout" 0.688337
+cap "smpl_switch_2/clk_b" "smpl_switch_1/clk_b" 42.4438
+cap "smpl_switch_2/clk" "smpl_switch_1/Vout" 0.023805
+cap "smpl_switch_1/sub" "smpl_switch_1/clk" 0.528095
+cap "smpl_switch_1/Vdd" "smpl_switch_1/Vin" 0.20186
+cap "smpl_switch_2/Vin" "smpl_switch_1/clk" 0.023908
+cap "smpl_switch_2/clk_b" "smpl_switch_1/Vout" 0.511111
+cap "smpl_switch_1/Vdd" "smpl_switch_2/Vout" 0.203747
+cap "smpl_switch_1/clk_b" "smpl_switch_1/clk" 4.29043
+cap "smpl_switch_1/sub" "smpl_switch_2/Vin" 2.06199
+cap "smpl_switch_1/clk" "smpl_switch_1/Vout" 0.938311
+cap "smpl_switch_1/Vdd" "smpl_switch_2/clk_b" 3.15176
+cap "smpl_switch_1/sub" "smpl_switch_1/clk_b" 9.44827
+cap "smpl_switch_1/sub" "smpl_switch_1/Vout" 0.65535
+cap "smpl_switch_2/Vin" "smpl_switch_1/clk_b" 35.4276
+cap "smpl_switch_2/Vin" "smpl_switch_1/Vout" 12.082
+cap "smpl_switch_2/clk_b" "smpl_switch_2/Vout" -2.84217e-14
+cap "smpl_switch_1/sub" "smpl_switch_1/Vout" 2.04992
+cap "smpl_switch_1/Vdd" "smpl_switch_1/clk" 0.130294
+cap "smpl_switch_2/Vin" "smpl_switch_1/Vout" 72.5313
+cap "smpl_switch_1/clk" "smpl_switch_1/Vin" 0.00487242
+cap "smpl_switch_2/Vout" "smpl_switch_0/sub" 0.654711
+cap "smpl_switch_0/sub" "smpl_switch_2/clk_b" 9.41792
+cap "smpl_switch_0/sub" "smpl_switch_2/Vin" -0.00540947
+cap "smpl_switch_2/clk" "smpl_switch_0/Vdd" 0.130294
+cap "smpl_switch_2/Vout" "smpl_switch_0/sub" 1.99782
+cap "smpl_switch_2/clk" "smpl_switch_0/Vin" 0.0232229
+cap "smpl_switch_2/clk" "smpl_switch_2/clk_b" 1.2831
+cap "smpl_switch_2/clk" "smpl_switch_2/Vout" 0.61701
+cap "smpl_switch_2/clk" "smpl_switch_0/clk" 5.63338
+cap "smpl_switch_2/clk" "smpl_switch_2/Vin" 1.40547e-14
+cap "smpl_switch_2/clk" "smpl_switch_0/sub" 0.514125
+cap "smpl_switch_0/Vdd" "smpl_switch_2/clk_b" 8.03377
+cap "smpl_switch_2/Vout" "smpl_switch_0/Vdd" 1.62368
+cap "smpl_switch_0/Vin" "smpl_switch_2/clk_b" 17.8863
+cap "smpl_switch_0/Vin" "smpl_switch_2/Vout" 5.25587
+cap "smpl_switch_0/Vdd" "smpl_switch_2/Vin" 0.198179
+cap "smpl_switch_0/clk_b" "smpl_switch_2/Vout" 0.367392
+cap "smpl_switch_0/Vin" "smpl_switch_2/Vin" 0.694444
+cap "smpl_switch_0/clk_b" "smpl_switch_2/clk_b" 16.8832
+cap "smpl_switch_0/Vdd" "smpl_switch_0/sub" 1.04103
+cap "smpl_switch_2/Vout" "smpl_switch_0/Vdd" 6.82265
+cap "smpl_switch_0/Vin" "smpl_switch_2/Vout" 35.4672
+cap "smpl_switch_0/clk" "smpl_switch_2/clk_b" 14.3717
+cap "smpl_switch_2/Vout" "smpl_switch_0/Vout" 7.64072
+cap "smpl_switch_0/Vout" "smpl_switch_2/clk_b" 0.0112558
+cap "smpl_switch_2/Vout" "smpl_switch_2/Vin" 0.149191
+cap "smpl_switch_2/Vin" "smpl_switch_2/clk_b" -0.00435043
+cap "smpl_switch_0/Vin" "smpl_switch_2/clk_b" 16.9443
+cap "smpl_switch_0/Vin" "smpl_switch_2/Vin" 0.694444
+cap "smpl_switch_2/Vout" "smpl_switch_0/Vin" 5.59842
+cap "smpl_switch_0/Vin" "smpl_switch_0/sub" 2.00967
+cap "smpl_switch_0/sub" "smpl_switch_0/Vdd" 3.55271e-15
+cap "smpl_switch_2/Vout" "smpl_switch_0/Vin" 35.8102
+cap "smpl_switch_2/clk_b" "smpl_switch_0/clk_b" 25.048
+cap "smpl_switch_0/sub" "smpl_switch_2/clk" 5.55112e-17
+cap "smpl_switch_0/Vin" "smpl_switch_0/Vdd" 15.9867
+cap "smpl_switch_0/sub" "smpl_switch_0/clk_b" 1.63303
+cap "smpl_switch_2/Vout" "smpl_switch_0/clk_b" 0.496646
+cap "smpl_switch_2/Vout" "smpl_switch_0/Vout" 12.2349
+cap "smpl_switch_0/Vdd" "smpl_switch_0/clk_b" 3.05426
+cap "smpl_switch_0/Vin" "smpl_switch_0/Vout" 1.13687e-13
+cap "smpl_switch_0/Vout" "smpl_switch_0/Vdd" 0.20155
+cap "smpl_switch_0/clk" "smpl_switch_2/clk_b" 14.8864
+cap "smpl_switch_0/clk" "smpl_switch_0/sub" 3.09764
+cap "smpl_switch_0/clk" "smpl_switch_2/Vout" 0.023124
+cap "smpl_switch_0/clk" "smpl_switch_2/clk" 28.3992
+cap "smpl_switch_0/Vin" "smpl_switch_0/Vout" 0.223787
+cap "smpl_switch_0/Vin" "smpl_switch_0/clk" 0.00974484
+cap "smpl_switch_1/clk" "smpl_switch_1/Vin" 0.00605659
+cap "smpl_switch_1/sub" "smpl_switch_1/Vdd" 0.836593
+cap "smpl_switch_1/sub" "smpl_switch_1/Vin" 0.0169691
+cap "smpl_switch_1/clk_b" "smpl_switch_1/Vdd" 0.00223938
+cap "smpl_switch_2/Vin" "smpl_switch_1/Vdd" 5.68506
+cap "smpl_switch_1/Vout" "smpl_switch_1/Vin" 0.244106
+cap "smpl_switch_1/Vin" "smpl_switch_1/Vdd" 14.64
+cap "smpl_switch_2/Vin" "smpl_switch_1/Vin" 16.6773
+cap "smpl_switch_1/Vin" "smpl_switch_1/clk_b" 0.00605304
+cap "smpl_switch_1/clk" "smpl_switch_1/Vdd" 0.0667646
+cap "smpl_switch_0/Vdd" "smpl_switch_2/clk" 0.0244095
+cap "smpl_switch_0/Vin" "smpl_switch_2/Vin" 7.74573
+cap "smpl_switch_0/Vdd" "smpl_switch_2/clk_b" 0.00223938
+cap "smpl_switch_0/Vdd" "smpl_switch_2/Vin" 9.79355
+cap "smpl_switch_0/sub" "smpl_switch_2/Vin" 0.0169691
+cap "smpl_switch_2/Vout" "smpl_switch_2/Vin" 0.139489
+cap "smpl_switch_2/clk" "smpl_switch_2/Vin" -1.38778e-17
+cap "smpl_switch_0/Vdd" "smpl_switch_0/sub" 1.04414
+cap "smpl_switch_2/clk_b" "smpl_switch_2/Vin" 7.58074e-16
+cap "smpl_switch_0/Vdd" "smpl_switch_2/Vout" 4.44089e-16
+cap "smpl_switch_2/Vin" "smpl_switch_0/Vin" 7.74573
+cap "smpl_switch_0/Vin" "smpl_switch_0/Vdd" 5.67279
+cap "smpl_switch_0/Vin" "smpl_switch_0/clk_b" 0.00605304
+cap "smpl_switch_0/Vout" "smpl_switch_0/Vin" 0.209234
+cap "smpl_switch_0/clk" "smpl_switch_0/Vin" 0.00915582
+cap "smpl_switch_0/sub" "smpl_switch_0/Vin" 0.0169691
+cap "smpl_switch_0/Vin" "smpl_switch_0/Vdd" 11.1137
+merge "smpl_switch_2/Vdd" "smpl_switch_0/Vdd" -202.789 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -2100 -760 0 0 0 0 0 0 0 0 0 0
+merge "smpl_switch_0/Vdd" "m1_3250_4400#"
+merge "m1_3250_4400#" "smpl_switch_1/Vdd"
+merge "smpl_switch_1/Vdd" "m1_n310_4400#"
+merge "smpl_switch_0/sub" "m1_3200_3320#" -160.381 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -700 -580 0 0 0 0 0 0 0 0 0 0
+merge "m1_3200_3320#" "smpl_switch_2/sub"
+merge "smpl_switch_2/sub" "smpl_switch_1/sub"
+merge "smpl_switch_1/sub" "m1_n360_3320#"
+merge "m1_n360_3320#" "VSUBS"
+merge "smpl_switch_2/Vin" "vref" -57.2571 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -60 0 0 0 0 0 0 0 0
+merge "smpl_switch_1/Vin" "vcm" -39.0998 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -300 -80 0 0 0 0 0 0 0 0
+merge "smpl_switch_0/Vin" "m2_6750_4500#" -35.81 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -60 0 0 0 0 0 0 0 0
+merge "smpl_switch_2/clk" "m3_3130_3200#" -87.9141 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -3900 -260 0 0 0 0 0 0
+merge "smpl_switch_2/clk_b" "m1_3130_3230#" -186.991 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -2100 -200 0 0 0 0 0 0 0 0 0 0
+merge "smpl_switch_1/clk" "m3_n370_2960#" -63.1192 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -300 -140 0 0 0 0 0 0
+merge "smpl_switch_1/clk_b" "m1_n360_3230#" -158.817 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -60 0 0 0 0 0 0 0 0 0 0

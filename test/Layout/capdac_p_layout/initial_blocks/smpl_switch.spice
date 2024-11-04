@@ -1,0 +1,32 @@
+* SPICE3 file created from smpl_switch.ext - technology: sky130A
+
+X0 Vout clk_b Vin Vdd sky130_fd_pr__pfet_01v8 ad=0.29 pd=2.58 as=0.29 ps=2.58 w=1 l=0.15
+X1 Vout clk Vin sub sky130_fd_pr__nfet_01v8 ad=0.29 pd=2.58 as=0.29 ps=2.58 w=1 l=0.15
+X2 Vout clk_b Vin Vdd sky130_fd_pr__pfet_01v8 ad=2.900025 pd=25.805 as=2.900025 ps=25.805 w=1 l=0.15
+X3 Vout clk Vin sub sky130_fd_pr__nfet_01v8 ad=2.900025 pd=25.805 as=2.900025 ps=25.805 w=1 l=0.15
+X4 Vout clk_b Vin Vdd sky130_fd_pr__pfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X5 Vout clk Vin sub sky130_fd_pr__nfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X6 Vout clk_b Vin Vdd sky130_fd_pr__pfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X7 Vout clk Vin sub sky130_fd_pr__nfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X8 Vout clk_b Vin Vdd sky130_fd_pr__pfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X9 Vout clk Vin sub sky130_fd_pr__nfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X10 Vout clk_b Vin Vdd sky130_fd_pr__pfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X11 Vout clk Vin sub sky130_fd_pr__nfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X12 Vout clk_b Vin Vdd sky130_fd_pr__pfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X13 Vout clk Vin sub sky130_fd_pr__nfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X14 Vout clk_b Vin Vdd sky130_fd_pr__pfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X15 Vout clk Vin sub sky130_fd_pr__nfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X16 Vout clk_b Vin Vdd sky130_fd_pr__pfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X17 Vout clk Vin sub sky130_fd_pr__nfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X18 Vout clk_b Vin Vdd sky130_fd_pr__pfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+X19 Vout clk Vin sub sky130_fd_pr__nfet_01v8 ad=0 pd=0 as=0 ps=0 w=1 l=0.15
+C0 Vdd clk_b 2.043798f
+C1 Vdd Vin 2.161881f
+C2 Vout clk_b 2.570525f
+C3 clk clk_b 3.263047f
+C4 Vout Vin 6.986323f
+C5 Vin clk_b 4.250168f
+C6 Vdd switches3_9/XM1/VSUBS 7.224522f
+C7 Vout switches3_9/XM1/VSUBS 2.439026f
+C8 clk switches3_9/XM1/VSUBS 5.515738f
+C9 clk_b switches3_9/XM1/VSUBS 3.056741f
