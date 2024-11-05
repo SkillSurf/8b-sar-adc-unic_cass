@@ -1,0 +1,313 @@
+** sch_path: /home/shevi/whyRD_eda_bundle/sar_adc/8b-sar-adc-unic_cass-main/test/testbench/capblock_256.sch
+**.subckt capblock_256 sub7,sub6,sub5,sub4,sub3,sub2,sub1,sub0 GND vdd sub_sample smpl
+*+ phi17,phi16,phi15,phi14,phi13,phi12,phi11,phi10 phi1_n7,phi1_n6,phi1_n5,phi1_n4,phi1_n3,phi1_n2,phi1_n1,phi1_n0 smpl_out_n phi27,phi26,phi25,phi24,phi23,phi22,phi21,phi20
+*+ smpl_n_d12 smpl_n_d12_out_n phi2_n7,phi2_n6,phi2_n5,phi2_n4,phi2_n3,phi2_n2,phi2_n1,phi2_n0 com_x Vin
+*.ipin phi17,phi16,phi15,phi14,phi13,phi12,phi11,phi10
+*.ipin phi1_n7,phi1_n6,phi1_n5,phi1_n4,phi1_n3,phi1_n2,phi1_n1,phi1_n0
+*.iopin vdd
+*.iopin GND
+*.iopin sub7,sub6,sub5,sub4,sub3,sub2,sub1,sub0
+*.ipin phi27,phi26,phi25,phi24,phi23,phi22,phi21,phi20
+*.ipin phi2_n7,phi2_n6,phi2_n5,phi2_n4,phi2_n3,phi2_n2,phi2_n1,phi2_n0
+*.ipin Vin
+*.opin com_x
+*.ipin smpl
+*.ipin smpl_out_n
+*.ipin smpl_n_d12
+*.ipin smpl_n_d12_out_n
+*.iopin sub_sample
+x8 Vin sub0 GND vdd phi10 phi20 phi2_n0 phi1_n0 com_x cap_switch_block
+x9[1] Vin sub1 GND vdd phi11 phi21 phi2_n1 phi1_n1 com_x cap_switch_block
+x9[0] Vin sub1 GND vdd phi11 phi21 phi2_n1 phi1_n1 com_x cap_switch_block
+x4[3] Vin sub2 GND vdd phi12 phi22 phi2_n2 phi1_n2 com_x cap_switch_block
+x4[2] Vin sub2 GND vdd phi12 phi22 phi2_n2 phi1_n2 com_x cap_switch_block
+x4[1] Vin sub2 GND vdd phi12 phi22 phi2_n2 phi1_n2 com_x cap_switch_block
+x4[0] Vin sub2 GND vdd phi12 phi22 phi2_n2 phi1_n2 com_x cap_switch_block
+x5[7] Vin sub3 GND vdd phi13 phi23 phi2_n3 phi1_n3 com_x cap_switch_block
+x5[6] Vin sub3 GND vdd phi13 phi23 phi2_n3 phi1_n3 com_x cap_switch_block
+x5[5] Vin sub3 GND vdd phi13 phi23 phi2_n3 phi1_n3 com_x cap_switch_block
+x5[4] Vin sub3 GND vdd phi13 phi23 phi2_n3 phi1_n3 com_x cap_switch_block
+x5[3] Vin sub3 GND vdd phi13 phi23 phi2_n3 phi1_n3 com_x cap_switch_block
+x5[2] Vin sub3 GND vdd phi13 phi23 phi2_n3 phi1_n3 com_x cap_switch_block
+x5[1] Vin sub3 GND vdd phi13 phi23 phi2_n3 phi1_n3 com_x cap_switch_block
+x5[0] Vin sub3 GND vdd phi13 phi23 phi2_n3 phi1_n3 com_x cap_switch_block
+x6[15] Vin sub4 GND vdd phi14 phi24 phi2_n4 phi1_n4 com_x cap_switch_block
+x6[14] Vin sub4 GND vdd phi14 phi24 phi2_n4 phi1_n4 com_x cap_switch_block
+x6[13] Vin sub4 GND vdd phi14 phi24 phi2_n4 phi1_n4 com_x cap_switch_block
+x6[12] Vin sub4 GND vdd phi14 phi24 phi2_n4 phi1_n4 com_x cap_switch_block
+x6[11] Vin sub4 GND vdd phi14 phi24 phi2_n4 phi1_n4 com_x cap_switch_block
+x6[10] Vin sub4 GND vdd phi14 phi24 phi2_n4 phi1_n4 com_x cap_switch_block
+x6[9] Vin sub4 GND vdd phi14 phi24 phi2_n4 phi1_n4 com_x cap_switch_block
+x6[8] Vin sub4 GND vdd phi14 phi24 phi2_n4 phi1_n4 com_x cap_switch_block
+x6[7] Vin sub4 GND vdd phi14 phi24 phi2_n4 phi1_n4 com_x cap_switch_block
+x6[6] Vin sub4 GND vdd phi14 phi24 phi2_n4 phi1_n4 com_x cap_switch_block
+x6[5] Vin sub4 GND vdd phi14 phi24 phi2_n4 phi1_n4 com_x cap_switch_block
+x6[4] Vin sub4 GND vdd phi14 phi24 phi2_n4 phi1_n4 com_x cap_switch_block
+x6[3] Vin sub4 GND vdd phi14 phi24 phi2_n4 phi1_n4 com_x cap_switch_block
+x6[2] Vin sub4 GND vdd phi14 phi24 phi2_n4 phi1_n4 com_x cap_switch_block
+x6[1] Vin sub4 GND vdd phi14 phi24 phi2_n4 phi1_n4 com_x cap_switch_block
+x6[0] Vin sub4 GND vdd phi14 phi24 phi2_n4 phi1_n4 com_x cap_switch_block
+x7[31] Vin sub5 GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x7[30] Vin sub5 GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x7[29] Vin sub5 GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x7[28] Vin sub5 GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x7[27] Vin sub5 GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x7[26] Vin sub5 GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x7[25] Vin sub5 GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x7[24] Vin sub5 GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x7[23] Vin sub5 GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x7[22] Vin sub5 GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x7[21] Vin sub5 GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x7[20] Vin sub5 GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x7[19] Vin sub5 GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x7[18] Vin sub5 GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x7[17] Vin sub5 GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x7[16] Vin sub5 GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x7[15] Vin sub5 GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x7[14] Vin sub5 GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x7[13] Vin sub5 GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x7[12] Vin sub5 GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x7[11] Vin sub5 GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x7[10] Vin sub5 GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x7[9] Vin sub5 GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x7[8] Vin sub5 GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x7[7] Vin sub5 GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x7[6] Vin sub5 GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x7[5] Vin sub5 GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x7[4] Vin sub5 GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x7[3] Vin sub5 GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x7[2] Vin sub5 GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x7[1] Vin sub5 GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x7[0] Vin sub5 GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x8[63] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[62] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[61] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[60] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[59] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[58] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[57] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[56] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[55] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[54] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[53] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[52] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[51] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[50] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[49] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[48] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[47] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[46] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[45] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[44] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[43] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[42] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[41] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[40] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[39] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[38] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[37] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[36] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[35] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[34] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[33] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[32] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[31] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[30] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[29] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[28] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[27] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[26] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[25] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[24] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[23] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[22] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[21] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[20] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[19] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[18] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[17] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[16] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[15] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[14] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[13] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[12] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[11] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[10] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[9] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[8] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[7] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[6] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[5] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[4] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[3] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[2] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[1] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x8[0] Vin sub6 GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x10[128] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[127] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[126] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[125] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[124] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[123] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[122] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[121] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[120] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[119] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[118] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[117] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[116] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[115] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[114] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[113] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[112] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[111] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[110] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[109] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[108] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[107] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[106] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[105] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[104] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[103] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[102] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[101] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[100] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[99] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[98] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[97] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[96] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[95] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[94] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[93] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[92] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[91] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[90] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[89] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[88] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[87] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[86] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[85] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[84] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[83] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[82] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[81] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[80] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[79] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[78] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[77] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[76] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[75] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[74] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[73] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[72] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[71] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[70] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[69] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[68] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[67] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[66] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[65] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[64] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[63] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[62] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[61] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[60] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[59] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[58] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[57] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[56] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[55] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[54] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[53] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[52] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[51] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[50] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[49] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[48] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[47] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[46] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[45] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[44] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[43] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[42] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[41] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[40] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[39] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[38] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[37] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[36] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[35] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[34] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[33] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[32] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[31] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[30] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[29] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[28] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[27] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[26] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[25] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[24] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[23] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[22] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[21] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[20] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[19] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[18] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[17] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[16] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[15] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[14] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[13] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[12] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[11] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[10] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[9] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[8] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[7] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[6] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[5] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[4] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[3] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[2] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[1] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10[0] Vin sub7 GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1 Vin sub_sample GND vdd smpl smpl_n_d12 smpl_n_d12_out_n smpl_out_n com_x cap_switch_block
+**.ends
+
+* expanding   symbol:  cap_switch_block.sym # of pins=9
+** sym_path: /home/shevi/whyRD_eda_bundle/sar_adc/8b-sar-adc-unic_cass-main/test/testbench/cap_switch_block.sym
+** sch_path: /home/shevi/whyRD_eda_bundle/sar_adc/8b-sar-adc-unic_cass-main/test/testbench/cap_switch_block.sch
+.subckt cap_switch_block Vin sub GND Vdd phi1 phi2 phi2_n phi1_n com_x
+*.ipin Vin
+*.opin com_x
+*.ipin phi1
+*.ipin phi1_n
+*.iopin Vdd
+*.iopin GND
+*.iopin sub
+*.ipin phi2
+*.ipin phi2_n
+XC9 com_x net1 sky130_fd_pr__cap_mim_m3_1 W=7 L=7 MF=1 m=1
+x4 phi1 sub net1 Vin Vdd phi1_n tg_final
+x1 phi2 sub net1 GND Vdd phi2_n tg_final
+.ends
+
+
+* expanding   symbol:  final/tg_final.sym # of pins=6
+** sym_path: /home/shevi/whyRD_eda_bundle/sar_adc/8b-sar-adc-unic_cass-main/test/testbench/final/tg_final.sym
+** sch_path: /home/shevi/whyRD_eda_bundle/sar_adc/8b-sar-adc-unic_cass-main/test/testbench/final/tg_final.sch
+.subckt tg_final clk sub vout vin vdd clk_b
+*.ipin clk
+*.ipin vin
+*.opin vout
+*.ipin vdd
+*.ipin sub
+*.ipin clk_b
+XM2 vout clk vin sub sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM1 vout clk_b vin vdd sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+.ends
+
+.end

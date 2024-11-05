@@ -1,0 +1,413 @@
+** sch_path: /home/erandee/dac_layout/dac_layout/capdac_p.sch
+**.subckt capdac_p phi17,phi16,phi15,phi14,phi13,phi12,phi11,phi10 sphi1 sub vin
+*+ phi1_n7,phi1_n6,phi1_n5,phi1_n4,phi1_n3,phi1_n2,phi1_n1,phi1_n0 sphi1_n GND sample vref phi27,phi26,phi25,phi24,phi23,phi22,phi21,phi20 sphi2 vdd sample_n vcm sphi2_n
+*+ phi2_n7,phi2_n6,phi2_n5,phi2_n4,phi2_n3,phi2_n2,phi2_n1,phi2_n0 com_x
+*.ipin phi17,phi16,phi15,phi14,phi13,phi12,phi11,phi10
+*.ipin phi1_n7,phi1_n6,phi1_n5,phi1_n4,phi1_n3,phi1_n2,phi1_n1,phi1_n0
+*.iopin vdd
+*.iopin GND
+*.iopin sub
+*.ipin phi27,phi26,phi25,phi24,phi23,phi22,phi21,phi20
+*.ipin phi2_n7,phi2_n6,phi2_n5,phi2_n4,phi2_n3,phi2_n2,phi2_n1,phi2_n0
+*.opin com_x
+*.ipin sphi1
+*.ipin sphi1_n
+*.ipin sphi2
+*.ipin sphi2_n
+*.ipin vcm
+*.ipin vref
+*.ipin vin
+*.ipin sample_n
+*.ipin sample
+x2 net1 sub GND vdd sphi1 sphi2 sphi2_n sphi1_n com_x cap_switch_block
+x1 net1 sub GND vdd phi10 phi20 phi2_n0 phi1_n0 com_x cap_switch_block
+x12 net1 sub GND vdd phi11 phi21 phi2_n1 phi1_n1 com_x cap_switch_block
+x11 net1 sub GND vdd phi11 phi21 phi2_n1 phi1_n1 com_x cap_switch_block
+x54 net1 sub GND vdd phi12 phi22 phi2_n2 phi1_n2 com_x cap_switch_block
+x53 net1 sub GND vdd phi12 phi22 phi2_n2 phi1_n2 com_x cap_switch_block
+x52 net1 sub GND vdd phi12 phi22 phi2_n2 phi1_n2 com_x cap_switch_block
+x51 net1 sub GND vdd phi12 phi22 phi2_n2 phi1_n2 com_x cap_switch_block
+x68 net1 sub GND vdd phi13 phi23 phi2_n3 phi1_n3 com_x cap_switch_block
+x67 net1 sub GND vdd phi13 phi23 phi2_n3 phi1_n3 com_x cap_switch_block
+x66 net1 sub GND vdd phi13 phi23 phi2_n3 phi1_n3 com_x cap_switch_block
+x65 net1 sub GND vdd phi13 phi23 phi2_n3 phi1_n3 com_x cap_switch_block
+x64 net1 sub GND vdd phi13 phi23 phi2_n3 phi1_n3 com_x cap_switch_block
+x63 net1 sub GND vdd phi13 phi23 phi2_n3 phi1_n3 com_x cap_switch_block
+x62 net1 sub GND vdd phi13 phi23 phi2_n3 phi1_n3 com_x cap_switch_block
+x61 net1 sub GND vdd phi13 phi23 phi2_n3 phi1_n3 com_x cap_switch_block
+x716 net1 sub GND vdd phi14 phi24 phi2_n4 phi1_n4 com_x cap_switch_block
+x715 net1 sub GND vdd phi14 phi24 phi2_n4 phi1_n4 com_x cap_switch_block
+x714 net1 sub GND vdd phi14 phi24 phi2_n4 phi1_n4 com_x cap_switch_block
+x713 net1 sub GND vdd phi14 phi24 phi2_n4 phi1_n4 com_x cap_switch_block
+x712 net1 sub GND vdd phi14 phi24 phi2_n4 phi1_n4 com_x cap_switch_block
+x711 net1 sub GND vdd phi14 phi24 phi2_n4 phi1_n4 com_x cap_switch_block
+x710 net1 sub GND vdd phi14 phi24 phi2_n4 phi1_n4 com_x cap_switch_block
+x79 net1 sub GND vdd phi14 phi24 phi2_n4 phi1_n4 com_x cap_switch_block
+x78 net1 sub GND vdd phi14 phi24 phi2_n4 phi1_n4 com_x cap_switch_block
+x77 net1 sub GND vdd phi14 phi24 phi2_n4 phi1_n4 com_x cap_switch_block
+x76 net1 sub GND vdd phi14 phi24 phi2_n4 phi1_n4 com_x cap_switch_block
+x75 net1 sub GND vdd phi14 phi24 phi2_n4 phi1_n4 com_x cap_switch_block
+x74 net1 sub GND vdd phi14 phi24 phi2_n4 phi1_n4 com_x cap_switch_block
+x73 net1 sub GND vdd phi14 phi24 phi2_n4 phi1_n4 com_x cap_switch_block
+x72 net1 sub GND vdd phi14 phi24 phi2_n4 phi1_n4 com_x cap_switch_block
+x71 net1 sub GND vdd phi14 phi24 phi2_n4 phi1_n4 com_x cap_switch_block
+x832 net1 sub GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x831 net1 sub GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x830 net1 sub GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x829 net1 sub GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x828 net1 sub GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x827 net1 sub GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x826 net1 sub GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x825 net1 sub GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x824 net1 sub GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x823 net1 sub GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x822 net1 sub GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x821 net1 sub GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x820 net1 sub GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x819 net1 sub GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x818 net1 sub GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x817 net1 sub GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x816 net1 sub GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x815 net1 sub GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x814 net1 sub GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x813 net1 sub GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x812 net1 sub GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x811 net1 sub GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x810 net1 sub GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x89 net1 sub GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x88 net1 sub GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x87 net1 sub GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x86 net1 sub GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x85 net1 sub GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x84 net1 sub GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x83 net1 sub GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x82 net1 sub GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x81 net1 sub GND vdd phi15 phi25 phi2_n5 phi1_n5 com_x cap_switch_block
+x964 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x963 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x962 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x961 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x960 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x959 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x958 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x957 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x956 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x955 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x954 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x953 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x952 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x951 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x950 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x949 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x948 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x947 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x946 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x945 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x944 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x943 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x942 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x941 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x940 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x939 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x938 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x937 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x936 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x935 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x934 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x933 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x932 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x931 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x930 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x929 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x928 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x927 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x926 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x925 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x924 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x923 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x922 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x921 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x920 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x919 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x918 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x917 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x916 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x915 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x914 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x913 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x912 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x911 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x910 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x99 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x98 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x97 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x96 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x95 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x94 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x93 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x92 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x91 net1 sub GND vdd phi16 phi26 phi2_n6 phi1_n6 com_x cap_switch_block
+x10128 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10127 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10126 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10125 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10124 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10123 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10122 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10121 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10120 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10119 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10118 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10117 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10116 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10115 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10114 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10113 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10112 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10111 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10110 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10109 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10108 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10107 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10106 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10105 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10104 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10103 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10102 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10101 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x10100 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1099 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1098 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1097 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1096 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1095 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1094 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1093 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1092 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1091 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1090 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1089 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1088 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1087 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1086 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1085 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1084 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1083 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1082 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1081 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1080 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1079 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1078 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1077 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1076 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1075 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1074 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1073 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1072 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1071 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1070 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1069 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1068 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1067 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1066 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1065 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1064 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1063 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1062 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1061 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1060 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1059 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1058 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1057 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1056 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1055 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1054 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1053 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1052 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1051 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1050 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1049 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1048 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1047 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1046 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1045 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1044 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1043 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1042 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1041 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1040 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1039 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1038 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1037 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1036 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1035 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1034 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1033 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1032 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1031 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1030 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1029 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1028 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1027 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1026 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1025 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1024 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1023 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1022 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1021 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1020 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1019 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1018 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1017 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1016 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1015 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1014 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1013 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1012 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1011 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x1010 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x109 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x108 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x107 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x106 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x105 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x104 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x103 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x102 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x101 net1 sub GND vdd phi17 phi27 phi2_n7 phi1_n7 com_x cap_switch_block
+x5[10] sphi2 sub net1 vref vdd sphi2_n tg_final
+x5[9] sphi2 sub net1 vref vdd sphi2_n tg_final
+x5[8] sphi2 sub net1 vref vdd sphi2_n tg_final
+x5[7] sphi2 sub net1 vref vdd sphi2_n tg_final
+x5[6] sphi2 sub net1 vref vdd sphi2_n tg_final
+x5[5] sphi2 sub net1 vref vdd sphi2_n tg_final
+x5[4] sphi2 sub net1 vref vdd sphi2_n tg_final
+x5[3] sphi2 sub net1 vref vdd sphi2_n tg_final
+x5[2] sphi2 sub net1 vref vdd sphi2_n tg_final
+x5[1] sphi2 sub net1 vref vdd sphi2_n tg_final
+x6[10] sphi1 sub net1 vin vdd sphi1_n tg_final
+x6[9] sphi1 sub net1 vin vdd sphi1_n tg_final
+x6[8] sphi1 sub net1 vin vdd sphi1_n tg_final
+x6[7] sphi1 sub net1 vin vdd sphi1_n tg_final
+x6[6] sphi1 sub net1 vin vdd sphi1_n tg_final
+x6[5] sphi1 sub net1 vin vdd sphi1_n tg_final
+x6[4] sphi1 sub net1 vin vdd sphi1_n tg_final
+x6[3] sphi1 sub net1 vin vdd sphi1_n tg_final
+x6[2] sphi1 sub net1 vin vdd sphi1_n tg_final
+x6[1] sphi1 sub net1 vin vdd sphi1_n tg_final
+x3[10] sample sub com_x vcm vdd sample_n tg_final
+x3[9] sample sub com_x vcm vdd sample_n tg_final
+x3[8] sample sub com_x vcm vdd sample_n tg_final
+x3[7] sample sub com_x vcm vdd sample_n tg_final
+x3[6] sample sub com_x vcm vdd sample_n tg_final
+x3[5] sample sub com_x vcm vdd sample_n tg_final
+x3[4] sample sub com_x vcm vdd sample_n tg_final
+x3[3] sample sub com_x vcm vdd sample_n tg_final
+x3[2] sample sub com_x vcm vdd sample_n tg_final
+x3[1] sample sub com_x vcm vdd sample_n tg_final
+x268 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x267 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x266 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x265 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x264 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x263 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x262 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x261 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x260 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x259 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x258 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x257 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x256 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x255 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x254 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x253 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x252 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x251 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x250 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x249 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x248 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x247 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x246 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x245 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x244 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x243 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x242 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x241 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x240 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x239 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x238 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x237 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x236 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x235 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x234 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x233 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x232 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x231 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x230 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x229 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x228 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x227 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x226 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x225 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x224 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x223 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x222 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x221 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x220 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x219 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x218 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x217 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x216 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x215 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x214 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x213 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x212 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x211 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x210 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x29 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x28 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x27 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x26 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x25 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x24 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x23 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x22 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+x21 GND sub GND vdd vdd vdd GND GND GND cap_switch_block
+**.ends
+
+* expanding   symbol:  cap_switch_block.sym # of pins=9
+** sym_path: /home/erandee/dac_layout/dac_layout/cap_switch_block.sym
+** sch_path: /home/erandee/dac_layout/dac_layout/cap_switch_block.sch
+.subckt cap_switch_block Vin sub GND Vdd phi1 phi2 phi2_n phi1_n com_x
+*.ipin Vin
+*.opin com_x
+*.ipin phi1
+*.ipin phi1_n
+*.iopin Vdd
+*.iopin GND
+*.iopin sub
+*.ipin phi2
+*.ipin phi2_n
+XC9 com_x net1 sky130_fd_pr__cap_mim_m3_1 W=7 L=7 MF=1 m=1
+x4 phi1 sub net1 Vin Vdd phi1_n tg_final
+x1 phi2 sub net1 GND Vdd phi2_n tg_final
+.ends
+
+
+* expanding   symbol:  tg_final.sym # of pins=6
+** sym_path: /home/erandee/dac_layout/dac_layout/tg_final.sym
+** sch_path: /home/erandee/dac_layout/dac_layout/tg_final.sch
+.subckt tg_final clk sub vout vin vdd clk_b
+*.ipin clk
+*.ipin vin
+*.opin vout
+*.ipin vdd
+*.ipin sub
+*.ipin clk_b
+XM2 vout clk vin sub sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM1 vout clk_b vin vdd sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+.ends
+
+.end

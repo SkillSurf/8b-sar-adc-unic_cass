@@ -1,0 +1,46 @@
+magic
+tech sky130A
+timestamp 1730699969
+<< error_s >>
+rect 3350 1630 3385 1645
+<< pwell >>
+rect -180 1615 -155 1630
+rect 1565 1615 1630 1630
+rect -170 1480 -155 1615
+rect 1615 1540 1630 1615
+<< metal1 >>
+rect -155 2200 -85 2235
+rect 1625 2200 1695 2235
+rect -180 1660 -90 1695
+rect 1600 1660 1690 1695
+rect -180 1615 -155 1630
+rect 1565 1615 1630 1630
+rect -170 1480 -155 1615
+rect 1615 1540 1630 1615
+<< metal2 >>
+rect -195 2250 -155 2265
+rect 1590 2250 1610 2265
+rect 3375 2250 3405 2265
+<< metal3 >>
+rect -185 1480 -155 1630
+rect 1565 1600 1630 1630
+rect 1600 1540 1630 1600
+use smpl_switch  smpl_switch_0
+timestamp 1730699969
+transform 1 0 1781 0 1 -1
+box -91 1591 1629 2266
+use smpl_switch  smpl_switch_1
+timestamp 1730699969
+transform 1 0 -1784 0 1 -1
+box -91 1591 1629 2266
+use smpl_switch  smpl_switch_2
+timestamp 1730699969
+transform 1 0 -4 0 1 -1
+box -91 1591 1629 2266
+<< labels >>
+flabel metal1 3375 2250 3405 2265 0 FreeSans 80 0 0 0 vin
+port 11 nsew
+flabel metal2 1590 2250 1610 2265 0 FreeSans 80 0 0 0 vref
+port 17 nsew
+flabel metal2 -195 2250 -155 2265 0 FreeSans 80 0 0 0 vcm
+<< end >>
