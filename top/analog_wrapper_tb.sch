@@ -5,76 +5,84 @@ K {}
 V {}
 S {}
 E {}
-N 300 -290 510 -290 { lab=#net1}
-N 590 -290 590 -250 { lab=#net1}
-N 300 -250 430 -250 { lab=GND}
-N 510 -250 510 -150 { lab=GND}
-N 510 -150 780 -150 { lab=GND}
-N 780 -190 780 -150 { lab=GND}
-N 690 -190 690 -150 { lab=GND}
-N 590 -190 590 -150 { lab=GND}
-N 300 -210 400 -210 { lab=#net2}
-N 480 -270 480 -210 { lab=#net2}
-N 480 -270 690 -270 { lab=#net2}
-N 690 -270 690 -250 { lab=#net2}
-N 300 10 450 10 { lab=#net3}
-N 850 -270 850 0 { lab=io_analog[4]}
-N 780 -270 850 -270 { lab=io_analog[4]}
-N 780 -270 780 -250 { lab=io_analog[4]}
-N 300 30 470 30 { lab=#net4}
-N 300 50 410 50 { lab=#net5}
-N 530 10 660 10 { lab=io_analog[10:0]}
-N 510 -290 590 -290 { lab=#net1}
-N 430 -250 510 -250 { lab=GND}
-N 400 -210 480 -210 { lab=#net2}
-N 460 10 530 10 { lab=io_analog[10:0]}
-N 670 0 850 -0 { lab=io_analog[4]}
-N 300 -270 400 -270 { lab=#net6}
-N 300 -230 400 -230 { lab=#net7}
-N 300 -190 400 -190 { lab=#net8}
-N 300 -190 400 -190 { lab=#net8}
-N 300 -170 400 -170 { lab=#net9}
-N 290 -150 390 -150 { lab=#net10}
-N 290 -130 390 -130 { lab=#net11}
-N 290 -110 390 -110 { lab=#net12}
-N 300 -90 400 -90 { lab=#net13}
-N 300 -10 400 -10 { lab=#net14}
-N 300 70 400 70 { lab=#net15}
-N -60 -290 -0 -290 { lab=#net16}
-N -60 -270 0 -270 { lab=#net17}
-N -60 -250 0 -250 { lab=#net18}
-N -60 -230 0 -230 { lab=#net19}
-N -60 -210 0 -210 { lab=#net20}
-N -60 -210 0 -210 { lab=#net20}
-N -60 -190 0 -190 { lab=#net21}
-N -60 -190 0 -190 { lab=#net21}
-N -60 -170 0 -170 { lab=#net22}
-N -60 -150 0 -150 { lab=#net23}
-N -60 -130 0 -130 { lab=#net24}
-N -60 -110 0 -110 { lab=#net25}
-N -60 -90 0 -90 { lab=#net26}
-N -60 -70 0 -70 { lab=#net27}
-N -60 -50 0 -50 { lab=#net28}
-N 300 -70 400 -70 {
-lab=#net29}
-N 300 -50 400 -50 {
-lab=#net30}
-N 300 -30 400 -30 {
-lab=#net31}
-C {devices/vsource.sym} 590 -220 0 0 {name=V1 value="PWL(0.0 0 400u 0 5.4m 3.3)"}
-C {devices/vsource.sym} 690 -220 0 0 {name=V2 value="PWL(0.0 0 300u 0 5.3 1.8)"}
-C {devices/vsource.sym} 780 -220 0 0 {name=V3 value="PWL(0.0 0 100u 0 5m 3.3)"}
-C {devices/bus_connect.sym} 660 10 1 1 {name=l1 lab=io_analog[4]}
-C {devices/gnd.sym} 730 -150 0 0 {name=l2 lab=GND}
-C {devices/lab_pin.sym} 570 10 0 0 {name=l12 sig_type=std_logic lab=io_analog[10:0]}
-C {devices/code.sym} 920 -130 0 0 {name=TT_MODELS only_toplevel=false
-format="tcleval(@value )" value=".lib \\\\$::SKYWATER_MODELS\\\\/sky130.lib.spice tt
-.include \\\\$::PDKPATH\\\\/libs.ref/sky130_fd_sc_hvl/spice/sky130_fd_sc_hvl.spice"}
-C {devices/code_shown.sym} 1100 -130 0 0 {name=s1
-only_toplevel=false
-value=".control
-tran 10u 20m
-plot V(\\"io_out[11]\\") V(\\"io_out[12]\\") V(\\"io_out[15]\\") V(\\"io_out[16]\\")
-+ V(\\"gpio_analog[3]\\") V(\\"gpio_analog[7]\\")
-.endc"}
-C {/foss/designs/user_analog_project_wrapper.sym} 150 -110 0 0 {name=x2}
+N -90 -530 -90 -520 {
+lab=GND}
+N -150 -650 -150 -630 {
+lab=vcm}
+N -90 -630 -30 -630 {
+lab=vcm}
+N -30 -650 -30 -630 {
+lab=vcm}
+N -90 -630 -90 -590 {
+lab=vcm}
+N -150 -630 -90 -630 {
+lab=vcm}
+N 720 -660 720 -650 {
+lab=avdd}
+N 720 -590 720 -580 {
+lab=ibsnk_1u}
+C {vsource.sym} 620 -620 0 0 {name=Vdd8 value="pulse(1.8 0 1n 1n 1n 50n 100u 1)" savecurrent=false}
+C {gnd.sym} 620 -590 0 0 {name=l6 lab=GND}
+C {vsource.sym} 540 -620 0 0 {name=Vdd4 value="pulse(0 1.8 0.1n 0.1n 1n 500n 1u)" savecurrent=false}
+C {gnd.sym} 540 -590 0 0 {name=l7 lab=GND}
+C {lab_pin.sym} 540 -650 1 0 {name=p98 sig_type=std_logic lab=clk}
+C {lab_pin.sym} 620 -650 1 0 {name=p99 sig_type=std_logic lab=rst_n}
+C {devices/code.sym} -70 -910 0 0 {name=TT_MODELS
+only_toplevel=true
+format="tcleval(@value )"
+value=".lib $::SKYWATER_MODELS/sky130.lib.spice tt
+.include $::SKYWATER_STDCELLS/sky130_fd_sc_hd.spice
+"
+spice_ignore=false
+place=header}
+C {devices/code_shown.sym} 90 -1070 0 0 {name=STIMULI
+only_toplevel=true
+value="
+.tran 10n 10u
+.save all
+.param vdiff = 800m
+.control
+set num_threads=12
+run
+plot x1.comp_p x1.comp_m
+plot dout0+2 dout1+4 dout2+6 dout3+8 dout4+10 dout5+12 dout6+14 dout7+16 data_rdy+18
+set wr_singlescale
+set wr_vecnames
+wrdata sar_tb5.txt x1.comp_p x1.comp_m dout0 dout1 dout2 dout3 dout4 dout5 dout6 dout7 data_rdy vinp vinm
+.endc
+"}
+C {code.sym} -210 -910 0 0 {name=SWITCH1 only_toplevel=false value=".model SWITCH1 sw vt=0.9 vh=0 ron=1 roff =100G"}
+C {vsource.sym} 450 -620 0 0 {name=Vdd1 value=1.8 savecurrent=false}
+C {gnd.sym} 450 -590 0 0 {name=l3 lab=GND}
+C {lab_pin.sym} 450 -650 1 0 {name=p107 sig_type=std_logic lab=vref}
+C {devices/vsource.sym} -90 -560 0 0 {name=V_VCM_2 value=0.9}
+C {devices/gnd.sym} -90 -520 0 0 {name=l10 lab=GND}
+C {devices/lab_pin.sym} -90 -600 0 0 {name=l11 sig_type=std_logic lab=vcm}
+C {devices/vsource.sym} -150 -680 0 0 {name=V_VCM_1 value="sin(0 800m 9.86328125k 0)"}
+C {devices/vsource.sym} -30 -680 2 1 {name=V_VCM_3 value="sin(0 800m 9.86328125k 0)"}
+C {lab_pin.sym} -30 -710 1 0 {name=p21 sig_type=std_logic lab=vinm}
+C {lab_pin.sym} -150 -710 1 0 {name=p22 sig_type=std_logic lab=vinp}
+C {isource.sym} 720 -620 0 0 {name=I0 value=1u}
+C {lab_wire.sym} 720 -660 1 0 {name=p46 sig_type=std_logic lab=avdd
+
+}
+C {lab_wire.sym} 720 -580 2 0 {name=p50 sig_type=std_logic lab=ibsnk_1u
+
+}
+C {vsource.sym} 210 -620 0 0 {name=Vdd2 value=1.8 savecurrent=false}
+C {gnd.sym} 210 -590 0 0 {name=l4 lab=GND}
+C {lab_pin.sym} 210 -650 1 0 {name=p1 sig_type=std_logic lab=dvdd}
+C {vsource.sym} 130 -620 0 0 {name=Vdd3 value=0 savecurrent=false}
+C {gnd.sym} 130 -590 0 0 {name=l5 lab=GND
+value=0}
+C {lab_pin.sym} 130 -650 1 0 {name=p4 sig_type=std_logic lab=dvss
+value=0}
+C {vsource.sym} 370 -620 0 0 {name=Vdd6 value=1.8 savecurrent=false}
+C {gnd.sym} 370 -590 0 0 {name=l1 lab=GND}
+C {lab_pin.sym} 370 -650 1 0 {name=p65 sig_type=std_logic lab=avdd}
+C {vsource.sym} 290 -620 0 0 {name=Vdd7 value=0 savecurrent=false}
+C {gnd.sym} 290 -590 0 0 {name=l8 lab=GND
+value=0}
+C {lab_pin.sym} 290 -650 1 0 {name=p66 sig_type=std_logic lab=avss
+value=0}
+C {/foss/designs/user_analog_project_wrapper.sym} 600 -220 0 0 {name=x2}

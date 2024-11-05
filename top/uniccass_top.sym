@@ -50,14 +50,14 @@ B 5 -152.5 -182.5 -147.5 -177.5 {name=M_CLK dir=in}
 B 5 147.5 -122.5 152.5 -117.5 {name=M_AVDD dir=inout}
 B 5 -152.5 -162.5 -147.5 -157.5 {name=M_IBSNK_1U dir=in}
 B 5 -152.5 -142.5 -147.5 -137.5 {name=M_RST_N dir=in}
-B 5 -152.5 -122.5 -147.5 -117.5 {name=M_VREF dir=in}
+B 5 -152.5 -122.5 -147.5 -117.5 {name=M_VREFP dir=in}
 B 5 -152.5 -102.5 -147.5 -97.5 {name=M_VINP dir=in}
 B 5 147.5 -102.5 152.5 -97.5 {name=M_DATA_RDY dir=out}
 B 5 -152.5 -82.5 -147.5 -77.5 {name=M_VCM dir=in}
 B 5 147.5 -82.5 152.5 -77.5 {name=M_DOUT[7..0] dir=out}
 B 5 147.5 -62.5 152.5 -57.5 {name=M_COMP_OUT dir=out}
 B 5 -152.5 -62.5 -147.5 -57.5 {name=M_VINM dir=in}
-B 5 -152.5 -42.5 -147.5 -37.5 {name=M_VREF dir=in}
+B 5 -152.5 -42.5 -147.5 -37.5 {name=M_VREFM dir=in}
 B 5 -152.5 -2.5 -147.5 2.5 {name=A_VDDR sig_type=std_logic dir=in}
 B 5 147.5 -2.5 152.5 2.5 {name=A_DOUT[0:9] sig_type=std_logic dir=out}
 B 5 -152.5 17.5 -147.5 22.5 {name=A_VDDA sig_type=std_logic dir=in}
@@ -82,14 +82,14 @@ T {M_CLK} -125 -184 0 0 0.2 0.2 {}
 T {M_AVDD} 125 -124 0 1 0.2 0.2 {}
 T {M_IBSNK_1U} -125 -164 0 0 0.2 0.2 {}
 T {M_RST_N} -125 -144 0 0 0.2 0.2 {}
-T {M_VREF} -125 -124 0 0 0.2 0.2 {}
+T {M_VREFP} -125 -124 0 0 0.2 0.2 {}
 T {M_VINP} -125 -104 0 0 0.2 0.2 {}
 T {M_DATA_RDY} 125 -104 0 1 0.2 0.2 {}
 T {M_VCM} -125 -84 0 0 0.2 0.2 {}
 T {M_DOUT[7..0]} 125 -84 0 1 0.2 0.2 {}
 T {M_COMP_OUT} 125 -64 0 1 0.2 0.2 {}
 T {M_VINM} -125 -64 0 0 0.2 0.2 {}
-T {M_VREF} -125 -44 0 0 0.2 0.2 {}
+T {M_VREFM} -125 -44 0 0 0.2 0.2 {}
 T {A_VDDR} -125 -4 0 0 0.2 0.2 {}
 T {A_DOUT[0:9]} 125 -4 0 1 0.2 0.2 {}
 T {A_VDDA} -125 16 0 0 0.2 0.2 {}

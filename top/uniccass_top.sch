@@ -30,7 +30,7 @@ C {ipin.sym} -160 210 2 1 {name=p87 lab=M_VINM
 }
 C {ipin.sym} -200 170 2 1 {name=p88 lab=M_VCM
 }
-C {ipin.sym} -130 100 2 1 {name=p89 lab=M_VREF
+C {ipin.sym} -130 100 2 1 {name=p89 lab=M_VREFP
 }
 C {ipin.sym} 40 50 3 1 {name=p91 lab=M_IBSNK_1U
 }
@@ -50,7 +50,7 @@ C {devices/ipin.sym} -140 470 0 0 {name=p49 sig_type=std_logic lab=A_EN}
 C {devices/opin.sym} 160 430 0 0 {name=p50 sig_type=std_logic lab=A_COMP_P}
 C {devices/opin.sym} 160 450 0 0 {name=p51 sig_type=std_logic lab=A_COMP_N}
 C {iopin.sym} 60 50 3 0 {name=p2 lab=M_AVDD}
-C {ipin.sym} -130 240 2 1 {name=p3 lab=M_VREF
+C {ipin.sym} -130 240 2 1 {name=p3 lab=M_VREFM
 }
 C {opin.sym} 160 190 2 1 {name=p5 lab=M_COMP_OUT
 }

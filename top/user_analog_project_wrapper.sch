@@ -178,3 +178,9 @@ C {lab_pin.sym} 3740 20 0 0 {name=p59 sig_type=std_logic lab=vssd1}
 C {lab_pin.sym} 3740 -100 0 0 {name=p60 sig_type=std_logic lab=io_in[0]}
 C {noconn.sym} 4040 -140 2 0 {name=l12}
 C {noconn.sym} 4040 -120 2 0 {name=l1}
+C {noconn.sym} 3280 80 0 0 {name=l2}
+C {noconn.sym} 3280 110 0 0 {name=l3}
+C {noconn.sym} 3280 180 0 0 {name=l4}
+C {noconn.sym} 3280 320 0 0 {name=l5}
+C {noconn.sym} 3280 350 0 0 {name=l6}
+C {noconn.sym} 3270 600 0 0 {name=l7}
