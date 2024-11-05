@@ -1,0 +1,177 @@
+** sch_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/tcmp.sch
+**.subckt tcmp
+V1 vssa GND 0
+V2 vdda vssa {VDDA}
+V3 start vssa PULSE(0 {VDDD} 10n 50p 50p 1u 2u)
+V4 vinp vssa PWL(0 {VINP_start}, {t_ramp} {VINP_end})
+V5 vinn vssa {VIN_nominal}
+V6 vddd vssa {VDDD}
+.param VDDA=1.8 VDDD=1.8 VIN_nominal=0.9 VINP_start=0.5 VINP_end=1.3 t_ramp=0.5m
+
+x1 vddd start vinp vinn vssa outp outn rdy tdc
+**** begin user architecture code
+
+** opencircuitdesign pdks install
+.lib /usr/local/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt_mm
+.include /usr/local/share/pdk/sky130A/libs.ref/sky130_fd_sc_hd/spice/sky130_fd_sc_hd.spice
+
+
+
+.option wnflag=1
+.option savecurrents
+.options chgtol=1e-11 abstol=10u
+.control
+tran 1n 0.5m uic
+remzerovec
+write tcmp.raw
+quit 0
+.endc
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  tdc.sym # of pins=8
+** sym_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/tdc.sym
+** sch_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/tdc.sch
+.subckt tdc vdda start vinp vinn vssa outp outn rdy
+*.ipin vinn
+*.ipin vinp
+*.ipin vdda
+*.ipin vssa
+*.ipin start
+*.opin outp
+*.opin outn
+*.opin rdy
+x1 vdda inp inn vssa outp outn phase_detector
+x4 net1 vssa vssa vdda vdda inn sky130_fd_sc_hd__inv_8
+x5 net2 vssa vssa vdda vdda inp sky130_fd_sc_hd__inv_8
+x2 start net1 vinp vinn vdda vssa delay_element
+x3 start net2 vinn vinp vdda vssa delay_element
+x7 inn inp vssa vssa vdda vdda rdy sky130_fd_sc_hd__or2_1
+.ends
+
+
+* expanding   symbol:  phase_detector.sym # of pins=6
+** sym_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/phase_detector.sym
+** sch_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/phase_detector.sch
+.subckt phase_detector VDDA INP INN VSSA OUT OUTN
+*.ipin VDDA
+*.ipin INP
+*.ipin INN
+*.ipin VSSA
+*.opin OUT
+*.opin OUTN
+X0 out outn a_n89_546# vssa sky130_fd_pr__nfet_01v8 ad=0.169 pd=1.82 as=0.08775 ps=0.92 w=0.65 l=0.15
+X1 a_n89_546# x1.B vssa vssa sky130_fd_pr__nfet_01v8 ad=0.08775 pd=0.92 as=0.169 ps=1.82 w=0.65 l=0.15
+X2 a_610_569# inn x2.A vdda sky130_fd_pr__pfet_01v8 ad=0.87 pd=6.58 as=0.87 ps=6.58 w=3 l=0.15
+X3 vdda inp a_610_569# vdda sky130_fd_pr__pfet_01v8 ad=0.87 pd=6.58 as=0.87 ps=6.58 w=3 l=0.15
+X4 vdda x2.A outn vdda sky130_fd_pr__pfet_01v8_hvt ad=0.26 pd=2.52 as=0.135 ps=1.27 w=1 l=0.15
+X5 a_n1059_569# inp x1.B vdda sky130_fd_pr__pfet_01v8 ad=0.87 pd=6.58 as=0.87 ps=6.58 w=3 l=0.15
+X6 vdda x1.B x2.A vdda sky130_fd_pr__pfet_01v8 ad=0.87 pd=6.58 as=0.87 ps=6.58 w=3 l=0.15
+X7 vdda inn a_n1059_569# vdda sky130_fd_pr__pfet_01v8 ad=0.87 pd=6.58 as=0.87 ps=6.58 w=3 l=0.15
+X8 outn out vdda vdda sky130_fd_pr__pfet_01v8_hvt ad=0.135 pd=1.27 as=0.26 ps=2.52 w=1 l=0.15
+X9 x1.B x2.A a_n857_n535# vssa sky130_fd_pr__nfet_01v8 ad=0.29 pd=2.58 as=0.29 ps=2.58 w=1 l=0.15
+X10 vdda x2.A x1.B vdda sky130_fd_pr__pfet_01v8 ad=0.87 pd=6.58 as=0.87 ps=6.58 w=3 l=0.15
+X11 x2.A x1.B a_808_n535# vssa sky130_fd_pr__nfet_01v8 ad=0.29 pd=2.58 as=0.29 ps=2.58 w=1 l=0.15
+X12 a_n857_n535# inp vssa vssa sky130_fd_pr__nfet_01v8 ad=0.29 pd=2.58 as=0.29 ps=2.58 w=1 l=0.15
+X13 vdda outn out vdda sky130_fd_pr__pfet_01v8_hvt ad=0.26 pd=2.52 as=0.135 ps=1.27 w=1 l=0.15
+X14 outn x2.A a_187_546# vssa sky130_fd_pr__nfet_01v8 ad=0.169 pd=1.82 as=0.08775 ps=0.92 w=0.65 l=0.15
+X15 a_808_n535# inn vssa vssa sky130_fd_pr__nfet_01v8 ad=0.29 pd=2.58 as=0.29 ps=2.58 w=1 l=0.15
+X16 out x1.B vdda vdda sky130_fd_pr__pfet_01v8_hvt ad=0.135 pd=1.27 as=0.26 ps=2.52 w=1 l=0.15
+X17 a_187_546# out vssa vssa sky130_fd_pr__nfet_01v8 ad=0.08775 pd=0.92 as=0.169 ps=1.82 w=0.65 l=0.15
+C0 x2.A vdda 1.88973f
+C1 inp a_n1059_569# 0.263141f
+C2 a_n1059_569# vdda 0.97384f
+C3 inp outn 0.121009f
+C4 vdda outn 0.477044f
+C5 out inn 0.025555f
+C6 a_808_n535# x2.A 0.165659f
+C7 x2.A outn 0.198007f
+C8 a_610_569# inn 0.207205f
+C9 a_n857_n535# x1.B 0.165659f
+C10 x1.B inn 0.138559f
+C11 x1.B out 0.143862f
+C12 inp a_n857_n535# 0.056944f
+C13 inp inn 0.841938f
+C14 vdda inn 1.66061f
+C15 a_n857_n535# x2.A 0.033932f
+C16 inp out 0.134189f
+C17 x2.A inn 0.523057f
+C18 vdda out 0.326948f
+C19 a_n1059_569# inn 0.186684f
+C20 a_187_546# outn 0.010318f
+C21 x2.A out 0.075682f
+C22 inp a_610_569# 0.066081f
+C23 a_808_n535# inn 0.056987f
+C24 inn outn 0.146088f
+C25 a_610_569# vdda 0.979324f
+C26 inp x1.B 0.390091f
+C27 x1.B vdda 1.94719f
+C28 a_610_569# x2.A 0.490671f
+C29 out outn 0.411906f
+C30 x1.B x2.A 1.24374f
+C31 x1.B a_n1059_569# 0.49999f
+C32 inp vdda 1.13575f
+C33 a_808_n535# x1.B 0.033932f
+C34 inp x2.A 0.252934f
+C35 x1.B outn 0.114918f
+C36 inp vssa 1.24156f
+C37 inn vssa 1.49609f
+C38 out vssa 0.617867f
+C39 outn vssa 0.424835f
+C40 vdda vssa 10.0981f
+C41 a_808_n535# vssa 0.42397f $ **FLOATING
+C42 a_n857_n535# vssa 0.423957f $ **FLOATING
+C43 a_610_569# vssa 0.08632f $ **FLOATING
+C44 a_n1059_569# vssa 0.067076f $ **FLOATING
+C45 x2.A vssa 1.59791f $ **FLOATING
+C46 x1.B vssa 1.46174f $ **FLOATING
+.ends
+
+
+* expanding   symbol:  delay_element.sym # of pins=6
+** sym_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/delay_element.sym
+** sch_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/delay_element.sch
+.subckt delay_element IN OUT VIP VIN VDD VSS
+*.ipin VDD
+*.ipin VIN
+*.ipin IN
+*.ipin VSS
+*.opin OUT
+*.ipin VIP
+X0 out a_31_n1616# vdd vdd sky130_fd_pr__pfet_01v8_lvt ad=1.74 pd=12.58 as=1.74 ps=12.58 w=6 l=15
+X1 a_6375_n1616# vin vss vss sky130_fd_pr__nfet_01v8_lvt ad=0.58 pd=4.58 as=0.58 ps=4.58 w=2 l=15
+X2 out a_31_n1616# a_6375_n1616# vss sky130_fd_pr__nfet_01v8_lvt ad=0.58 pd=4.58 as=0.58 ps=4.58 w=2 l=15
+X3 vss in a_31_n1616# vss sky130_fd_pr__nfet_01v8_lvt ad=0.58 pd=4.58 as=0.58 ps=4.58 w=2 l=15
+X4 a_3090_n244# in a_31_n1616# vdd sky130_fd_pr__pfet_01v8_lvt ad=1.74 pd=12.58 as=1.74 ps=12.58 w=6 l=15
+X5 vdd vip a_3090_n244# vdd sky130_fd_pr__pfet_01v8_lvt ad=1.74 pd=12.58 as=1.74 ps=12.58 w=6 l=15
+C0 a_31_n1616# vin 0.963147f
+C1 in vin 1.12606f
+C2 a_31_n1616# a_6375_n1616# 0.169373f
+C3 vdd vip 7.433569f
+C4 vdd a_31_n1616# 6.8485f
+C5 vdd in 5.96514f
+C6 a_6375_n1616# vin 0.117979f
+C7 a_3090_n244# vip 0.41814f
+C8 vdd out 0.585541f
+C9 vdd vin 0.035251f
+C10 a_31_n1616# a_3090_n244# 0.020764f
+C11 in a_3090_n244# 0.289501f
+C12 a_31_n1616# vip 0.202383f
+C13 in vip 1.35686f
+C14 in a_31_n1616# 3.37637f
+C15 vdd a_3090_n244# 0.977304f
+C16 vip vin 0.217406f
+C17 a_31_n1616# out 0.479286f
+C18 vin vss 11.7144f
+C19 out vss 1.23774f
+C20 vip vss 4.93206f
+C21 in vss 13.5862f
+C22 vdd vss 57.480606f
+C23 a_6375_n1616# vss 0.825713f $ **FLOATING
+C24 a_3090_n244# vss 1.12016f $ **FLOATING
+C25 a_31_n1616# vss 15.8812f $ **FLOATING
+.ends
+
+.GLOBAL GND
+.end

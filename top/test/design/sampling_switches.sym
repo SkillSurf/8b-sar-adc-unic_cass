@@ -1,0 +1,46 @@
+v {xschem version=3.4.5 file_version=1.2
+}
+G {}
+K {type=subcircuit
+format="@name @pinlist @symname"
+template="name=x1"
+}
+V {}
+S {}
+E {}
+L 4 -130 -20 -110 -20 {}
+L 4 120 -50 140 -50 {}
+L 4 -130 -50 -110 -50 {}
+L 4 -130 40 -110 40 {}
+L 4 120 -30 140 -30 {}
+L 4 120 -10 140 -10 {}
+L 4 120 10 140 10 {}
+L 4 20 -100 20 -80 {}
+L 7 120 40 140 40 {}
+L 7 -20 -100 -20 -80 {}
+L 7 0 60 0 80 {}
+B 5 -132.5 -22.5 -127.5 -17.5 {name=vin_x dir=in}
+B 5 137.5 37.5 142.5 42.5 {name=sub_sample dir=inout}
+B 5 137.5 -52.5 142.5 -47.5 {name=smpl dir=in}
+B 5 -132.5 -52.5 -127.5 -47.5 {name=vref dir=in}
+B 5 -132.5 37.5 -127.5 42.5 {name=vcm dir=in}
+B 5 137.5 -32.5 142.5 -27.5 {name=smpl_out_n dir=in}
+B 5 137.5 -12.5 142.5 -7.5 {name=smpl_n_d12 dir=in}
+B 5 137.5 7.5 142.5 12.5 {name=smpl_n_d12_out_n dir=in}
+B 5 -22.5 -102.5 -17.5 -97.5 {name=vdd dir=inout}
+B 5 17.5 -102.5 22.5 -97.5 {name=Vin dir=out}
+B 5 -2.5 77.5 2.5 82.5 {name=com_x dir=inout}
+P 4 5 -110 -80 120 -80 120 60 -110 60 -110 -80 {}
+T {Sampling_swiches} -64.5 -16 0 0 0.3 0.3 {}
+T {@name} 135 -92 0 0 0.2 0.2 {}
+T {vin_x} -105 -24 0 0 0.2 0.2 {}
+T {sub_sample} 105 36 0 1 0.2 0.2 {}
+T {smpl} 105 -46 2 0 0.2 0.2 {}
+T {vref} -105 -54 0 0 0.2 0.2 {}
+T {vcm} -105 36 0 0 0.2 0.2 {}
+T {smpl_out_n} 105 -26 2 0 0.2 0.2 {}
+T {smpl_n_d12} 105 -6 2 0 0.2 0.2 {}
+T {smpl_n_d12_out_n} 105 14 2 0 0.2 0.2 {}
+T {vdd} -24 -75 3 1 0.2 0.2 {}
+T {Vin} 16 -75 3 1 0.2 0.2 {}
+T {com_x} 4 55 1 1 0.2 0.2 {}

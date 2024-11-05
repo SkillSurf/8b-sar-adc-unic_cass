@@ -1,0 +1,64 @@
+v {xschem version=3.4.5 file_version=1.2
+}
+G {}
+K {type=subcircuit
+format="@name @pinlist @symname"
+template="name=x1"
+spice_sym_def=".include sar.spice"
+}
+V {}
+S {}
+E {}
+L 4 -130 -70 130 -70 {}
+L 4 -130 90 130 90 {}
+L 4 -130 -70 -130 90 {}
+L 4 130 -70 130 90 {}
+L 4 -150 -60 -130 -60 {}
+L 4 -150 -40 -130 -40 {}
+L 4 -150 -20 -130 -20 {}
+L 4 -150 0 -130 0 {}
+L 4 -150 20 -130 20 {}
+L 4 -150 40 -130 40 {}
+L 4 130 -60 150 -60 {}
+L 4 130 -40 150 -40 {}
+L 4 130 -20 150 -20 {}
+L 4 130 0 150 0 {}
+L 4 130 20 150 20 {}
+L 4 130 40 150 40 {}
+L 4 130 60 150 60 {}
+L 4 -150 60 -130 60 {}
+L 4 -150 80 -130 80 {}
+B 5 -152.5 -62.5 -147.5 -57.5 {name=VDDD sig_type=std_logic dir=in}
+B 5 -152.5 -42.5 -147.5 -37.5 {name=EN sig_type=std_logic dir=in}
+B 5 -152.5 -22.5 -147.5 -17.5 {name=CLK sig_type=std_logic dir=in}
+B 5 -152.5 -2.5 -147.5 2.5 {name=COMP_P sig_type=std_logic dir=in}
+B 5 -152.5 17.5 -147.5 22.5 {name=COMP_N sig_type=std_logic dir=in}
+B 5 -152.5 37.5 -147.5 42.5 {name=VSSD sig_type=std_logic dir=in}
+B 5 147.5 -62.5 152.5 -57.5 {name=CLKS sig_type=std_logic dir=out}
+B 5 147.5 -42.5 152.5 -37.5 {name=CLKSB sig_type=std_logic dir=out}
+B 5 147.5 -22.5 152.5 -17.5 {name=CF[0:9] sig_type=std_logic dir=out}
+B 5 147.5 -2.5 152.5 2.5 {name=SWP[0:9] sig_type=std_logic dir=out}
+B 5 147.5 17.5 152.5 22.5 {name=SWN[0:9] sig_type=std_logic dir=out}
+B 5 147.5 37.5 152.5 42.5 {name=DOUT[0:9] sig_type=std_logic dir=out}
+B 5 147.5 57.5 152.5 62.5 {name=CKO sig_type=std_logic dir=out}
+B 5 -152.5 57.5 -147.5 62.5 {name=VPWR
+dir=inout}
+B 5 -152.5 77.5 -147.5 82.5 {name=VGND
+dir=inout}
+T {@symname} -31.5 -6 0 0 0.3 0.3 {}
+T {@name} 135 -82 0 0 0.2 0.2 {}
+T {VDDD} -125 -64 0 0 0.2 0.2 {}
+T {EN} -125 -44 0 0 0.2 0.2 {}
+T {CLK} -125 -24 0 0 0.2 0.2 {}
+T {COMP_P} -125 -4 0 0 0.2 0.2 {}
+T {COMP_N} -125 16 0 0 0.2 0.2 {}
+T {VSSD} -125 36 0 0 0.2 0.2 {}
+T {CLKS} 125 -64 0 1 0.2 0.2 {}
+T {CLKSB} 125 -44 0 1 0.2 0.2 {}
+T {CF[0:9]} 125 -24 0 1 0.2 0.2 {}
+T {SWP[0:9]} 125 -4 0 1 0.2 0.2 {}
+T {SWN[0:9]} 125 16 0 1 0.2 0.2 {}
+T {DOUT[0:9]} 125 36 0 1 0.2 0.2 {}
+T {CKO} 125 56 0 1 0.2 0.2 {}
+T {VPWR} -125 56 0 0 0.2 0.2 {}
+T {VGND} -125 76 0 0 0.2 0.2 {}

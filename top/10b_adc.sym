@@ -1,0 +1,56 @@
+v {xschem version=3.4.5 file_version=1.2}
+K {type=subcircuit
+format="@name @pinlist @symname"
+template="name=x1"
+}
+T {@symname} -49.5 -6 0 0 0.3 0.3 {}
+T {@name} 135 -122 0 0 0.2 0.2 {}
+L 4 -130 -110 130 -110 {}
+L 4 -130 110 130 110 {}
+L 4 -130 -110 -130 110 {}
+L 4 130 -110 130 110 {}
+B 5 -152.5 -102.5 -147.5 -97.5 {name=VDDR sig_type=std_logic dir=in}
+L 4 -150 -100 -130 -100 {}
+T {VDDR} -125 -104 0 0 0.2 0.2 {}
+B 5 -152.5 -82.5 -147.5 -77.5 {name=VDDA sig_type=std_logic dir=in}
+L 4 -150 -80 -130 -80 {}
+T {VDDA} -125 -84 0 0 0.2 0.2 {}
+B 5 -152.5 -62.5 -147.5 -57.5 {name=VDDD sig_type=std_logic dir=in}
+L 4 -150 -60 -130 -60 {}
+T {VDDD} -125 -64 0 0 0.2 0.2 {}
+B 5 -152.5 -42.5 -147.5 -37.5 {name=VCM sig_type=std_logic dir=in}
+L 4 -150 -40 -130 -40 {}
+T {VCM} -125 -44 0 0 0.2 0.2 {}
+B 5 -152.5 -22.5 -147.5 -17.5 {name=EN sig_type=std_logic dir=in}
+L 4 -150 -20 -130 -20 {}
+T {EN} -125 -24 0 0 0.2 0.2 {}
+B 5 -152.5 -2.5 -147.5 2.5 {name=CLK sig_type=std_logic dir=in}
+L 4 -150 0 -130 0 {}
+T {CLK} -125 -4 0 0 0.2 0.2 {}
+B 5 -152.5 17.5 -147.5 22.5 {name=VIP sig_type=std_logic dir=in}
+L 4 -150 20 -130 20 {}
+T {VIP} -125 16 0 0 0.2 0.2 {}
+B 5 -152.5 37.5 -147.5 42.5 {name=VIN sig_type=std_logic dir=in}
+L 4 -150 40 -130 40 {}
+T {VIN} -125 36 0 0 0.2 0.2 {}
+B 5 -152.5 57.5 -147.5 62.5 {name=VSSR sig_type=std_logic dir=in}
+L 4 -150 60 -130 60 {}
+T {VSSR} -125 56 0 0 0.2 0.2 {}
+B 5 -152.5 77.5 -147.5 82.5 {name=VSSA sig_type=std_logic dir=in}
+L 4 -150 80 -130 80 {}
+T {VSSA} -125 76 0 0 0.2 0.2 {}
+B 5 -152.5 97.5 -147.5 102.5 {name=VSSD sig_type=std_logic dir=in}
+L 4 -150 100 -130 100 {}
+T {VSSD} -125 96 0 0 0.2 0.2 {}
+B 5 147.5 -102.5 152.5 -97.5 {name=DOUT[0:9] sig_type=std_logic dir=out}
+L 4 130 -100 150 -100 {}
+T {DOUT[0:9]} 125 -104 0 1 0.2 0.2 {}
+B 5 147.5 -82.5 152.5 -77.5 {name=CKO sig_type=std_logic dir=out}
+L 4 130 -80 150 -80 {}
+T {CKO} 125 -84 0 1 0.2 0.2 {}
+B 5 147.5 -62.5 152.5 -57.5 {name=COMP_P sig_type=std_logic dir=out}
+L 4 130 -60 150 -60 {}
+T {COMP_P} 125 -64 0 1 0.2 0.2 {}
+B 5 147.5 -42.5 152.5 -37.5 {name=COMP_N sig_type=std_logic dir=out}
+L 4 130 -40 150 -40 {}
+T {COMP_N} 125 -44 0 1 0.2 0.2 {}

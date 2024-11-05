@@ -1,0 +1,1676 @@
+** sch_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/adc_tb.sch
+**.subckt adc_tb
+VS VSSA GND 0
+VDA VDDA VSSA 1.8
+VDD VDDD VSSD 1.8
+VC VCM VSSR 0.9
+VSS1 net2 net1 SIN(0 0.9 1k)
+VSS2 net3 net1 SIN(0 -0.9 1k)
+VSS3 net1 VSSR 0.9
+VCLK CLK VSSD PULSE(0 1.8 10n 50p 50p 1u 2u)
+x1 VDDR VDDA VDDD VCM EN CLK VIP VIN VSSR VSSA VSSD DOUT[0] DOUT[1] DOUT[2] DOUT[3] DOUT[4] DOUT[5] DOUT[6] DOUT[7] DOUT[8]
++ DOUT[9] CKO COMP_P COMP_N 10b_adc
+R1 VIP net2 50 m=1
+R2 VIN net3 50 m=1
+VS1 VSSD GND 0
+VS2 VSSR GND 0
+VDR VDDR VSSR 1.8
+VCLK1 EN VSSD PWL(0 0, 1u 0, 1.01u 1.8)
+**** begin user architecture code
+
+** opencircuitdesign pdks install
+* .lib /usr/local/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+.include /usr/local/share/pdk/sky130A/libs.ref/sky130_fd_sc_hd/spice/sky130_fd_sc_hd.spice
+
+
+
+.option wnflag=0
+.option savecurrents
+.options acct list
+.options method=trapezoid
+.options reltol=1e-3 abstol=1e-4
+.options maxstep=10n
+.options minbreak=1n
+.options solver=iterative
+.control
+global netlist_dir .
+set wr_singlescale
+save
++ clk
++ vip
++ vin
++ x1.vcp
++ x1.vcn
++ x1.comp_p
++ x1.clks
++ 'dout[0]'
++ 'dout[1]'
++ 'dout[2]'
++ 'dout[3]'
++ 'dout[4]'
++ 'dout[5]'
++ 'dout[6]'
++ 'dout[7]'
++ 'dout[8]'
++ 'dout[9]'
++ cko
+tran 10n 60u
+remzerovec
+write adc_tb.raw
+.endc
+
+.lib /usr/local/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  10b_adc.sym # of pins=15
+** sym_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/10b_adc.sym
+** sch_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/10b_adc.sch
+.subckt 10b_adc VDDR VDDA VDDD VCM EN CLK VIP VIN VSSR VSSA VSSD DOUT[0] DOUT[1] DOUT[2] DOUT[3] DOUT[4] DOUT[5] DOUT[6] DOUT[7]
++ DOUT[8] DOUT[9] CKO COMP_P COMP_N
+*.ipin VDDA
+*.ipin VDDD
+*.ipin VCM
+*.ipin CLK
+*.ipin VIP
+*.ipin VIN
+*.ipin VSSA
+*.ipin VSSD
+*.opin DOUT[0],DOUT[1],DOUT[2],DOUT[3],DOUT[4],DOUT[5],DOUT[6],DOUT[7],DOUT[8],DOUT[9]
+*.opin CKO
+*.ipin VSSR
+*.ipin VDDR
+*.ipin EN
+*.opin COMP_P
+*.opin COMP_N
+x2 VDDA CLKSB CLKS VIP VIN VSSA VCP VCN th_sw
+x4 CF[0] CF[1] CF[2] CF[3] CF[4] CF[5] CF[6] CF[7] CF[8] CF[9] CKO CLK CLKS
++ CLKSB COMP_N COMP_P DOUT[0] DOUT[1] DOUT[2] DOUT[3] DOUT[4] DOUT[5] DOUT[6] DOUT[7]
++ DOUT[8] DOUT[9] EN SWN[0] SWN[1] SWN[2] SWN[3] SWN[4] SWN[5] SWN[6] SWN[7] SWN[8]
++ SWN[9] SWP[0] SWP[1] SWP[2] SWP[3] SWP[4] SWP[5] SWP[6] SWP[7] SWP[8] SWP[9] VDDD
++ VSSD VDDD VSSD sar
+x1 VDDR CF[0] CF[1] CF[2] CF[3] CF[4] CF[5] CF[6] CF[7] CF[8] CF[9] SWP[0] SWP[1] SWP[2] SWP[3] SWP[4] SWP[5] SWP[6] SWP[7] SWP[8]
++ SWP[9] SWN[0] SWN[1] SWN[2] SWN[3] SWN[4] SWN[5] SWN[6] SWN[7] SWN[8] SWN[9] VCM VSSR VCP VCN cdac_10b
+x3 VDDA CLK VCP VCN VSSA COMP_P COMP_N tdc
+.ends
+
+
+* expanding   symbol:  th_sw.sym # of pins=8
+** sym_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/th_sw.sym
+** sch_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/th_sw.sch
+.subckt th_sw VDDA CLKS CLKSB VIP VIN VSSA VCP VCN
+*.ipin VDDA
+*.ipin CLKS
+*.ipin CLKSB
+*.ipin VIP
+*.ipin VIN
+*.ipin VSSA
+*.iopin VCP
+*.iopin VCN
+x1 VDDA CLKS CLKSB VIP VSSA VCP bsw
+x2 VDDA CLKS CLKSB VIN VSSA VCN bsw
+.ends
+
+
+* expanding   symbol:  sar.sym # of pins=13
+** sym_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/sar.sym
+** sch_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/sar.sch
+* NGSPICE file created from sar.ext - technology: sky130A
+
+
+.subckt sar CF[0] CF[1] CF[2] CF[3] CF[4] CF[5] CF[6] CF[7] CF[8] CF[9] CKO CLK CLKS
++ CLKSB COMP_N COMP_P DOUT[0] DOUT[1] DOUT[2] DOUT[3] DOUT[4] DOUT[5] DOUT[6] DOUT[7]
++ DOUT[8] DOUT[9] EN SWN[0] SWN[1] SWN[2] SWN[3] SWN[4] SWN[5] SWN[6] SWN[7] SWN[8]
++ SWN[9] SWP[0] SWP[1] SWP[2] SWP[3] SWP[4] SWP[5] SWP[6] SWP[7] SWP[8] SWP[9] VDDD
++ VSSD
+XTAP_TAPCELL_ROW_9_148 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_9_499 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_4
+XFILLER_0_9_477 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_9_433 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XTAP_TAPCELL_ROW_9_137 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_3_609 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_6
+XTAP_TAPCELL_ROW_6_107 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_6_469 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_6
+XFILLER_0_6_277 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_3_417 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_0_29 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_3_225 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_7_597 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_7_553 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_6
+XTAP_TAPCELL_ROW_5_89 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_4_589 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_4_545 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_4_501 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_7_361 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+Xoutput7 net7 VSSD VSSD VDDD VDDD CF[5] sky130_fd_sc_hd__clkbuf_4
+Xx4.x2_8 net10 x4.COMP_BUF_N net46 VSSD VSSD VDDD VDDD net33 sky130_fd_sc_hd__dfrtp_1
+Xoutput31 net31 VSSD VSSD VDDD VDDD SWN[6] sky130_fd_sc_hd__buf_2
+Xoutput20 net20 VSSD VSSD VDDD VDDD DOUT[5] sky130_fd_sc_hd__buf_2
+Xoutput42 net42 VSSD VSSD VDDD VDDD SWP[7] sky130_fd_sc_hd__buf_2
+XTAP_TAPCELL_ROW_2_57 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XTAP_TAPCELL_ROW_9_149 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_9_489 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_4
+XFILLER_0_9_445 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+XTAP_TAPCELL_ROW_9_138 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_2_109 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_4
+XFILLER_0_3_429 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_6_289 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XPHY_EDGE_ROW_4_Left_14 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+XFILLER_0_4_83 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+Xx5.x1_0 net45 net35 net52 VSSD VSSD VDDD VDDD net15 sky130_fd_sc_hd__dfrtp_1
+XFILLER_0_3_237 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_4_557 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_4_513 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+Xhold20 net4 VSSD VSSD VDDD VDDD net73 sky130_fd_sc_hd__dlygate4sd3_1
+XFILLER_0_7_373 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_6_29 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_1_505 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XPHY_EDGE_ROW_6_Right_6 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+XFILLER_0_4_365 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_4_321 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+Xoutput8 net8 VSSD VSSD VDDD VDDD CF[6] sky130_fd_sc_hd__clkbuf_4
+Xoutput10 net10 VSSD VSSD VDDD VDDD CF[8] sky130_fd_sc_hd__clkbuf_4
+XFILLER_0_5_107 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_4
+Xx4.x2_9 net11 x4.COMP_BUF_N net48 VSSD VSSD VDDD VDDD net34 sky130_fd_sc_hd__dfrtp_1
+Xoutput32 net32 VSSD VSSD VDDD VDDD SWN[7] sky130_fd_sc_hd__buf_2
+Xoutput21 net21 VSSD VSSD VDDD VDDD DOUT[6] sky130_fd_sc_hd__buf_2
+Xoutput43 net43 VSSD VSSD VDDD VDDD SWP[8] sky130_fd_sc_hd__buf_2
+XTAP_TAPCELL_ROW_2_58 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XTAP_TAPCELL_ROW_9_139 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_3_19 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_9_29 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+Xx5.x1_1 net45 net36 net50 VSSD VSSD VDDD VDDD net16 sky130_fd_sc_hd__dfrtp_1
+XFILLER_0_3_249 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_4_569 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_4_525 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_6
+XFILLER_0_7_385 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_6
+Xhold21 net3 VSSD VSSD VDDD VDDD net74 sky130_fd_sc_hd__dlygate4sd3_1
+Xhold10 x1.net9 VSSD VSSD VDDD VDDD net63 sky130_fd_sc_hd__dlygate4sd3_1
+XFILLER_0_6_19 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_8
+XFILLER_0_4_377 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_4_333 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_0_561 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+Xoutput9 net9 VSSD VSSD VDDD VDDD CF[7] sky130_fd_sc_hd__clkbuf_4
+Xoutput11 net11 VSSD VSSD VDDD VDDD CF[9] sky130_fd_sc_hd__clkbuf_4
+Xoutput33 net33 VSSD VSSD VDDD VDDD SWN[8] sky130_fd_sc_hd__buf_2
+Xoutput22 net22 VSSD VSSD VDDD VDDD DOUT[7] sky130_fd_sc_hd__buf_2
+Xoutput44 net44 VSSD VSSD VDDD VDDD SWP[9] sky130_fd_sc_hd__buf_2
+XTAP_TAPCELL_ROW_2_59 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_0_391 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_4_141 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+XFILLER_0_2_601 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_9_299 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_8
+XFILLER_0_5_461 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_1_166 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_2
+XFILLER_0_1_144 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_2
+XFILLER_0_2_475 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_4_41 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+Xx5.x1_2 net45 net37 net50 VSSD VSSD VDDD VDDD net17 sky130_fd_sc_hd__dfrtp_1
+XFILLER_0_2_261 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_2_283 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_8_309 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+Xhold11 x1.net6 VSSD VSSD VDDD VDDD net64 sky130_fd_sc_hd__dlygate4sd3_1
+XFILLER_0_4_389 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_4_345 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_0_573 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_4_301 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_6
+Xoutput12 net45 VSSD VSSD VDDD VDDD CKO sky130_fd_sc_hd__buf_2
+Xoutput34 net34 VSSD VSSD VDDD VDDD SWN[9] sky130_fd_sc_hd__clkbuf_4
+Xoutput23 net23 VSSD VSSD VDDD VDDD DOUT[8] sky130_fd_sc_hd__buf_2
+XFILLER_0_1_337 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_9_459 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_4_164 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_4
+XFILLER_0_2_613 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XTAP_TAPCELL_ROW_3_70 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_5_473 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_2_421 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_5_281 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_4_53 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_6
+Xx5.x1_3 net45 net38 net52 VSSD VSSD VDDD VDDD net18 sky130_fd_sc_hd__dfrtp_1
+XPHY_EDGE_ROW_8_Left_18 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+XFILLER_0_2_251 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_2_295 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+Xclkload0 clknet_1_0__leaf_CLK VSSD VSSD VDDD VDDD clkload0/Y sky130_fd_sc_hd__bufinv_16
+Xhold12 x1.net11 VSSD VSSD VDDD VDDD net65 sky130_fd_sc_hd__dlygate4sd3_1
+XFILLER_0_8_107 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_6
+XFILLER_0_4_357 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_6
+Xoutput35 net35 VSSD VSSD VDDD VDDD SWP[0] sky130_fd_sc_hd__buf_2
+Xoutput13 net47 VSSD VSSD VDDD VDDD CLKS sky130_fd_sc_hd__buf_2
+XFILLER_0_0_585 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+Xoutput24 net24 VSSD VSSD VDDD VDDD DOUT[9] sky130_fd_sc_hd__buf_2
+XFILLER_0_1_349 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_2
+XFILLER_0_9_449 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_4
+XFILLER_0_9_405 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_8
+XFILLER_0_7_31 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_4
+XFILLER_0_0_393 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XTAP_TAPCELL_ROW_8_120 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_6_419 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_1_113 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+XTAP_TAPCELL_ROW_3_71 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_9_279 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_5_485 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_5_441 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_6
+XFILLER_0_8_290 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+Xclkbuf_1_1__f_CLK clknet_0_CLK VSSD VSSD VDDD VDDD clknet_1_1__leaf_CLK sky130_fd_sc_hd__clkbuf_16
+XFILLER_0_5_293 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_8
+XFILLER_0_2_433 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_2_477 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+Xx5.x1_4 net45 net39 net52 VSSD VSSD VDDD VDDD net19 sky130_fd_sc_hd__dfrtp_1
+XFILLER_0_7_503 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_1_55 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_1_11 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+Xhold13 net10 VSSD VSSD VDDD VDDD net66 sky130_fd_sc_hd__dlygate4sd3_1
+XFILLER_0_3_561 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_7_174 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_2
+Xoutput36 net36 VSSD VSSD VDDD VDDD SWP[1] sky130_fd_sc_hd__buf_2
+Xoutput14 net14 VSSD VSSD VDDD VDDD CLKSB sky130_fd_sc_hd__clkbuf_4
+Xoutput25 net25 VSSD VSSD VDDD VDDD SWN[0] sky130_fd_sc_hd__buf_2
+XFILLER_0_3_391 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_0_361 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+XTAP_TAPCELL_ROW_8_121 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_1_169 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_1_136 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_8
+XTAP_TAPCELL_ROW_3_72 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_9_225 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_5_497 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_6
+XFILLER_0_2_401 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_2_445 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_2_489 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+Xx5.x1_5 net45 net40 net53 VSSD VSSD VDDD VDDD net20 sky130_fd_sc_hd__dfrtp_1
+Xx5.x1 x3.FINAL net48 VSSD VSSD VDDD VDDD net12 sky130_fd_sc_hd__and2_1
+XFILLER_0_7_559 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XTAP_TAPCELL_ROW_0_40 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_2_253 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_8
+XFILLER_0_6_581 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_6
+Xhold14 net9 VSSD VSSD VDDD VDDD net67 sky130_fd_sc_hd__dlygate4sd3_1
+XFILLER_0_1_89 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+XFILLER_0_1_23 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_3_573 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+Xoutput37 net37 VSSD VSSD VDDD VDDD SWP[2] sky130_fd_sc_hd__buf_2
+Xoutput26 net26 VSSD VSSD VDDD VDDD SWN[1] sky130_fd_sc_hd__buf_2
+Xoutput15 net15 VSSD VSSD VDDD VDDD DOUT[0] sky130_fd_sc_hd__buf_2
+XPHY_EDGE_ROW_1_Right_1 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+XTAP_TAPCELL_ROW_8_122 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XTAP_TAPCELL_ROW_3_73 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_9_259 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_9_237 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_0_181 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_2_413 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_6
+XFILLER_0_2_457 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_7_505 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+Xfanout50 net52 VSSD VSSD VDDD VDDD net50 sky130_fd_sc_hd__clkbuf_4
+XTAP_TAPCELL_ROW_0_30 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+Xx5.x1_6 net45 net41 net53 VSSD VSSD VDDD VDDD net21 sky130_fd_sc_hd__dfrtp_1
+XTAP_TAPCELL_ROW_0_41 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_2_221 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_7_335 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_1_57 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_1_35 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_3_541 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_3_585 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+Xhold15 net8 VSSD VSSD VDDD VDDD net68 sky130_fd_sc_hd__dlygate4sd3_1
+XFILLER_0_0_533 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+Xoutput38 net38 VSSD VSSD VDDD VDDD SWP[3] sky130_fd_sc_hd__buf_2
+Xoutput27 net27 VSSD VSSD VDDD VDDD SWN[2] sky130_fd_sc_hd__buf_2
+Xoutput16 net16 VSSD VSSD VDDD VDDD DOUT[1] sky130_fd_sc_hd__buf_2
+XFILLER_0_3_393 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_9_419 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XTAP_TAPCELL_ROW_8_123 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XTAP_TAPCELL_ROW_3_74 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_9_249 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+Xx1.x21 clknet_1_1__leaf_CLK net60 net50 VSSD VSSD VDDD VDDD x1.TRIG1 sky130_fd_sc_hd__dfrtp_1
+XFILLER_0_0_193 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+XFILLER_0_2_469 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_6
+XFILLER_0_4_79 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_4
+Xfanout51 net52 VSSD VSSD VDDD VDDD net51 sky130_fd_sc_hd__dlymetal6s2s_1
+XTAP_TAPCELL_ROW_0_20 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XTAP_TAPCELL_ROW_0_31 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+Xx5.x1_7 net45 net42 net53 VSSD VSSD VDDD VDDD net22 sky130_fd_sc_hd__dfrtp_1
+XFILLER_0_7_517 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_1_69 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_1_47 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_8
+XFILLER_0_3_553 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_6
+Xhold16 net7 VSSD VSSD VDDD VDDD net69 sky130_fd_sc_hd__dlygate4sd3_1
+XFILLER_0_3_597 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_0_589 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_8_601 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+Xoutput39 net39 VSSD VSSD VDDD VDDD SWP[4] sky130_fd_sc_hd__buf_2
+Xoutput28 net28 VSSD VSSD VDDD VDDD SWN[3] sky130_fd_sc_hd__buf_2
+Xoutput17 net17 VSSD VSSD VDDD VDDD DOUT[2] sky130_fd_sc_hd__buf_2
+XFILLER_0_3_361 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_7_57 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_2
+XFILLER_0_7_35 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_5_615 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_0_375 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_8_475 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XTAP_TAPCELL_ROW_8_124 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+Xx1.x22 net64 VSSD VSSD VDDD VDDD x1.net12 sky130_fd_sc_hd__inv_2
+Xx1.x11 clknet_1_1__leaf_CLK net57 net51 VSSD VSSD VDDD VDDD x1.net11 sky130_fd_sc_hd__dfrtp_1
+XTAP_TAPCELL_ROW_3_64 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_5_3 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XTAP_TAPCELL_ROW_0_21 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XTAP_TAPCELL_ROW_0_32 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+Xx5.x1_8 net45 net43 net53 VSSD VSSD VDDD VDDD net23 sky130_fd_sc_hd__dfrtp_1
+Xfanout52 net53 VSSD VSSD VDDD VDDD net52 sky130_fd_sc_hd__clkbuf_2
+XFILLER_0_7_529 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XPHY_EDGE_ROW_3_Left_13 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+XFILLER_0_7_337 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+Xhold17 net6 VSSD VSSD VDDD VDDD net70 sky130_fd_sc_hd__dlygate4sd3_1
+XTAP_TAPCELL_ROW_6_97 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_4_307 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_8_613 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_8
+XFILLER_0_7_167 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+Xoutput18 net18 VSSD VSSD VDDD VDDD DOUT[3] sky130_fd_sc_hd__buf_2
+XFILLER_0_0_557 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+XFILLER_0_3_373 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+Xoutput29 net29 VSSD VSSD VDDD VDDD SWN[4] sky130_fd_sc_hd__buf_2
+XFILLER_0_0_365 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_6
+XFILLER_0_0_387 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_4
+XFILLER_0_4_137 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+XFILLER_0_8_421 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XTAP_TAPCELL_ROW_8_125 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_7_7 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XPHY_EDGE_ROW_5_Right_5 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+XTAP_TAPCELL_ROW_3_65 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+Xx1.x12 clknet_1_1__leaf_CLK x1.TRIG2 net50 VSSD VSSD VDDD VDDD x1.net6 sky130_fd_sc_hd__dfrtp_1
+Xx1.x23 x1.net12 VSSD VSSD VDDD VDDD x1.net13 sky130_fd_sc_hd__inv_4
+XFILLER_0_8_251 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XTAP_TAPCELL_ROW_0_22 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XTAP_TAPCELL_ROW_0_33 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+Xx5.x1_9 net12 net44 net53 VSSD VSSD VDDD VDDD net24 sky130_fd_sc_hd__dfrtp_1
+Xfanout53 net1 VSSD VSSD VDDD VDDD net53 sky130_fd_sc_hd__buf_2
+XFILLER_0_7_349 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_7_305 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+Xhold18 net2 VSSD VSSD VDDD VDDD net71 sky130_fd_sc_hd__dlygate4sd3_1
+XTAP_TAPCELL_ROW_6_98 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_7_113 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_0_503 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+Xoutput19 net19 VSSD VSSD VDDD VDDD DOUT[4] sky130_fd_sc_hd__buf_2
+XFILLER_0_3_385 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_6
+XFILLER_0_5_617 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_8
+XFILLER_0_4_105 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_8_477 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_8_433 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XTAP_TAPCELL_ROW_8_126 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XTAP_TAPCELL_ROW_3_66 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+Xx1.x24 x1.net13 VSSD VSSD VDDD VDDD net13 sky130_fd_sc_hd__inv_4
+XFILLER_0_5_447 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+Xx1.x13 clknet_1_1__leaf_CLK net64 net50 VSSD VSSD VDDD VDDD x1.net7 sky130_fd_sc_hd__dfrtp_1
+XFILLER_0_4_27 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_9_561 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_5_277 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+XFILLER_0_5_233 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_1_461 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_6
+XTAP_TAPCELL_ROW_0_23 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XTAP_TAPCELL_ROW_0_34 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_2_247 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_4
+XFILLER_0_6_531 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_9_391 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_7_317 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+Xhold19 net5 VSSD VSSD VDDD VDDD net72 sky130_fd_sc_hd__dlygate4sd3_1
+XTAP_TAPCELL_ROW_6_99 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_4_309 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_6_191 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_4
+XFILLER_0_4_117 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XTAP_TAPCELL_ROW_8_127 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_8_489 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_8_445 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_8_401 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XTAP_TAPCELL_ROW_3_67 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+Xx1.x25 net47 VSSD VSSD VDDD VDDD net14 sky130_fd_sc_hd__inv_1
+Xx1.x14 clknet_1_1__leaf_CLK net55 net50 VSSD VSSD VDDD VDDD x1.net8 sky130_fd_sc_hd__dfrtp_1
+XFILLER_0_8_253 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_4
+XFILLER_0_9_551 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_8
+XFILLER_0_5_245 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_5_223 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XTAP_TAPCELL_ROW_0_24 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XTAP_TAPCELL_ROW_0_35 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+Xx4.x1_0 net2 x4.COMP_BUF_P net48 VSSD VSSD VDDD VDDD net35 sky130_fd_sc_hd__dfrtp_2
+XFILLER_0_6_587 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_1_281 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_7_329 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_6
+Xinput1 EN VSSD VSSD VDDD VDDD net1 sky130_fd_sc_hd__clkbuf_1
+XPHY_EDGE_ROW_7_Left_17 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+XFILLER_0_0_505 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_0_549 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_8
+XFILLER_0_2_83 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_8_457 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_8_413 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_6
+XFILLER_0_0_335 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_4_129 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_8
+XTAP_TAPCELL_ROW_8_128 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XTAP_TAPCELL_ROW_3_68 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XPHY_EDGE_ROW_9_Right_9 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+Xx1.x15 clknet_1_1__leaf_CLK net59 net50 VSSD VSSD VDDD VDDD x1.net9 sky130_fd_sc_hd__dfrtp_1
+XFILLER_0_5_449 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_5_405 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_8_93 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_4
+XFILLER_0_0_165 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+XFILLER_0_2_419 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_4_29 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_5_257 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_5_202 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_1_441 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_6
+XTAP_TAPCELL_ROW_0_25 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XTAP_TAPCELL_ROW_0_36 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+Xfanout45 net12 VSSD VSSD VDDD VDDD net45 sky130_fd_sc_hd__clkbuf_4
+XFILLER_0_9_393 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+Xx4.x1_1 net3 x4.COMP_BUF_P net46 VSSD VSSD VDDD VDDD net36 sky130_fd_sc_hd__dfrtp_4
+XFILLER_0_6_533 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_1_293 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+XFILLER_0_3_503 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_6_363 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_0_517 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_5_609 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_6
+XTAP_TAPCELL_ROW_8_129 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_8_469 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_6
+XFILLER_0_3_163 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_4
+XFILLER_0_5_417 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+Xx1.x16 clknet_1_1__leaf_CLK net63 net50 VSSD VSSD VDDD VDDD x1.net10 sky130_fd_sc_hd__dfrtp_1
+XTAP_TAPCELL_ROW_3_69 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_5_269 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_8
+XFILLER_0_4_19 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_8
+Xfanout46 net48 VSSD VSSD VDDD VDDD net46 sky130_fd_sc_hd__clkbuf_4
+XTAP_TAPCELL_ROW_0_26 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XTAP_TAPCELL_ROW_0_37 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_6_589 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_6_545 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_6_501 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+Xx4.x1_2 net4 x4.COMP_BUF_P net48 VSSD VSSD VDDD VDDD net37 sky130_fd_sc_hd__dfrtp_2
+XFILLER_0_5_51 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_4
+XFILLER_0_3_559 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_0_529 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+XFILLER_0_2_41 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_2_85 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_7_19 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_0_337 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XTAP_TAPCELL_ROW_8_119 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XPHY_EDGE_ROW_0_Right_0 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+XFILLER_0_8_278 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_5_429 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_0_145 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XTAP_TAPCELL_ROW_4_80 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_9_587 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+Xfanout47 net48 VSSD VSSD VDDD VDDD net47 sky130_fd_sc_hd__clkbuf_4
+XTAP_TAPCELL_ROW_0_27 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_1_487 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XTAP_TAPCELL_ROW_0_38 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_6_557 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_6_513 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+Xx4.x1_3 net5 x4.COMP_BUF_P net48 VSSD VSSD VDDD VDDD net38 sky130_fd_sc_hd__dfrtp_2
+XFILLER_0_5_85 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_3_505 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_6_365 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_6_321 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_3_335 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_6_195 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_2_53 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_2_97 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_0_305 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+XFILLER_0_0_349 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_0_157 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_8
+XFILLER_0_0_113 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+Xfanout48 net13 VSSD VSSD VDDD VDDD net48 sky130_fd_sc_hd__clkbuf_4
+XTAP_TAPCELL_ROW_4_81 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_1_499 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_4
+XTAP_TAPCELL_ROW_0_28 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XTAP_TAPCELL_ROW_0_39 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_3_7 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_6_569 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_6_525 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_6
+Xx4.x1_4 net6 x4.COMP_BUF_P net48 VSSD VSSD VDDD VDDD net39 sky130_fd_sc_hd__dfrtp_1
+XFILLER_0_9_363 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_3_517 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_6_377 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_6_333 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_2_561 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_9_193 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+XFILLER_0_6_141 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_2
+XFILLER_0_2_65 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_4_601 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_0_317 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_3_111 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_7_461 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XTAP_TAPCELL_ROW_7_110 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_0_169 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_0_125 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_1_615 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_8_97 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_4_475 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XTAP_TAPCELL_ROW_4_82 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+Xfanout49 net13 VSSD VSSD VDDD VDDD net49 sky130_fd_sc_hd__clkbuf_2
+XFILLER_0_9_589 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XTAP_TAPCELL_ROW_0_29 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_2_209 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+Xx4.x1_5 net7 x4.COMP_BUF_P net49 VSSD VSSD VDDD VDDD net40 sky130_fd_sc_hd__dfrtp_1
+XTAP_TAPCELL_ROW_1_50 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_3_529 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_6_389 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_6_345 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_6_301 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_6
+XFILLER_0_2_573 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XPHY_EDGE_ROW_2_Left_12 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+XFILLER_0_2_77 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_6
+XFILLER_0_3_337 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+Xx3.x1 clknet_1_1__leaf_CLK net51 net48 VSSD VSSD VDDD VDDD net2 sky130_fd_sc_hd__dfrtp_4
+XFILLER_0_4_613 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_8
+XFILLER_0_0_329 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_6
+XFILLER_0_7_473 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_3_167 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_3_189 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XTAP_TAPCELL_ROW_7_111 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_0_137 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+XPHY_EDGE_ROW_4_Right_4 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+XFILLER_0_4_421 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_7_281 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XTAP_TAPCELL_ROW_4_83 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_9_579 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_8
+XFILLER_0_9_365 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_8
+XFILLER_0_9_343 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_9_321 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_5_77 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_8
+XFILLER_0_5_55 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+Xx4.x1_6 net8 x4.COMP_BUF_P net49 VSSD VSSD VDDD VDDD net41 sky130_fd_sc_hd__dfrtp_1
+XFILLER_0_6_357 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_6
+XTAP_TAPCELL_ROW_1_51 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_2_585 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+XFILLER_0_3_305 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_4
+XFILLER_0_3_349 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+Xx3.x2 clknet_1_0__leaf_CLK net71 net47 VSSD VSSD VDDD VDDD net3 sky130_fd_sc_hd__dfrtp_4
+XFILLER_0_8_419 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_7_441 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_6
+XFILLER_0_3_113 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_7_485 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XTAP_TAPCELL_ROW_7_112 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_8_11 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_4_477 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_4_433 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_1_617 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_4
+XFILLER_0_7_293 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XTAP_TAPCELL_ROW_4_84 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_1_447 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_9_503 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_0_491 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_4_241 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_8
+XFILLER_0_9_333 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+Xx4.x1_7 net9 x4.COMP_BUF_P net49 VSSD VSSD VDDD VDDD net42 sky130_fd_sc_hd__dfrtp_1
+XFILLER_0_9_355 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_8
+XFILLER_0_5_561 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XTAP_TAPCELL_ROW_1_52 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_9_185 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_8
+XFILLER_0_9_141 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_5_391 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_2_531 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+Xx3.x3 clknet_1_0__leaf_CLK net74 net47 VSSD VSSD VDDD VDDD net4 sky130_fd_sc_hd__dfrtp_4
+XFILLER_0_6_100 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+XFILLER_0_0_309 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_4
+XFILLER_0_3_125 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_7_497 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_6
+XTAP_TAPCELL_ROW_7_113 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_8_239 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_7_272 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_8
+XFILLER_0_4_489 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_4_445 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_4_401 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XTAP_TAPCELL_ROW_4_85 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_9_559 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_4_253 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_8_581 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_6
+XFILLER_0_1_223 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+Xx4.x1_8 net10 x4.COMP_BUF_P net49 VSSD VSSD VDDD VDDD net43 sky130_fd_sc_hd__dfrtp_2
+XFILLER_0_5_573 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XTAP_TAPCELL_ROW_1_42 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_9_197 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_3_329 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_6
+Xx3.x4 clknet_1_0__leaf_CLK net73 net47 VSSD VSSD VDDD VDDD net5 sky130_fd_sc_hd__dfrtp_4
+XFILLER_0_2_362 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_2
+XPHY_EDGE_ROW_6_Left_16 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+XFILLER_0_3_137 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XTAP_TAPCELL_ROW_7_114 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_4_457 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_4_413 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_6
+XFILLER_0_9_505 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XPHY_EDGE_ROW_8_Right_8 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+XFILLER_0_1_405 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_4
+XFILLER_0_1_449 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XTAP_TAPCELL_ROW_4_75 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+Xhold1 x1.TRIG1 VSSD VSSD VDDD VDDD net54 sky130_fd_sc_hd__dlygate4sd3_1
+XFILLER_0_4_265 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+Xx4.x1_9 net11 x4.COMP_BUF_P net49 VSSD VSSD VDDD VDDD net44 sky130_fd_sc_hd__dfrtp_2
+XFILLER_0_9_379 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_5_585 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_5_541 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XTAP_TAPCELL_ROW_1_43 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_5_393 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_6_124 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+XFILLER_0_2_15 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+Xx3.x5 net11 VSSD VSSD VDDD VDDD x3.FINAL sky130_fd_sc_hd__clkbuf_1
+XFILLER_0_3_149 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_6
+XTAP_TAPCELL_ROW_7_115 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+Xx3.x10 clknet_1_0__leaf_CLK net67 net46 VSSD VSSD VDDD VDDD net10 sky130_fd_sc_hd__dfrtp_2
+XFILLER_0_1_609 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_6
+XFILLER_0_4_469 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_6
+XFILLER_0_9_539 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_9_517 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+Xhold2 x1.net7 VSSD VSSD VDDD VDDD net55 sky130_fd_sc_hd__dlygate4sd3_1
+XTAP_TAPCELL_ROW_4_76 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_0_81 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+XFILLER_0_0_461 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_4_277 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_1_225 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_5_597 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_5_553 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_6
+XFILLER_0_5_15 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XTAP_TAPCELL_ROW_1_44 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_2_501 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_2_589 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_9_133 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_5_361 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+Xclkbuf_0_CLK CLK VSSD VSSD VDDD VDDD clknet_0_CLK sky130_fd_sc_hd__clkbuf_16
+XFILLER_0_2_27 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_7_615 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_6_136 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_4
+Xx3.x6 clknet_1_0__leaf_CLK net72 net47 VSSD VSSD VDDD VDDD net6 sky130_fd_sc_hd__dfrtp_2
+XFILLER_0_2_342 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+Xx3.x11 clknet_1_0__leaf_CLK net66 net46 VSSD VSSD VDDD VDDD net11 sky130_fd_sc_hd__dfrtp_1
+XTAP_TAPCELL_ROW_7_116 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_0_109 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+XFILLER_0_3_81 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_8
+XFILLER_0_8_15 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+Xhold3 x1.net2 VSSD VSSD VDDD VDDD net56 sky130_fd_sc_hd__dlygate4sd3_1
+XFILLER_0_1_429 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XTAP_TAPCELL_ROW_4_77 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_9_529 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+XFILLER_0_0_473 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+XFILLER_0_4_289 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_5_27 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_1_237 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+XFILLER_0_0_281 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_6_307 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XTAP_TAPCELL_ROW_1_45 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_2_513 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_5_373 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+Xx3.x7 clknet_1_0__leaf_CLK net70 net46 VSSD VSSD VDDD VDDD net7 sky130_fd_sc_hd__dfrtp_2
+XFILLER_0_2_321 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_2_354 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_8
+XFILLER_0_2_365 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XTAP_TAPCELL_ROW_7_117 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_8_27 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_7_243 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_8
+Xhold4 x1.net5 VSSD VSSD VDDD VDDD net57 sky130_fd_sc_hd__dlygate4sd3_1
+XTAP_TAPCELL_ROW_4_78 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_0_485 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_2
+XFILLER_0_9_81 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+XFILLER_0_5_39 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_0_293 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_0_271 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_8
+XTAP_TAPCELL_ROW_1_46 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_5_385 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_6
+XFILLER_0_2_525 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_6
+XFILLER_0_7_617 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_4
+Xx3.x8 clknet_1_0__leaf_CLK net69 net46 VSSD VSSD VDDD VDDD net8 sky130_fd_sc_hd__dfrtp_2
+XFILLER_0_2_29 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_2_377 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XTAP_TAPCELL_ROW_7_118 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_7_447 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_2_152 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_0_601 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_2
+XFILLER_0_3_461 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XTAP_TAPCELL_ROW_4_79 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+Xhold5 x1.net4 VSSD VSSD VDDD VDDD net58 sky130_fd_sc_hd__dlygate4sd3_1
+XFILLER_0_8_531 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XTAP_TAPCELL_ROW_1_47 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_9_103 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_6_309 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_2_537 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_6_61 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_2
+Xx3.x9 clknet_1_0__leaf_CLK net68 net46 VSSD VSSD VDDD VDDD net9 sky130_fd_sc_hd__dfrtp_2
+XFILLER_0_2_389 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XPHY_EDGE_ROW_1_Left_11 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+XTAP_TAPCELL_ROW_7_108 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_2_164 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_2_197 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_8_29 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_3_473 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+Xhold6 x1.net8 VSSD VSSD VDDD VDDD net59 sky130_fd_sc_hd__dlygate4sd3_1
+XFILLER_0_8_587 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_0_41 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_0_421 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_8
+XFILLER_0_3_281 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XPHY_EDGE_ROW_3_Right_3 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+XFILLER_0_1_207 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_9_307 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XTAP_TAPCELL_ROW_5_90 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XTAP_TAPCELL_ROW_1_48 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_2_549 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_5_140 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_8
+XTAP_TAPCELL_ROW_9_150 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_7_449 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_7_405 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XTAP_TAPCELL_ROW_7_109 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_2_176 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_4_419 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_3_441 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_6
+XFILLER_0_3_485 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+Xhold7 x1.net10 VSSD VSSD VDDD VDDD net60 sky130_fd_sc_hd__dlygate4sd3_1
+XFILLER_0_8_533 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_0_53 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+XFILLER_0_0_433 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_0_477 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_8
+XFILLER_0_4_205 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_4_249 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+XFILLER_0_1_219 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_4
+XFILLER_0_3_293 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_5_503 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XTAP_TAPCELL_ROW_5_91 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_8_363 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XTAP_TAPCELL_ROW_1_49 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_6_85 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_6_41 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_1_561 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_8_193 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+XFILLER_0_7_609 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_6
+XFILLER_0_5_196 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_6
+XFILLER_0_1_391 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XTAP_TAPCELL_ROW_9_151 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XTAP_TAPCELL_ROW_9_140 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_7_417 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_2_188 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_8
+XFILLER_0_3_31 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_0_615 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_3_497 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_6
+Xhold8 x1.net1 VSSD VSSD VDDD VDDD net61 sky130_fd_sc_hd__dlygate4sd3_1
+XFILLER_0_8_501 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_0_21 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_2
+XFILLER_0_0_445 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+XFILLER_0_4_217 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_9_85 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_9_41 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_6
+XFILLER_0_8_589 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_8_545 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_3_261 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_9_309 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_5_559 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XTAP_TAPCELL_ROW_5_92 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_4_581 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_6
+XFILLER_0_0_253 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_2
+XFILLER_0_6_53 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_8
+XFILLER_0_5_301 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+XFILLER_0_1_573 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XTAP_TAPCELL_ROW_2_60 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_5_175 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+Xx4.x2_0 net2 x4.COMP_BUF_N net47 VSSD VSSD VDDD VDDD net25 sky130_fd_sc_hd__dfrtp_1
+XTAP_TAPCELL_ROW_9_141 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XTAP_TAPCELL_ROW_9_130 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_7_429 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XPHY_EDGE_ROW_5_Left_15 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+XFILLER_0_3_43 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XTAP_TAPCELL_ROW_6_100 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+Xhold9 x1.net3 VSSD VSSD VDDD VDDD net62 sky130_fd_sc_hd__dlygate4sd3_1
+XFILLER_0_4_229 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_9_97 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_6
+XFILLER_0_8_557 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_8_513 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+Xx1.x1 clknet_1_1__leaf_CLK net61 net50 VSSD VSSD VDDD VDDD x1.net2 sky130_fd_sc_hd__dfrtp_1
+XFILLER_0_3_273 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_6
+XFILLER_0_8_365 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_8_321 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XPHY_EDGE_ROW_7_Right_7 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+XFILLER_0_5_505 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XTAP_TAPCELL_ROW_5_93 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_0_221 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+XFILLER_0_6_7 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_5_324 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_8_184 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_1_585 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XTAP_TAPCELL_ROW_2_61 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+Xx4.x2_1 net3 x4.COMP_BUF_N net47 VSSD VSSD VDDD VDDD net26 sky130_fd_sc_hd__dfrtp_1
+XFILLER_0_5_121 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+XFILLER_0_1_371 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_1_393 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_9_471 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_4
+XTAP_TAPCELL_ROW_9_142 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XTAP_TAPCELL_ROW_9_131 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_3_55 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+Xx4.x1 COMP_P VSSD VSSD VDDD VDDD x4.COMP_BUF_P sky130_fd_sc_hd__buf_6
+XTAP_TAPCELL_ROW_6_101 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+Xx1.x2 clknet_1_1__leaf_CLK net56 net51 VSSD VSSD VDDD VDDD x1.net3 sky130_fd_sc_hd__dfrtp_1
+XFILLER_0_8_569 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_8_525 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_6
+XTAP_TAPCELL_ROW_5_94 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_5_517 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_8_377 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_8_333 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_1_597 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XTAP_TAPCELL_ROW_2_62 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_6_601 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+Xx4.x2_2 net4 x4.COMP_BUF_N net47 VSSD VSSD VDDD VDDD net27 sky130_fd_sc_hd__dfrtp_1
+XFILLER_0_5_111 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_1_383 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_8
+XTAP_TAPCELL_ROW_9_143 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XTAP_TAPCELL_ROW_9_132 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_2_136 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_4
+XFILLER_0_3_89 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_2
+XFILLER_0_3_615 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_6_475 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XTAP_TAPCELL_ROW_6_102 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+Xx4.x2 COMP_N VSSD VSSD VDDD VDDD x4.COMP_BUF_N sky130_fd_sc_hd__buf_6
+XFILLER_0_0_607 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_8
+XFILLER_0_0_57 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_0_13 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_8
+Xx1.x3 clknet_1_1__leaf_CLK net62 net51 VSSD VSSD VDDD VDDD x1.net4 sky130_fd_sc_hd__dfrtp_1
+XTAP_TAPCELL_ROW_5_95 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_5_529 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_0_201 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_8_389 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_8_345 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_5_337 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+Xoutput2 net2 VSSD VSSD VDDD VDDD CF[0] sky130_fd_sc_hd__clkbuf_4
+XFILLER_0_6_613 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_8
+XFILLER_0_2_307 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XTAP_TAPCELL_ROW_2_63 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+Xx4.x2_3 net5 x4.COMP_BUF_N net47 VSSD VSSD VDDD VDDD net28 sky130_fd_sc_hd__dfrtp_1
+XTAP_TAPCELL_ROW_9_144 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XTAP_TAPCELL_ROW_9_133 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_2_3 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_6_421 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XTAP_TAPCELL_ROW_6_103 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_1_181 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_6
+XFILLER_0_3_57 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_9_281 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XPHY_EDGE_ROW_9_Left_19 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+XFILLER_0_0_69 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_0_405 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_0_449 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+Xx1.x4 net65 VSSD VSSD VDDD VDDD x1.TRIG2 sky130_fd_sc_hd__inv_1
+XFILLER_0_3_221 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+XTAP_TAPCELL_ROW_5_96 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_0_279 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_0_213 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_8
+XFILLER_0_8_357 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_6
+XFILLER_0_8_302 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_6
+XFILLER_0_5_349 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_4_7 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+Xoutput3 net3 VSSD VSSD VDDD VDDD CF[1] sky130_fd_sc_hd__clkbuf_4
+XTAP_TAPCELL_ROW_2_53 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+Xx4.x2_4 net6 x4.COMP_BUF_N net46 VSSD VSSD VDDD VDDD net29 sky130_fd_sc_hd__dfrtp_1
+XTAP_TAPCELL_ROW_9_145 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XTAP_TAPCELL_ROW_9_134 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_3_617 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_4
+XFILLER_0_6_477 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_6_433 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XTAP_TAPCELL_ROW_6_104 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_3_69 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_9_271 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_8
+XFILLER_0_3_447 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_0_417 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+XFILLER_0_9_57 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_9_13 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+Xx1.x5 clknet_1_1__leaf_CLK net58 net51 VSSD VSSD VDDD VDDD x1.net5 sky130_fd_sc_hd__dfrtp_1
+XFILLER_0_7_561 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XTAP_TAPCELL_ROW_5_86 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_4_531 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_0_225 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_7_391 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_9_601 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+Xoutput4 net4 VSSD VSSD VDDD VDDD CF[2] sky130_fd_sc_hd__clkbuf_4
+XTAP_TAPCELL_ROW_2_54 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_2_309 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_8
+XFILLER_0_5_169 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_6
+Xx4.x2_5 net7 x4.COMP_BUF_N net46 VSSD VSSD VDDD VDDD net30 sky130_fd_sc_hd__dfrtp_1
+XTAP_TAPCELL_ROW_9_146 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_9_475 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XTAP_TAPCELL_ROW_9_135 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_7_90 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_6_489 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_6_445 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_6_401 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XTAP_TAPCELL_ROW_6_105 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XPHY_EDGE_ROW_0_Left_10 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+XFILLER_0_6_253 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_9_47 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_9_25 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+XFILLER_0_0_27 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_3_201 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_7_573 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XTAP_TAPCELL_ROW_5_87 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_0_259 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_0_237 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_4_587 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_1_81 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_8
+XPHY_EDGE_ROW_2_Right_2 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+XFILLER_0_1_557 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+XFILLER_0_8_134 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_6
+Xoutput5 net5 VSSD VSSD VDDD VDDD CF[3] sky130_fd_sc_hd__clkbuf_4
+Xoutput40 net40 VSSD VSSD VDDD VDDD SWP[5] sky130_fd_sc_hd__buf_2
+XTAP_TAPCELL_ROW_2_55 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+Xclkbuf_1_0__f_CLK clknet_0_CLK VSSD VSSD VDDD VDDD clknet_1_0__leaf_CLK sky130_fd_sc_hd__clkbuf_16
+Xx4.x2_6 net8 x4.COMP_BUF_N net48 VSSD VSSD VDDD VDDD net31 sky130_fd_sc_hd__dfrtp_1
+XTAP_TAPCELL_ROW_9_147 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_9_421 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XTAP_TAPCELL_ROW_9_136 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XTAP_TAPCELL_ROW_6_106 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_6_457 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_6_413 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_6
+XFILLER_0_3_405 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_3_449 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_6_265 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+Xx1.x7 clknet_1_1__leaf_CLK net54 net50 VSSD VSSD VDDD VDDD x1.net1 sky130_fd_sc_hd__dfrtp_1
+XFILLER_0_3_213 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_8
+XFILLER_0_3_279 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_7_585 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_7_541 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XTAP_TAPCELL_ROW_5_88 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+XFILLER_0_0_249 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__decap_3
+XFILLER_0_4_533 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_7_393 VDDD VSSD VDDD VSSD sky130_ef_sc_hd__decap_12
+XFILLER_0_8_113 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_6_27 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_4_363 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+XFILLER_0_1_503 VSSD VSSD VDDD VDDD sky130_fd_sc_hd__fill_1
+Xoutput6 net6 VSSD VSSD VDDD VDDD CF[4] sky130_fd_sc_hd__clkbuf_4
+XTAP_TAPCELL_ROW_2_56 VSSD VDDD sky130_fd_sc_hd__tapvpwrvgnd_1
+Xoutput30 net30 VSSD VSSD VDDD VDDD SWN[5] sky130_fd_sc_hd__buf_2
+Xoutput41 net41 VSSD VSSD VDDD VDDD SWP[6] sky130_fd_sc_hd__buf_2
+Xx4.x2_7 net9 x4.COMP_BUF_N net46 VSSD VSSD VDDD VDDD net32 sky130_fd_sc_hd__dfrtp_1
+.ends
+
+
+
+* expanding   symbol:  cdac_10b.sym # of pins=8
+** sym_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/cdac_10b.sym
+** sch_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/cdac_10b.sch
+.subckt cdac_10b vdref cf[0] cf[1] cf[2] cf[3] cf[4] cf[5] cf[6] cf[7] cf[8] cf[9] swp_in[0] swp_in[1] swp_in[2] swp_in[3]
++ swp_in[4] swp_in[5] swp_in[6] swp_in[7] swp_in[8] swp_in[9] swn_in[0] swn_in[1] swn_in[2] swn_in[3] swn_in[4] swn_in[5] swn_in[6] swn_in[7]
++ swn_in[8] swn_in[9] vcm vsref vcp vcn
+*.ipin vdref
+*.ipin cf[0],cf[1],cf[2],cf[3],cf[4],cf[5],cf[6],cf[7],cf[8],cf[9]
+*.ipin swp_in[0],swp_in[1],swp_in[2],swp_in[3],swp_in[4],swp_in[5],swp_in[6],swp_in[7],swp_in[8],swp_in[9]
+*.ipin swn_in[0],swn_in[1],swn_in[2],swn_in[3],swn_in[4],swn_in[5],swn_in[6],swn_in[7],swn_in[8],swn_in[9]
+*.ipin vcm
+*.ipin vsref
+*.iopin vcp
+*.iopin vcn
+x3 vdref cf[0] cf[1] cf[2] cf[3] cf[4] cf[5] cf[6] cf[7] cf[8] cf[9] swp_in[0] swp_in[1] swp_in[2] swp_in[3] swp_in[4] swp_in[5]
++ swp_in[6] swp_in[7] swp_in[8] swp_in[9] vcm vsref vcp single_10b_cdac
+x4 vdref cf[0] cf[1] cf[2] cf[3] cf[4] cf[5] cf[6] cf[7] cf[8] cf[9] swn_in[0] swn_in[1] swn_in[2] swn_in[3] swn_in[4] swn_in[5]
++ swn_in[6] swn_in[7] swn_in[8] swn_in[9] vcm vsref vcn single_10b_cdac
+x1 vdref cf[0] cf[1] cf[2] cf[3] cf[4] cf[5] cf[6] cf[7] cf[8] cf[9] swp_in[0] swp_in[1] swp_in[2] swp_in[3] swp_in[4] swp_in[5]
++ swp_in[6] swp_in[7] swp_in[8] swp_in[9] vcm vsref vcp single_10b_cdac
+x2 vdref cf[0] cf[1] cf[2] cf[3] cf[4] cf[5] cf[6] cf[7] cf[8] cf[9] swn_in[0] swn_in[1] swn_in[2] swn_in[3] swn_in[4] swn_in[5]
++ swn_in[6] swn_in[7] swn_in[8] swn_in[9] vcm vsref vcn single_10b_cdac
+.ends
+
+
+* expanding   symbol:  tdc.sym # of pins=7
+** sym_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/tdc.sym
+** sch_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/tdc.sch
+.subckt tdc vdda start vinp vinn vssa outp outn
+*.ipin vinn
+*.ipin vinp
+*.ipin vdda
+*.ipin vssa
+*.ipin start
+*.opin outp
+*.opin outn
+x1 vdda inp inn vssa outp outn phase_detector
+x4 net1 vssa vssa vdda vdda inn sky130_fd_sc_hd__inv_8
+x5 net2 vssa vssa vdda vdda inp sky130_fd_sc_hd__inv_8
+x2 start net1 vinp vinn vdda vssa delay_element
+x3 start net2 vinn vinp vdda vssa delay_element
+.ends
+
+
+* expanding   symbol:  bsw.sym # of pins=6
+** sym_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/bsw.sym
+** sch_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/bsw.sch
+.subckt bsw vdd clk clkb vi vss vo
+*.ipin vdd
+*.ipin clk
+*.ipin clkb
+*.ipin vi
+*.ipin vss
+*.opin vo
+XM1 net1 clk vdd vdd sky130_fd_pr__pfet_01v8 L=0.15 W=3 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM2 net2 net3 vdd net2 sky130_fd_pr__pfet_01v8 L=0.15 W=3 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM3 net3 net1 net2 net2 sky130_fd_pr__pfet_01v8 L=0.15 W=3 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM4 net1 clk net5 vss sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM5 net5 clkb vss vss sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM6 net1 net3 net5 vss sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM7 net5 net3 vi vss sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM8 net3 vdd net4 vss sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM9 net4 clkb vss vss sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XC1 net2 net5 sky130_fd_pr__cap_mim_m3_1 W=2 L=2 MF=4 m=4
+XM10 vo net3 vi vss sky130_fd_pr__nfet_01v8 L=0.5 W=8 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+.ends
+
+
+* expanding   symbol:  cyclic_flag.sym # of pins=6
+** sym_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/cyclic_flag.sym
+** sch_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/cyclic_flag.sch
+.subckt cyclic_flag VDDD RDY CLKS VSSD CF[0] CF[1] CF[2] CF[3] CF[4] CF[5] CF[6] CF[7] CF[8] CF[9] FINAL
+*.ipin RDY
+*.ipin VDDD
+*.ipin CLKS
+*.ipin VSSD
+*.opin CF[0],CF[1],CF[2],CF[3],CF[4],CF[5],CF[6],CF[7],CF[8],CF[9]
+*.opin FINAL
+x1 RDY VDDD CLKS VSSD VSSD VDDD VDDD CF[0] sky130_fd_sc_hd__dfrtp_2
+x2 RDY CF[0] CLKS VSSD VSSD VDDD VDDD CF[1] sky130_fd_sc_hd__dfrtp_2
+x3 RDY CF[1] CLKS VSSD VSSD VDDD VDDD CF[2] sky130_fd_sc_hd__dfrtp_2
+x4 RDY CF[2] CLKS VSSD VSSD VDDD VDDD CF[3] sky130_fd_sc_hd__dfrtp_2
+x5 CF[9] VSSD VSSD VDDD VDDD FINAL sky130_fd_sc_hd__buf_8
+x6 RDY CF[3] CLKS VSSD VSSD VDDD VDDD CF[4] sky130_fd_sc_hd__dfrtp_2
+x7 RDY CF[4] CLKS VSSD VSSD VDDD VDDD CF[5] sky130_fd_sc_hd__dfrtp_2
+x8 RDY CF[5] CLKS VSSD VSSD VDDD VDDD CF[6] sky130_fd_sc_hd__dfrtp_2
+x9 RDY CF[6] CLKS VSSD VSSD VDDD VDDD CF[7] sky130_fd_sc_hd__dfrtp_2
+x10 RDY CF[7] CLKS VSSD VSSD VDDD VDDD CF[8] sky130_fd_sc_hd__dfrtp_2
+x11 RDY CF[8] CLKS VSSD VSSD VDDD VDDD CF[9] sky130_fd_sc_hd__dfrtp_2
+.ends
+
+
+* expanding   symbol:  cdac_ctrl.sym # of pins=8
+** sym_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/cdac_ctrl.sym
+** sch_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/cdac_ctrl.sch
+.subckt cdac_ctrl VDDD COMP_P COMP_N CF[0] CF[1] CF[2] CF[3] CF[4] CF[5] CF[6] CF[7] CF[8] CF[9] CLKS VSSD SWP[0] SWP[1] SWP[2]
++ SWP[3] SWP[4] SWP[5] SWP[6] SWP[7] SWP[8] SWP[9] SWN[0] SWN[1] SWN[2] SWN[3] SWN[4] SWN[5] SWN[6] SWN[7] SWN[8] SWN[9]
+*.ipin VDDD
+*.ipin CLKS
+*.ipin VSSD
+*.ipin COMP_N
+*.ipin CF[0],CF[1],CF[2],CF[3],CF[4],CF[5],CF[6],CF[7],CF[8],CF[9]
+*.opin SWP[0],SWP[1],SWP[2],SWP[3],SWP[4],SWP[5],SWP[6],SWP[7],SWP[8],SWP[9]
+*.opin SWN[0],SWN[1],SWN[2],SWN[3],SWN[4],SWN[5],SWN[6],SWN[7],SWN[8],SWN[9]
+*.ipin COMP_P
+x1[0] CF[0] COMP_BUF_P CLKS VSSD VSSD VDDD VDDD SWP[0] sky130_fd_sc_hd__dfrtp_2
+x1[1] CF[1] COMP_BUF_P CLKS VSSD VSSD VDDD VDDD SWP[1] sky130_fd_sc_hd__dfrtp_2
+x1[2] CF[2] COMP_BUF_P CLKS VSSD VSSD VDDD VDDD SWP[2] sky130_fd_sc_hd__dfrtp_2
+x1[3] CF[3] COMP_BUF_P CLKS VSSD VSSD VDDD VDDD SWP[3] sky130_fd_sc_hd__dfrtp_2
+x1[4] CF[4] COMP_BUF_P CLKS VSSD VSSD VDDD VDDD SWP[4] sky130_fd_sc_hd__dfrtp_2
+x1[5] CF[5] COMP_BUF_P CLKS VSSD VSSD VDDD VDDD SWP[5] sky130_fd_sc_hd__dfrtp_2
+x1[6] CF[6] COMP_BUF_P CLKS VSSD VSSD VDDD VDDD SWP[6] sky130_fd_sc_hd__dfrtp_2
+x1[7] CF[7] COMP_BUF_P CLKS VSSD VSSD VDDD VDDD SWP[7] sky130_fd_sc_hd__dfrtp_2
+x1[8] CF[8] COMP_BUF_P CLKS VSSD VSSD VDDD VDDD SWP[8] sky130_fd_sc_hd__dfrtp_2
+x1[9] CF[9] COMP_BUF_P CLKS VSSD VSSD VDDD VDDD SWP[9] sky130_fd_sc_hd__dfrtp_2
+x1 COMP_P VSSD VSSD VDDD VDDD COMP_BUF_P sky130_fd_sc_hd__buf_8
+x2[0] CF[0] COMP_BUF_N CLKS VSSD VSSD VDDD VDDD SWN[0] sky130_fd_sc_hd__dfrtp_2
+x2[1] CF[1] COMP_BUF_N CLKS VSSD VSSD VDDD VDDD SWN[1] sky130_fd_sc_hd__dfrtp_2
+x2[2] CF[2] COMP_BUF_N CLKS VSSD VSSD VDDD VDDD SWN[2] sky130_fd_sc_hd__dfrtp_2
+x2[3] CF[3] COMP_BUF_N CLKS VSSD VSSD VDDD VDDD SWN[3] sky130_fd_sc_hd__dfrtp_2
+x2[4] CF[4] COMP_BUF_N CLKS VSSD VSSD VDDD VDDD SWN[4] sky130_fd_sc_hd__dfrtp_2
+x2[5] CF[5] COMP_BUF_N CLKS VSSD VSSD VDDD VDDD SWN[5] sky130_fd_sc_hd__dfrtp_2
+x2[6] CF[6] COMP_BUF_N CLKS VSSD VSSD VDDD VDDD SWN[6] sky130_fd_sc_hd__dfrtp_2
+x2[7] CF[7] COMP_BUF_N CLKS VSSD VSSD VDDD VDDD SWN[7] sky130_fd_sc_hd__dfrtp_2
+x2[8] CF[8] COMP_BUF_N CLKS VSSD VSSD VDDD VDDD SWN[8] sky130_fd_sc_hd__dfrtp_2
+x2[9] CF[9] COMP_BUF_N CLKS VSSD VSSD VDDD VDDD SWN[9] sky130_fd_sc_hd__dfrtp_2
+x2 COMP_N VSSD VSSD VDDD VDDD COMP_BUF_N sky130_fd_sc_hd__buf_8
+.ends
+
+
+* expanding   symbol:  out_latch.sym # of pins=7
+** sym_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/out_latch.sym
+** sch_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/out_latch.sch
+.subckt out_latch VDDD FINAL SWP[0] SWP[1] SWP[2] SWP[3] SWP[4] SWP[5] SWP[6] SWP[7] SWP[8] SWP[9] CLKS VSSD DOUT[0] DOUT[1]
++ DOUT[2] DOUT[3] DOUT[4] DOUT[5] DOUT[6] DOUT[7] DOUT[8] DOUT[9] CK
+*.ipin VDDD
+*.ipin CLKS
+*.ipin VSSD
+*.ipin FINAL
+*.ipin SWP[0],SWP[1],SWP[2],SWP[3],SWP[4],SWP[5],SWP[6],SWP[7],SWP[8],SWP[9]
+*.opin DOUT[0],DOUT[1],DOUT[2],DOUT[3],DOUT[4],DOUT[5],DOUT[6],DOUT[7],DOUT[8],DOUT[9]
+*.opin CK
+x1[0] CK SWP[0] VDDD VSSD VSSD VDDD VDDD DOUT[0] sky130_fd_sc_hd__dfrtp_2
+x1[1] CK SWP[1] VDDD VSSD VSSD VDDD VDDD DOUT[1] sky130_fd_sc_hd__dfrtp_2
+x1[2] CK SWP[2] VDDD VSSD VSSD VDDD VDDD DOUT[2] sky130_fd_sc_hd__dfrtp_2
+x1[3] CK SWP[3] VDDD VSSD VSSD VDDD VDDD DOUT[3] sky130_fd_sc_hd__dfrtp_2
+x1[4] CK SWP[4] VDDD VSSD VSSD VDDD VDDD DOUT[4] sky130_fd_sc_hd__dfrtp_2
+x1[5] CK SWP[5] VDDD VSSD VSSD VDDD VDDD DOUT[5] sky130_fd_sc_hd__dfrtp_2
+x1[6] CK SWP[6] VDDD VSSD VSSD VDDD VDDD DOUT[6] sky130_fd_sc_hd__dfrtp_2
+x1[7] CK SWP[7] VDDD VSSD VSSD VDDD VDDD DOUT[7] sky130_fd_sc_hd__dfrtp_2
+x1[8] CK SWP[8] VDDD VSSD VSSD VDDD VDDD DOUT[8] sky130_fd_sc_hd__dfrtp_2
+x1[9] CK SWP[9] VDDD VSSD VSSD VDDD VDDD DOUT[9] sky130_fd_sc_hd__dfrtp_2
+x1 FINAL CLKS VSSD VSSD VDDD VDDD CK sky130_fd_sc_hd__and2_1
+.ends
+
+
+* expanding   symbol:  auto_sampling.sym # of pins=6
+** sym_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/auto_sampling.sym
+** sch_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/auto_sampling.sch
+.subckt auto_sampling VDDD CKC RST VSSD CLKS CLKSB
+*.ipin CKC
+*.ipin VDDD
+*.ipin VSSD
+*.opin CLKS
+*.opin CLKSB
+*.ipin RST
+x7 CKC TRIG1 RST VSSD VSSD VDDD VDDD net1 sky130_fd_sc_hd__dfrtp_2
+x1 CKC net1 RST VSSD VSSD VDDD VDDD net2 sky130_fd_sc_hd__dfrtp_2
+x2 CKC net2 RST VSSD VSSD VDDD VDDD net3 sky130_fd_sc_hd__dfrtp_2
+x3 CKC net3 RST VSSD VSSD VDDD VDDD net4 sky130_fd_sc_hd__dfrtp_2
+x5 CKC net4 RST VSSD VSSD VDDD VDDD net5 sky130_fd_sc_hd__dfrtp_2
+x11 CKC net5 RST VSSD VSSD VDDD VDDD net11 sky130_fd_sc_hd__dfrtp_2
+x12 CKC TRIG2 RST VSSD VSSD VDDD VDDD net6 sky130_fd_sc_hd__dfrtp_2
+x13 CKC net6 RST VSSD VSSD VDDD VDDD net7 sky130_fd_sc_hd__dfrtp_2
+x14 CKC net7 RST VSSD VSSD VDDD VDDD net8 sky130_fd_sc_hd__dfrtp_2
+x15 CKC net8 RST VSSD VSSD VDDD VDDD net9 sky130_fd_sc_hd__dfrtp_2
+x16 CKC net9 RST VSSD VSSD VDDD VDDD net10 sky130_fd_sc_hd__dfrtp_2
+x21 CKC net10 RST VSSD VSSD VDDD VDDD TRIG1 sky130_fd_sc_hd__dfrtp_2
+x22 net6 VSSD VSSD VDDD VDDD net12 sky130_fd_sc_hd__inv_2
+x23 net12 VSSD VSSD VDDD VDDD net13 sky130_fd_sc_hd__inv_4
+x24 net13 VSSD VSSD VDDD VDDD CLKS sky130_fd_sc_hd__inv_8
+x25 CLKS VSSD VSSD VDDD VDDD CLKSB sky130_fd_sc_hd__inv_1
+x4 net11 VSSD VSSD VDDD VDDD TRIG2 sky130_fd_sc_hd__inv_1
+.ends
+
+
+* expanding   symbol:  single_10b_cdac.sym # of pins=6
+** sym_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/single_10b_cdac.sym
+** sch_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/single_10b_cdac.sch
+.subckt single_10b_cdac vdref cf[0] cf[1] cf[2] cf[3] cf[4] cf[5] cf[6] cf[7] cf[8] cf[9] sw_in[0] sw_in[1] sw_in[2] sw_in[3]
++ sw_in[4] sw_in[5] sw_in[6] sw_in[7] sw_in[8] sw_in[9] vcm vsref vc
+*.ipin vdref
+*.ipin cf[0],cf[1],cf[2],cf[3],cf[4],cf[5],cf[6],cf[7],cf[8],cf[9]
+*.ipin sw_in[0],sw_in[1],sw_in[2],sw_in[3],sw_in[4],sw_in[5],sw_in[6],sw_in[7],sw_in[8],sw_in[9]
+*.ipin vcm
+*.ipin vsref
+*.iopin vc
+x1 vcm sw[0] sw[1] sw[2] sw[3] sw[4] sw[5] sw[6] sw[7] sw[8] sw[9] vc 10b_cap_array
+x3[0] vdref cf[0] sw_in[0] vcm vsref sw[0] cdac_sw_16
+x3[1] vdref cf[1] sw_in[1] vcm vsref sw[1] cdac_sw_16
+x4[2] vdref cf[2] sw_in[2] vcm vsref sw[2] cdac_sw_8
+x4[3] vdref cf[3] sw_in[3] vcm vsref sw[3] cdac_sw_8
+x6[4] vdref cf[4] sw_in[4] vcm vsref sw[4] cdac_sw_4
+x6[5] vdref cf[5] sw_in[5] vcm vsref sw[5] cdac_sw_4
+x8[6] vdref cf[6] sw_in[6] vcm vsref sw[6] cdac_sw_2
+x8[7] vdref cf[7] sw_in[7] vcm vsref sw[7] cdac_sw_2
+x10[8] vdref cf[8] sw_in[8] vcm vsref sw[8] cdac_sw_1
+x10[9] vdref cf[9] sw_in[9] vcm vsref sw[9] cdac_sw_1
+.ends
+
+
+* expanding   symbol:  phase_detector.sym # of pins=6
+** sym_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/phase_detector.sym
+** sch_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/phase_detector.sch
+.subckt phase_detector VDDA INP INN VSSA OUT OUTN
+*.ipin VDDA
+*.ipin INP
+*.ipin INN
+*.ipin VSSA
+*.opin OUT
+*.opin OUTN
+x1 OUTN net3 VSSA VSSA VDDA VDDA OUT sky130_fd_sc_hd__nand2_1
+x2 net5 OUT VSSA VSSA VDDA VDDA OUTN sky130_fd_sc_hd__nand2_1
+XM1 net1 INN VDDA VDDA sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM2 net3 INP net1 VDDA sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM3 net2 INP VDDA VDDA sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM4 net5 INN net2 VDDA sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM5 net3 net5 VDDA VDDA sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM6 net3 net5 net4 VSSA sky130_fd_pr__nfet_01v8 L=0.15 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM7 net4 INP VSSA VSSA sky130_fd_pr__nfet_01v8 L=0.15 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM8 net5 net3 VDDA VDDA sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM9 net5 net3 net6 VSSA sky130_fd_pr__nfet_01v8 L=0.15 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM10 net6 INN VSSA VSSA sky130_fd_pr__nfet_01v8 L=0.15 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+.ends
+
+
+* expanding   symbol:  delay_element.sym # of pins=6
+** sym_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/delay_element.sym
+** sch_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/delay_element.sch
+.subckt delay_element IN OUT VIP VIN VDD VSS
+*.ipin VDD
+*.ipin VIN
+*.ipin IN
+*.ipin VSS
+*.opin OUT
+*.ipin VIP
+XM1 net2 VIP VDD VDD sky130_fd_pr__pfet_01v8_lvt L=15 W=6 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM2 net1 IN net2 VDD sky130_fd_pr__pfet_01v8_lvt L=15 W=6 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM3 net1 IN VSS VSS sky130_fd_pr__nfet_01v8_lvt L=15 W=2 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM6 OUT net1 VDD VDD sky130_fd_pr__pfet_01v8_lvt L=15 W=6 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM7 OUT net1 net3 VSS sky130_fd_pr__nfet_01v8_lvt L=15 W=2 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM8 net3 VIN VSS VSS sky130_fd_pr__nfet_01v8_lvt L=15 W=2 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+.ends
+
+
+* expanding   symbol:  10b_cap_array.sym # of pins=3
+** sym_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/10b_cap_array.sym
+** sch_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/10b_cap_array.sch
+.subckt 10b_cap_array vcm sw[0] sw[1] sw[2] sw[3] sw[4] sw[5] sw[6] sw[7] sw[8] sw[9] vc
+*.ipin sw[0],sw[1],sw[2],sw[3],sw[4],sw[5],sw[6],sw[7],sw[8],sw[9]
+*.ipin vcm
+*.iopin vc
+XC1 vc sw[0] sky130_fd_pr__cap_mim_m3_1 W=2 L=2 MF=512 m=512
+XC2 vc sw[1] sky130_fd_pr__cap_mim_m3_1 W=2 L=2 MF=256 m=256
+XC3 vc sw[2] sky130_fd_pr__cap_mim_m3_1 W=2 L=2 MF=128 m=128
+XC4 vc sw[3] sky130_fd_pr__cap_mim_m3_1 W=2 L=2 MF=64 m=64
+XC5 vc sw[4] sky130_fd_pr__cap_mim_m3_1 W=2 L=2 MF=32 m=32
+XC6 vc sw[5] sky130_fd_pr__cap_mim_m3_1 W=2 L=2 MF=16 m=16
+XC7 vc sw[6] sky130_fd_pr__cap_mim_m3_1 W=2 L=2 MF=8 m=8
+XC8 vc sw[7] sky130_fd_pr__cap_mim_m3_1 W=2 L=2 MF=4 m=4
+XC9 vc sw[8] sky130_fd_pr__cap_mim_m3_1 W=2 L=2 MF=2 m=2
+XC10 vc sw[9] sky130_fd_pr__cap_mim_m3_1 W=2 L=2 MF=1 m=1
+XC11 vc vcm sky130_fd_pr__cap_mim_m3_1 W=2 L=2 MF=1 m=1
+.ends
+
+
+* expanding   symbol:  cdac_sw_16.sym # of pins=6
+** sym_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/cdac_sw_16.sym
+** sch_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/cdac_sw_16.sch
+.subckt cdac_sw_16 vdda cki bi vcm vssa dac_out
+*.ipin vdda
+*.ipin cki
+*.ipin bi
+*.ipin vcm
+*.ipin vssa
+*.opin dac_out
+x1 vdda cki vssa clk0 clkb0 clk1 clkb1 nooverlap_clk
+x2 vdda clkb1 clk1 vssa vcm dac_out tg_sw_16
+x3 vdda bi clk0 clkb0 vssa dac_out dac_sw_16
+.ends
+
+
+* expanding   symbol:  cdac_sw_8.sym # of pins=6
+** sym_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/cdac_sw_8.sym
+** sch_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/cdac_sw_8.sch
+.subckt cdac_sw_8 vdda cki bi vcm vssa dac_out
+*.ipin vdda
+*.ipin cki
+*.ipin bi
+*.ipin vcm
+*.ipin vssa
+*.opin dac_out
+x1 vdda cki vssa clk0 clkb0 clk1 clkb1 nooverlap_clk
+x2 vdda clkb1 clk1 vssa vcm dac_out tg_sw_8
+x3 vdda bi clk0 clkb0 vssa dac_out dac_sw_8
+.ends
+
+
+* expanding   symbol:  cdac_sw_4.sym # of pins=6
+** sym_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/cdac_sw_4.sym
+** sch_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/cdac_sw_4.sch
+.subckt cdac_sw_4 vdda cki bi vcm vssa dac_out
+*.ipin vdda
+*.ipin cki
+*.ipin bi
+*.ipin vcm
+*.ipin vssa
+*.opin dac_out
+x1 vdda cki vssa clk0 clkb0 clk1 clkb1 nooverlap_clk
+x2 vdda clkb1 clk1 vssa vcm dac_out tg_sw_4
+x3 vdda bi clk0 clkb0 vssa dac_out dac_sw_4
+.ends
+
+
+* expanding   symbol:  cdac_sw_2.sym # of pins=6
+** sym_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/cdac_sw_2.sym
+** sch_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/cdac_sw_2.sch
+.subckt cdac_sw_2 vdda cki bi vcm vssa dac_out
+*.ipin vdda
+*.ipin cki
+*.ipin bi
+*.ipin vcm
+*.ipin vssa
+*.opin dac_out
+x1 vdda cki vssa clk0 clkb0 clk1 clkb1 nooverlap_clk
+x2 vdda clkb1 clk1 vssa vcm dac_out tg_sw_2
+x3 vdda bi clk0 clkb0 vssa dac_out dac_sw_2
+.ends
+
+
+* expanding   symbol:  cdac_sw_1.sym # of pins=6
+** sym_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/cdac_sw_1.sym
+** sch_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/cdac_sw_1.sch
+.subckt cdac_sw_1 vdda cki bi vcm vssa dac_out
+*.ipin vdda
+*.ipin cki
+*.ipin bi
+*.ipin vcm
+*.ipin vssa
+*.opin dac_out
+x1 vdda cki vssa clk0 clkb0 clk1 clkb1 nooverlap_clk
+x2 vdda clkb1 clk1 vssa vcm dac_out tg_sw_1
+x3 vdda bi clk0 clkb0 vssa dac_out dac_sw_1
+.ends
+
+
+* expanding   symbol:  nooverlap_clk.sym # of pins=7
+** sym_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/nooverlap_clk.sym
+** sch_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/nooverlap_clk.sch
+.subckt nooverlap_clk vdda in vssa clk0 clkb0 clk1 clkb1
+*.ipin vdda
+*.ipin in
+*.ipin vssa
+*.opin clk0
+*.opin clkb0
+*.opin clk1
+*.opin clkb1
+x1 in a vssa vssa vdda vdda net5 sky130_fd_sc_hd__nand2_1
+x2 b net1 vssa vssa vdda vdda net2 sky130_fd_sc_hd__nand2_1
+x3 in vssa vssa vdda vdda net1 sky130_fd_sc_hd__inv_1
+x4 net5 vssa vssa vdda vdda net4 sky130_fd_sc_hd__inv_1
+x5 net2 vssa vssa vdda vdda net3 sky130_fd_sc_hd__inv_1
+x6 net4 vssa vssa vdda vdda b sky130_fd_sc_hd__inv_1
+x7 net3 vssa vssa vdda vdda a sky130_fd_sc_hd__inv_1
+x8 b vssa vssa vdda vdda net6 sky130_fd_sc_hd__inv_4
+x9 a vssa vssa vdda vdda net7 sky130_fd_sc_hd__inv_4
+x10 net6 vssa vssa vdda vdda clkb0 sky130_fd_sc_hd__inv_8
+x11 net7 vssa vssa vdda vdda clkb1 sky130_fd_sc_hd__inv_8
+x12 clkb0 vssa vssa vdda vdda clk0 sky130_fd_sc_hd__inv_8
+x13 clkb1 vssa vssa vdda vdda clk1 sky130_fd_sc_hd__inv_8
+.ends
+
+
+* expanding   symbol:  tg_sw_16.sym # of pins=6
+** sym_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/tg_sw_16.sym
+** sch_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/tg_sw_16.sch
+.subckt tg_sw_16 vdda swp swn vssa in out
+*.ipin vdda
+*.ipin swp
+*.ipin swn
+*.ipin vssa
+*.iopin in
+*.iopin out
+XM1 in swp out vdda sky130_fd_pr__pfet_01v8 L=0.5 W=1.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=16 m=16
+XM2 in swn out vssa sky130_fd_pr__nfet_01v8 L=0.5 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=16 m=16
+.ends
+
+
+* expanding   symbol:  dac_sw_16.sym # of pins=6
+** sym_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/dac_sw_16.sym
+** sch_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/dac_sw_16.sch
+.subckt dac_sw_16 vdda in ck ckb vssa out
+*.ipin vdda
+*.ipin in
+*.ipin ck
+*.ipin ckb
+*.ipin vssa
+*.opin out
+XM1 net1 in vdda vdda sky130_fd_pr__pfet_01v8 L=0.5 W=1.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=16 m=16
+XM2 out ckb net1 vdda sky130_fd_pr__pfet_01v8 L=0.5 W=1.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=16 m=16
+XM3 out ck net2 vssa sky130_fd_pr__nfet_01v8 L=0.5 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=16 m=16
+XM4 net2 in vssa vssa sky130_fd_pr__nfet_01v8 L=0.5 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=16 m=16
+.ends
+
+
+* expanding   symbol:  tg_sw_8.sym # of pins=6
+** sym_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/tg_sw_8.sym
+** sch_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/tg_sw_8.sch
+.subckt tg_sw_8 vdda swp swn vssa in out
+*.ipin vdda
+*.ipin swp
+*.ipin swn
+*.ipin vssa
+*.iopin in
+*.iopin out
+XM1 in swp out vdda sky130_fd_pr__pfet_01v8 L=0.5 W=1.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=8 m=8
+XM2 in swn out vssa sky130_fd_pr__nfet_01v8 L=0.5 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=8 m=8
+.ends
+
+
+* expanding   symbol:  dac_sw_8.sym # of pins=6
+** sym_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/dac_sw_8.sym
+** sch_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/dac_sw_8.sch
+.subckt dac_sw_8 vdda in ck ckb vssa out
+*.ipin vdda
+*.ipin in
+*.ipin ck
+*.ipin ckb
+*.ipin vssa
+*.opin out
+XM1 net1 in vdda vdda sky130_fd_pr__pfet_01v8 L=0.5 W=1.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=8 m=8
+XM2 out ckb net1 vdda sky130_fd_pr__pfet_01v8 L=0.5 W=1.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=8 m=8
+XM3 out ck net2 vssa sky130_fd_pr__nfet_01v8 L=0.5 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=8 m=8
+XM4 net2 in vssa vssa sky130_fd_pr__nfet_01v8 L=0.5 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=8 m=8
+.ends
+
+
+* expanding   symbol:  tg_sw_4.sym # of pins=6
+** sym_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/tg_sw_4.sym
+** sch_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/tg_sw_4.sch
+.subckt tg_sw_4 vdda swp swn vssa in out
+*.ipin vdda
+*.ipin swp
+*.ipin swn
+*.ipin vssa
+*.iopin in
+*.iopin out
+XM1 in swp out vdda sky130_fd_pr__pfet_01v8 L=0.5 W=1.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=4 m=4
+XM2 in swn out vssa sky130_fd_pr__nfet_01v8 L=0.5 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=4 m=4
+.ends
+
+
+* expanding   symbol:  dac_sw_4.sym # of pins=6
+** sym_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/dac_sw_4.sym
+** sch_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/dac_sw_4.sch
+.subckt dac_sw_4 vdda in ck ckb vssa out
+*.ipin vdda
+*.ipin in
+*.ipin ck
+*.ipin ckb
+*.ipin vssa
+*.opin out
+XM1 net1 in vdda vdda sky130_fd_pr__pfet_01v8 L=0.5 W=1.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=4 m=4
+XM2 out ckb net1 vdda sky130_fd_pr__pfet_01v8 L=0.5 W=1.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=4 m=4
+XM3 out ck net2 vssa sky130_fd_pr__nfet_01v8 L=0.5 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=4 m=4
+XM4 net2 in vssa vssa sky130_fd_pr__nfet_01v8 L=0.5 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=4 m=4
+.ends
+
+
+* expanding   symbol:  tg_sw_2.sym # of pins=6
+** sym_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/tg_sw_2.sym
+** sch_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/tg_sw_2.sch
+.subckt tg_sw_2 vdda swp swn vssa in out
+*.ipin vdda
+*.ipin swp
+*.ipin swn
+*.ipin vssa
+*.iopin in
+*.iopin out
+XM1 in swp out vdda sky130_fd_pr__pfet_01v8 L=0.5 W=1.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=2 m=2
+XM2 in swn out vssa sky130_fd_pr__nfet_01v8 L=0.5 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=2 m=2
+.ends
+
+
+* expanding   symbol:  dac_sw_2.sym # of pins=6
+** sym_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/dac_sw_2.sym
+** sch_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/dac_sw_2.sch
+.subckt dac_sw_2 vdda in ck ckb vssa out
+*.ipin vdda
+*.ipin in
+*.ipin ck
+*.ipin ckb
+*.ipin vssa
+*.opin out
+XM1 net1 in vdda vdda sky130_fd_pr__pfet_01v8 L=0.5 W=1.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=2 m=2
+XM2 out ckb net1 vdda sky130_fd_pr__pfet_01v8 L=0.5 W=1.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=2 m=2
+XM3 out ck net2 vssa sky130_fd_pr__nfet_01v8 L=0.5 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=2 m=2
+XM4 net2 in vssa vssa sky130_fd_pr__nfet_01v8 L=0.5 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=2 m=2
+.ends
+
+
+* expanding   symbol:  tg_sw_1.sym # of pins=6
+** sym_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/tg_sw_1.sym
+** sch_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/tg_sw_1.sch
+.subckt tg_sw_1 vdda swp swn vssa in out
+*.ipin vdda
+*.ipin swp
+*.ipin swn
+*.ipin vssa
+*.iopin in
+*.iopin out
+XM1 in swp out vdda sky130_fd_pr__pfet_01v8 L=0.5 W=1.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM2 in swn out vssa sky130_fd_pr__nfet_01v8 L=0.5 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+.ends
+
+
+* expanding   symbol:  dac_sw_1.sym # of pins=6
+** sym_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/dac_sw_1.sym
+** sch_path: /home/mthudaa/Documents/UNIC-CASS-TSAR-ADC-ITS/xschem/dac_sw_1.sch
+.subckt dac_sw_1 vdda in ck ckb vssa out
+*.ipin vdda
+*.ipin in
+*.ipin ck
+*.ipin ckb
+*.ipin vssa
+*.opin out
+XM1 net1 in vdda vdda sky130_fd_pr__pfet_01v8 L=0.5 W=1.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM2 out ckb net1 vdda sky130_fd_pr__pfet_01v8 L=0.5 W=1.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM3 out ck net2 vssa sky130_fd_pr__nfet_01v8 L=0.5 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM4 net2 in vssa vssa sky130_fd_pr__nfet_01v8 L=0.5 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+.ends
+
+* Black-box entry subcircuit for sky130_fd_sc_hd__tapvpwrvgnd_1 abstract view
+.subckt sky130_fd_sc_hd__tapvpwrvgnd_1 VGND VPWR
+.ends
+
+* Black-box entry subcircuit for sky130_fd_sc_hd__decap_4 abstract view
+.subckt sky130_fd_sc_hd__decap_4 VGND VNB VPB VPWR
+.ends
+
+* Black-box entry subcircuit for sky130_ef_sc_hd__decap_12 abstract view
+.subckt sky130_ef_sc_hd__decap_12 VPWR VGND VPB VNB
+.ends
+
+* Black-box entry subcircuit for sky130_fd_sc_hd__decap_6 abstract view
+.subckt sky130_fd_sc_hd__decap_6 VGND VNB VPB VPWR
+.ends
+
+* Black-box entry subcircuit for sky130_fd_sc_hd__clkbuf_4 abstract view
+.subckt sky130_fd_sc_hd__clkbuf_4 A VGND VNB VPB VPWR X
+.ends
+
+* Black-box entry subcircuit for sky130_fd_sc_hd__dfrtp_1 abstract view
+.subckt sky130_fd_sc_hd__dfrtp_1 CLK D RESET_B VGND VNB VPB VPWR Q
+.ends
+
+* Black-box entry subcircuit for sky130_fd_sc_hd__buf_2 abstract view
+.subckt sky130_fd_sc_hd__buf_2 A VGND VNB VPB VPWR X
+.ends
+
+* Black-box entry subcircuit for sky130_fd_sc_hd__decap_3 abstract view
+.subckt sky130_fd_sc_hd__decap_3 VGND VNB VPB VPWR
+.ends
+
+* Black-box entry subcircuit for sky130_fd_sc_hd__fill_1 abstract view
+.subckt sky130_fd_sc_hd__fill_1 VGND VNB VPB VPWR
+.ends
+
+* Black-box entry subcircuit for sky130_fd_sc_hd__dlygate4sd3_1 abstract view
+.subckt sky130_fd_sc_hd__dlygate4sd3_1 A VGND VNB VPB VPWR X
+.ends
+
+* Black-box entry subcircuit for sky130_fd_sc_hd__decap_8 abstract view
+.subckt sky130_fd_sc_hd__decap_8 VGND VNB VPB VPWR
+.ends
+
+* Black-box entry subcircuit for sky130_fd_sc_hd__fill_2 abstract view
+.subckt sky130_fd_sc_hd__fill_2 VGND VNB VPB VPWR
+.ends
+
+* Black-box entry subcircuit for sky130_fd_sc_hd__bufinv_16 abstract view
+.subckt sky130_fd_sc_hd__bufinv_16 A VGND VNB VPB VPWR Y
+.ends
+
+* Black-box entry subcircuit for sky130_fd_sc_hd__clkbuf_16 abstract view
+.subckt sky130_fd_sc_hd__clkbuf_16 A VGND VNB VPB VPWR X
+.ends
+
+* Black-box entry subcircuit for sky130_fd_sc_hd__and2_1 abstract view
+.subckt sky130_fd_sc_hd__and2_1 A B VGND VNB VPB VPWR X
+.ends
+
+* Black-box entry subcircuit for sky130_fd_sc_hd__dlymetal6s2s_1 abstract view
+.subckt sky130_fd_sc_hd__dlymetal6s2s_1 A VGND VNB VPB VPWR X
+.ends
+
+* Black-box entry subcircuit for sky130_fd_sc_hd__inv_2 abstract view
+.subckt sky130_fd_sc_hd__inv_2 A VGND VNB VPB VPWR Y
+.ends
+
+* Black-box entry subcircuit for sky130_fd_sc_hd__clkbuf_2 abstract view
+.subckt sky130_fd_sc_hd__clkbuf_2 A VGND VNB VPB VPWR X
+.ends
+
+* Black-box entry subcircuit for sky130_fd_sc_hd__inv_4 abstract view
+.subckt sky130_fd_sc_hd__inv_4 A VGND VNB VPB VPWR Y
+.ends
+
+* Black-box entry subcircuit for sky130_fd_sc_hd__inv_1 abstract view
+.subckt sky130_fd_sc_hd__inv_1 A VGND VNB VPB VPWR Y
+.ends
+
+* Black-box entry subcircuit for sky130_fd_sc_hd__dfrtp_2 abstract view
+.subckt sky130_fd_sc_hd__dfrtp_2 CLK D RESET_B VGND VNB VPB VPWR Q
+.ends
+
+* Black-box entry subcircuit for sky130_fd_sc_hd__clkbuf_1 abstract view
+.subckt sky130_fd_sc_hd__clkbuf_1 A VGND VNB VPB VPWR X
+.ends
+
+* Black-box entry subcircuit for sky130_fd_sc_hd__dfrtp_4 abstract view
+.subckt sky130_fd_sc_hd__dfrtp_4 CLK D RESET_B VGND VNB VPB VPWR Q
+.ends
+
+* Black-box entry subcircuit for sky130_fd_sc_hd__buf_6 abstract view
+.subckt sky130_fd_sc_hd__buf_6 A VGND VNB VPB VPWR X
+.ends
+
+
+.GLOBAL GND
+.end
