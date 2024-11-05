@@ -61,7 +61,6 @@ N 300 -50 400 -50 {
 lab=#net30}
 N 300 -30 400 -30 {
 lab=#net31}
-C {user_analog_project_wrapper.sym} 150 -110 0 0 {name=x1}
 C {devices/vsource.sym} 590 -220 0 0 {name=V1 value="PWL(0.0 0 400u 0 5.4m 3.3)"}
 C {devices/vsource.sym} 690 -220 0 0 {name=V2 value="PWL(0.0 0 300u 0 5.3 1.8)"}
 C {devices/vsource.sym} 780 -220 0 0 {name=V3 value="PWL(0.0 0 100u 0 5m 3.3)"}
@@ -78,3 +77,4 @@ tran 10u 20m
 plot V(\\"io_out[11]\\") V(\\"io_out[12]\\") V(\\"io_out[15]\\") V(\\"io_out[16]\\")
 + V(\\"gpio_analog[3]\\") V(\\"gpio_analog[7]\\")
 .endc"}
+C {/foss/designs/user_analog_project_wrapper.sym} 150 -110 0 0 {name=x2}

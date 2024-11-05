@@ -1,4 +1,5 @@
-v {xschem version=2.9.9 file_version=1.2 }
+v {xschem version=3.4.5 file_version=1.2
+}
 G {}
 K {}
 V {}
@@ -52,7 +53,7 @@ N 3670 850 3670 870 { lab=io_oeb[16]}
 N 3670 930 3670 940 { lab=vssd1}
 N 4160 710 4160 740 { lab=io_oeb[11]}
 N 4160 800 4160 820 { lab=vssd1}
-N 4160 850 4160 870 { lab=#net1}
+N 4160 850 4160 870 { lab=io_oeb[15]}
 N 4160 930 4160 940 { lab=vssd1}
 N 3630 710 3670 710 { lab=io_oeb[12]}
 N 3630 830 3670 830 { lab=vssd1}
@@ -60,7 +61,7 @@ N 3630 850 3670 850 { lab=io_oeb[16]}
 N 3630 940 3670 940 { lab=vssd1}
 N 4130 710 4160 710 { lab=io_oeb[11]}
 N 4130 820 4160 820 { lab=vssd1}
-N 4130 850 4160 850 { lab=#net1}
+N 4130 850 4160 850 { lab=io_oeb[15]}
 N 4130 940 4160 940 { lab=vssd1}
 C {example_por.sym} 3860 -310 0 0 {name=x1}
 C {example_por.sym} 3860 20 0 0 {name=x2}
@@ -178,3 +179,4 @@ C {devices/lab_pin.sym} 3630 830 0 0 {name=l29 sig_type=std_logic lab=vssd1}
 C {devices/lab_pin.sym} 3630 940 0 0 {name=l30 sig_type=std_logic lab=vssd1}
 C {devices/lab_pin.sym} 4130 820 0 0 {name=l31 sig_type=std_logic lab=vssd1}
 C {devices/lab_pin.sym} 4130 940 0 0 {name=l32 sig_type=std_logic lab=vssd1}
+C {/foss/designs/uniccass_top.sym} 4610 -180 0 0 {name=x3}
