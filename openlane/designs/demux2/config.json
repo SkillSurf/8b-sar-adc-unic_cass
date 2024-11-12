@@ -1,0 +1,13 @@
+{
+    "DESIGN_NAME": "demux2",
+    "VERILOG_FILES": "dir::src/*.v",
+    "FP_PDN_MULTILAYER": true,
+    "SYNTH_READ_BLACKBOX_LIB": true,
+    "PNR_SDC_FILE": "dir::src/pnr.sdc",
+    "SIGNOFF_SDC_FILE": "dir::src/signoff.sdc",
+    "FP_PIN_ORDER_CFG": "dir::pin_order.cfg",
+    "FP_CORE_UTIL": 40,
+    "PL_TARGET_DENSITY": 0.45,
+    "ROUTING_CORES": 6
+}
+
