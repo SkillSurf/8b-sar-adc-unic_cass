@@ -1,4 +1,4 @@
-// sch_path: /foss/designs/sar_digital.sch
+// sch_path: /foss/designs/8b-sar-adc-unic_cass/top/sar_digital.sch
 module controller
 (
   output wire data_rdy,
@@ -187,8 +187,22 @@ x2 (
  .comp_out( comp_out ),
  .vss( vss ),
  .vdd( vdd ),
- .d( {data7,data6,data5,data4,data3,data2,data1,data0} ),
- .d_n( {data_n7,data_n6,data_n5,data_n4,data_n3,data_n2,data_n1,data_n0} )
+ .d0(data0),
+ .d1(data1),
+ .d2(data2),
+ .d3(data3),
+ .d4(data4),
+ .d5(data5),
+ .d6(data6),
+ .d7(data7),
+ .d_n0(data_n0),
+ .d_n1(data_n1),
+ .d_n2(data_n2),
+ .d_n3(data_n3),
+ .d_n4(data_n4),
+ .d_n5(data_n5),
+ .d_n6(data_n6),
+ .d_n7(data_n7)
 );
 
 
@@ -2263,8 +2277,22 @@ module sar_controller
   input wire comp_out,
   inout wire vss,
   inout wire vdd,
-  output wire [7:0] d,
-  output wire [7:0] d_n
+  output wire  d0,
+  output wire  d1,
+  output wire  d2,
+  output wire  d3,
+  output wire  d4,
+  output wire  d5,
+  output wire  d6,
+  output wire  d7,
+  output wire d_n0,
+  output wire d_n1,
+  output wire d_n2,
+  output wire d_n3,
+  output wire d_n4,
+  output wire d_n5,
+  output wire d_n6,
+  output wire d_n7
 );
 wire cnv_0 ;
 wire cnv_1 ;
