@@ -7,9 +7,9 @@
 - Lohan Atapattu.
 - Erandee Jayathilaka.
 - Hirusha Maduwantha.
-- Udara Mendis.
+- Udara Mendis (MASc reading).
 - Kithmin Wickremasinghe (MASc).
-- Nilan Udayanga.
+- Dr. Nilan Udayanga (PhD).
 
 ### 2. Overview of the Project:
 
@@ -23,7 +23,7 @@
 
 ![image](https://github.com/SkillSurf/8b-sar-adc-unic_cass/blob/main/figures/unic_cass.jpg)
 
-**Figure 1** – SAR ADC Block Diagram.
+**Figure 1** – SAR ADC Block Diagrams.
 
 ### 4. Specification table
 
@@ -31,6 +31,8 @@
 |-------------------------|---------------------|---------|--------|--------|---------|
 | Supply voltage (Design Input)| 1.7 | 1.8 | 1.9 | V | - | 
 | External clock frequency (Design Input)| - | 1 | - | MHz | - | 
+| Resolution | - | 8 | - | bits | - | 
+| Operational Temperature | 10 | 36 | 45 | C | - | 
 | Reference voltage (Design Input)| - | 0.8 | - | V | - | 
 | Temperature (Design Input) | 20 | - | 50 | C | - | 
 | ENOB | 7.5 | - | - | bits | - | 
@@ -44,5 +46,38 @@
 | FoM | - | - | 200 | fJ/conversion-step | Walden figure-of-merit (FoM) | 
 
 **Table 1** – SAR ADC performance.
+
+## Pin Layout
+
+| # | Pin Name         | I/O                 | Description |
+|---|------------------|---------------------|-------------|
+| 00 | vccd | - | - | 
+| 01 | vddio | - | - | 
+| 02 | mprj_io[37] | - | - | 
+| 03 | mprj_io[36] | A_Data[0] | Output | 
+| 04 | mprj_io[35] | A_Data[1] | Output | 
+| 05 | mprj_io[34] | A_Data[2] | Output | 
+| 06 | mprj_io[33] | A_Data[3] | Output | 
+| 07 | mprj_io[32] | A_Data[4] | Output | 
+| 08 | vssd2 | DVSS | - | 
+| 09 | vdda2 | AVDD | - | 
+| 10 | mprj_io[31] | A_Data[5] | Output | 
+| 11 | mprj_io[30] | A_Data[6] | Output | 
+| 12 | mprj_io[29] | A_Data[7] | Output | 
+| 13 | mprj_io[28] | data_rdy | Output | 
+| 14 | mprj_io[27] | clk | Input | 
+| 15 | mprj_io[26] | rst_n | Input | 
+| 16 | mprj_io[25] | comp_out | Output | 
+| 17 | vssa2 | AVSS | - |
+| 18 | vddio | - | - |
+| 19 | vccd2 | DVDD | - |
+| 20 | mprj_io[24] | ibias_1u | Analog Input | 
+| 21 | mprj_io[23] | Vrefp | Analog Input | 
+| 22 | mprj_io[22] | Vinp | Analog Input | 
+| 23 | mprj_io[21] | Vcm | Analog Input | 
+| 24 | mprj_io[20] | Vinm | Analog Input | 
+| 25 | mprj_io[19] | Vrefm | Analog Input | 
+
+**Table 2** – Caravan SKY130 pin mapping.
 
 Refer to [README](docs/source/index.rst) for this sample project documentation. 
